@@ -1,0 +1,1 @@
+import React, { FC, Suspense } from 'react';
