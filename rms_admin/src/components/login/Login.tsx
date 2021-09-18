@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import { id, password } from "../../asset/login";
+import { id, password } from "../../asset";
 
 const Login = () => {
   return (
