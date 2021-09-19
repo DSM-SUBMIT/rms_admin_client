@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
-  LoginContainer
+  LoginContainer, ViewPlanListContainer
 } from '../containers';
 
 const MainRouter = () => {
@@ -9,6 +9,7 @@ const MainRouter = () => {
     <BrowserRouter>
       <Switch>
           <Route  path="/login" component={LoginContainer}/>
+          <Route path="/view/planList" component={ViewPlanListContainer}/>
       </Switch>
     </BrowserRouter>
   );
