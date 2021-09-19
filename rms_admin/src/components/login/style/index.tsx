@@ -76,4 +76,5 @@ export const LoginButton = styled.button`
   margin-top: 30px;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 `;
