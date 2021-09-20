@@ -21,15 +21,7 @@ export const TitleFont = styled.span`
 
 export const PlanListContainer = styled.div`
   width: 525px;
-  height: 650px;
-  margin-top: 20px;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar{
-    display: none;
-  }
+  margin-top: 15px;
 `;
 
 export const PlanContainer = styled.div`
@@ -38,7 +30,7 @@ export const PlanContainer = styled.div`
   border: 1px solid #f1f1f1;
   border-radius: 5px;
   background-color: white;
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
   cursor: pointer;
 `;
@@ -71,3 +63,18 @@ export const MajorField = styled.span`
   border-radius: 15px;
   margin-right: 5px;
 `;
+
+export const PageNationWrapper = styled.ul`
+  width: 235px;
+  height: 20px;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const PageNationButton = styled.li`
+  font-size: 14px;
+  cursor: pointer;
+`
