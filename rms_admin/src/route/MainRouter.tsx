@@ -10,7 +10,7 @@ import {
 const MainRouter = () => {
   return (
     <>
-      <ModalContainer/>
+      {/* <ModalContainer/> */}
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={LoginContainer} />
