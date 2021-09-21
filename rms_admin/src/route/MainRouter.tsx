@@ -8,7 +8,7 @@ const MainRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-          <Route  path="/login" component={LoginContainer}/>
+          <Route path="/login" component={LoginContainer}/>
           <Route path="/view/planList" component={ViewPlanListContainer}/>
       </Switch>
     </BrowserRouter>

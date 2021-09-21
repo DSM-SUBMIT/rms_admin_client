@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-export const Header = styled.div`
+export const Header = styled.header`
     width: 100%;
     height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 `
 
 export const Center = styled.div`
@@ -15,22 +16,17 @@ export const Center = styled.div`
 `
 
 export const Logo = styled.div`
-    
+    font-size: 30px;
 `
 
 export const Nav = styled.nav`
     width: 340px;
     display: flex;
     justify-content: space-around;
-`
-
-export const Plans = styled.span`
-`
-
-export const Reports = styled.span`
-`
-
-export const Projects = styled.span`
+    align-items: center;
+    span {
+        font-size: 13px;
+    }
 `
 
 export const Profile = styled.div`
