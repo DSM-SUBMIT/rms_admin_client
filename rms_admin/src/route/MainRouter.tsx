@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import {
   LoginContainer,
   ModalContainer,
+  ViewPlanContainer,
   ViewPlanListContainer,
   ViewReportListContainer,
 } from "../containers";
@@ -24,6 +25,7 @@ const MainRouter = () => {
             path="/view/reportList"
             component={ViewReportListContainer}
           />
+          <Route exact path="/view/plan" component={ViewPlanContainer} />
         </Switch>
       </BrowserRouter>
     </>
