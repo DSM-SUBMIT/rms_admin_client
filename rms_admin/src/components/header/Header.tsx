@@ -8,9 +8,9 @@ const Header = () => {
             <S.Center>
                 <S.Logo>RMS</S.Logo>
                 <S.Nav>
-                    <S.Plans>계획서</S.Plans>
-                    <S.Reports>보고서</S.Reports>
-                    <S.Projects>승인된 프로젝트</S.Projects>
+                    <span>계획서</span>
+                    <span>보고서</span>
+                    <span>승인된 프로젝트</span>
                     <S.Profile>
                         <img src={profile} alt="profile"/>
                         <span>조예림</span>
