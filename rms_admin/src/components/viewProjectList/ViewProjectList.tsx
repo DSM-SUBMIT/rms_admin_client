@@ -111,7 +111,14 @@ const ViewProjectList = () => {
                                 </S.TagArea>
                             </S.Item>
                             </S.ProjectList>
-                        <S.Footer>1234
+                        <S.Footer>
+                            <button type="button">⬅️</button>
+                            <S.Page>1</S.Page>
+                            <S.Page>1</S.Page>
+                            <S.Page>1</S.Page>
+                            <S.Page>1</S.Page>
+                            <S.Page>1</S.Page>
+                            <button type="button">➡️</button>
                         </S.Footer>
                     </S.ProjectArea>
                 </S.Center>

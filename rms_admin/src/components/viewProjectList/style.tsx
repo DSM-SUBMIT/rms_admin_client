@@ -110,5 +110,17 @@ export const Footer = styled.div`
     width: 100%;
     margin-top: 20px;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    button {
+        width: 23px;
+        margin: 0 6px;
+    }
+`
+
+export const Page = styled.div`
+    width: 20px;
+    height: 20px;
     text-align: center;
+    margin: 2px;
 `
