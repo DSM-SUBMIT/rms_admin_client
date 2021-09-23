@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { color } from "../../../style";
 
-export const ViewPlanList = styled.div`
+export const ViewReportList = styled.div`
   width: 100%;
   min-width: 1440px;
   height: 100vh;
@@ -10,7 +10,7 @@ export const ViewPlanList = styled.div`
   justify-content: center;
 `;
 
-export const PlanListWrapper = styled.div`
+export const ReportListWrapper = styled.div`
   margin-top: 55px;
 `;
 
@@ -19,12 +19,12 @@ export const TitleFont = styled.span`
   font-weight: bold;
 `;
 
-export const PlanListContainer = styled.div`
+export const ReportListContainer = styled.div`
   width: 525px;
   margin-top: 15px;
 `;
 
-export const PlanContainer = styled.div`
+export const ReportContainer = styled.div`
   width: 100%;
   height: 120px;
   border: 1px solid #f1f1f1;
@@ -35,7 +35,7 @@ export const PlanContainer = styled.div`
   cursor: pointer;
 `;
 
-export const PlanContents = styled.div`
+export const ReportContents = styled.div`
   margin: 12px 0px 0px 37px;
   display: flex;
   flex-direction: column;

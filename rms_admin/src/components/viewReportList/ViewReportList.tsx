@@ -1,20 +1,20 @@
 import React, { FC } from "react";
-import Plan from "./plan";
+import Report from "./report";
 import * as S from "./style";
 
-const ViewPlanList: FC = () => {
+const ViewReportList: FC = () => {
   return (
     <>
-      <S.ViewPlanList>
-        <S.PlanListWrapper>
-          <S.TitleFont>승인 요청된 계획서</S.TitleFont>
-          <S.PlanListContainer>
+      <S.ViewReportList>
+        <S.ReportListWrapper>
+          <S.TitleFont>승인 요청된 보고서</S.TitleFont>
+          <S.ReportListContainer>
             {Array(5)
               .fill(0)
               .map((v, i) => {
-                return <Plan key={i} />;
+                return <Report key={i} />;
               })}
-          </S.PlanListContainer>
+          </S.ReportListContainer>
           <S.PageNationWrapper>
             <S.PageNationButton>{"<"}</S.PageNationButton>
             {Array(5)
@@ -26,10 +26,10 @@ const ViewPlanList: FC = () => {
               })}
             <S.PageNationButton>{">"}</S.PageNationButton>
           </S.PageNationWrapper>
-        </S.PlanListWrapper>
-      </S.ViewPlanList>
+        </S.ReportListWrapper>
+      </S.ViewReportList>
     </>
   );
 };
 
-export default ViewPlanList;
+export default ViewReportList;
