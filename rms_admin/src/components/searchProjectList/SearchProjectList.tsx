@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 
-const SearchProjectList = () => {
+const SearchProjectList: FC = () => {
     return (
         <>
             <Header/>
