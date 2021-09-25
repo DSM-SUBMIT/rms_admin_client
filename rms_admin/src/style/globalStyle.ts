@@ -13,6 +13,7 @@ const global = createGlobalStyle`
   }
   body {
     margin: 0;
+    background-color: #F7F9FD;
   }
 `;
 
