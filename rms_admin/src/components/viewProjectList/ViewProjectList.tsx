@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Header from '../header/Header'
 import * as S from './style';
 
-const ViewProjectList = () => {
+const ViewProjectList:FC = () => {
     return (
         <>
             <Header/>
@@ -112,7 +112,7 @@ const ViewProjectList = () => {
                             </S.Item>
                             </S.ProjectList>
                         <S.Footer>
-                            <button type="button">⬅️</button>
+                            <button type="button">⬅</button>
                             <S.Page>1</S.Page>
                             <S.Page>1</S.Page>
                             <S.Page>1</S.Page>
