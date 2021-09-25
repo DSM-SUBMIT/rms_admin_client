@@ -1,13 +1,13 @@
 import React from 'react';
-import * as S from './style';
-import { git, api, fn, close} from '../../../asset'
+import * as S from '.';
+import { git, api, fn, closeModalIcon} from '../../../asset'
 
 const ViewProjectModal = () => {
     return (
         <S.Main>
             <S.Modal>
                 <S.Close>
-                    <img src={close} alt="close"/>
+                    <img src={closeModalIcon} alt="close"/>
                 </S.Close>
                 <S.ProjectName>오늘 저녁은 뿌링클</S.ProjectName>
                 <S.ViewButton>
