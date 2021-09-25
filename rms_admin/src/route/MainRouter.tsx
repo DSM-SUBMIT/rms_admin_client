@@ -28,7 +28,7 @@ const MainRouter = () => {
           />
           <Route
             exact
-            path="/search/project"
+            path="/search"
             component={SearchProjectListContainer}
           />
           <Route
