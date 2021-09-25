@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
+import ListItem from './listItem';
 
-const SearchProjectList = () => {
+const SearchProjectList: FC = () => {
     return (
         <>
             <Header/>
@@ -15,32 +16,11 @@ const SearchProjectList = () => {
                         </form>
                     </S.SearchArea>
                     <S.SearchList>
-                        <S.Item>
-                            <S.Type>[팀 프로젝트]</S.Type>
-                            <S.Title>보고서 관리 시스템</S.Title>
-                            <S.Team>서브밋</S.Team>
-                            <S.TagArea>
-                                <S.Tag>보안</S.Tag>
-                                <S.Tag>인공지능 / 빅데이터</S.Tag>
-                                <S.Tag>임베디드</S.Tag>
-                                <S.Tag>게임</S.Tag>
-                                <S.Tag>웹</S.Tag>
-                                <S.Tag>앱</S.Tag>
-                            </S.TagArea>
-                        </S.Item>
-                        <S.Item>
-                            <S.Type>[팀 프로젝트]</S.Type>
-                            <S.Title>보고서 관리 시스템</S.Title>
-                            <S.Team>서브밋</S.Team>
-                            <S.TagArea>
-                                <S.Tag>보안</S.Tag>
-                                <S.Tag>인공지능 / 빅데이터</S.Tag>
-                                <S.Tag>임베디드</S.Tag>
-                                <S.Tag>게임</S.Tag>
-                                <S.Tag>웹</S.Tag>
-                                <S.Tag>앱</S.Tag>
-                            </S.TagArea>
-                        </S.Item>
+                        {Array(3)
+                            .fill(0)
+                            .map((list, i) => {
+                                return <ListItem key={i} />;
+                            })}
                         {/* <S.SearchResult>검색결과가 없습니다<br/>검색어를 다시 입력해주세요!</S.SearchResult> */}
                     </S.SearchList>
                 </S.Center>

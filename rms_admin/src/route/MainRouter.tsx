@@ -5,6 +5,8 @@ import {
   ModalContainer,
   ViewPlanListContainer,
   ViewReportListContainer,
+  SearchProjectListContainer,
+  ViewProjectListContainer
 } from "../containers";
 
 const MainRouter = () => {
@@ -23,6 +25,16 @@ const MainRouter = () => {
             exact
             path="/view/reportList"
             component={ViewReportListContainer}
+          />
+          <Route
+            exact
+            path="/search"
+            component={SearchProjectListContainer}
+          />
+          <Route
+            exact
+            path="/view/projectList"
+            component={ViewProjectListContainer}
           />
         </Switch>
       </BrowserRouter>
