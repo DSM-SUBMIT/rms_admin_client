@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../../style";
 
 export const Main = styled.main`
   width: 100%;
@@ -39,8 +40,8 @@ export const ViewButton = styled.div`
         height: 40px;
         background-color: white;
         border-radius: 10px;
-        border: 1px solid #E5E5E5;
-        color: #386BEE;
+        border: 1px solid ${color.border};
+        color: ${color.main};
         font-size: 15px;
     }
 `
@@ -67,7 +68,7 @@ export const EtcButton = styled.div`
         align-items: center;
         justify-content: space-around;
         background-color: white;
-        border: 1px solid #E5E5E5;
+        border: 1px solid ${color.border};
         border-radius: 10px;
     }
     span {
