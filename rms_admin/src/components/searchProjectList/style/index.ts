@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from "../../../style";
 
 export const Main = styled.main`
     width: 100%;
@@ -21,7 +22,7 @@ export const SearchArea = styled.section`
         padding: 2px 10px;
         margin-left: 10px;
         border-radius: 30px;
-        border: 1px solid #E5E5E5;
+        border: 1px solid ${color.border};
         width: 190px;
         height: 30px;
     }
@@ -43,7 +44,7 @@ export const Item = styled.button`
     height: 110px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 3px 4px 5px #E5E5E5;
+    box-shadow: 3px 4px 5px ${color.border};
     display: flex;
     flex-direction: column;
     padding: 12px 30px;
@@ -71,9 +72,9 @@ export const TagArea = styled.div`
 
 export const Tag = styled.div`
     font-size: 12px;
-    color: #386BEE;
+    color: ${color.main};
     padding: 2px 10px;
-    border: 1px solid #386BEE;
+    border: 1px solid ${color.main};
     border-radius: 12px;
     & + & {
         margin-left: 5px;
