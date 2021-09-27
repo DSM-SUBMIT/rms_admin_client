@@ -63,18 +63,3 @@ export const MajorField = styled.span`
   border-radius: 15px;
   margin-right: 5px;
 `;
-
-export const PageNationWrapper = styled.ul`
-  width: 235px;
-  height: 20px;
-  margin: 0 auto;
-  margin-top: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-
-export const PageNationButton = styled.li`
-  font-size: 14px;
-  cursor: pointer;
-`
