@@ -1,10 +1,13 @@
 import React, { FC } from "react";
 import Report from "./report";
+import Header from '../header/Header';
 import * as S from "./style";
+import Pagination from "../pagination/Pagination";
 
 const ViewReportList: FC = () => {
   return (
     <>
+      <Header/>
       <S.ViewReportList>
         <S.ReportListWrapper>
           <S.TitleFont>승인 요청된 보고서</S.TitleFont>
@@ -15,17 +18,7 @@ const ViewReportList: FC = () => {
                 return <Report key={i} />;
               })}
           </S.ReportListContainer>
-          <S.PageNationWrapper>
-            <S.PageNationButton>{"<"}</S.PageNationButton>
-            {Array(5)
-              .fill(0)
-              .map((v, i) => {
-                return (
-                  <S.PageNationButton key={i + 1}>{i + 1}</S.PageNationButton>
-                );
-              })}
-            <S.PageNationButton>{">"}</S.PageNationButton>
-          </S.PageNationWrapper>
+          <Pagination/>
         </S.ReportListWrapper>
       </S.ViewReportList>
     </>
