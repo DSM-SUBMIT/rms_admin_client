@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import {
   LoginContainer,
-  ModalContainer,
+  ViewPlanContainer,
   ViewPlanListContainer,
   ViewReportListContainer,
   SearchProjectListContainer,
@@ -12,7 +12,6 @@ import {
 const MainRouter = () => {
   return (
     <>
-      {/* <ModalContainer/> */}
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={LoginContainer} />
@@ -26,6 +25,7 @@ const MainRouter = () => {
             path="/view/reportList"
             component={ViewReportListContainer}
           />
+          <Route exact path="/view/plan" component={ViewPlanContainer} />
           <Route
             exact
             path="/search"

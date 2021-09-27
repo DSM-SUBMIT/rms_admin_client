@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color } from "../../../style";
+import { color } from "../../../../style";
 
 export const ModalWrapper = styled.div`
   width: 100%;
