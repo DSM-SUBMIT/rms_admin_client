@@ -7,6 +7,10 @@ export const SUBTITLE = '보고서 작성 요령';
 export const VIDEODOWNLOAD = '시연 영상 다운로드';
 export const BTN = [
   { id: 'plan', content: '계획서 보기' },
+  { id: 'download', content: '다운로드' },
+];
+export const APPROVEBTN = [
+  { id: 'plan', content: '계획서 보기' },
   { id: 'approve', content: '승인/미승인' },
   { id: 'download', content: '다운로드' },
 ];
