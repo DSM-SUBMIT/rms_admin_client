@@ -106,7 +106,7 @@ export const ReportContentTitle = styled.p`
   }
 `;
 
-export const DownloadBtn = styled.div`
+export const Btn = styled.div`
   width: 150px;
   height: 50px;
   background-color: ${color.main};
@@ -114,10 +114,31 @@ export const DownloadBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0px 0px 970px;
   cursor: pointer;
+  margin-left: 20px;
   > p {
     color: white;
     font-size: 20px;
   }
+`;
+
+export const BtnLine = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const VideoImg = styled.img`
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+`;
+
+export const VideoDownload = styled.p`
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 8px;
+  margin-right: 116px;
+  cursor: pointer;
 `;

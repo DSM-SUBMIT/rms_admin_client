@@ -3,7 +3,8 @@ import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
 import WritedReport from './WritedReport';
-import { DOWNLOAD } from '../../constance/detailReport';
+import { BTN, VIDEODOWNLOAD } from '../../constance/detailReport';
+import { video } from '../../asset/detailReport';
 
 const DetailReport = () => {
   return (
@@ -14,9 +15,17 @@ const DetailReport = () => {
         <WritedReport isSecondPage />
         <WritedReport />
       </div>
-      <S.DownloadBtn>
-        <p>{DOWNLOAD}</p>
-      </S.DownloadBtn>
+      <S.BtnLine>
+        <S.VideoImg src={video} />
+        <S.VideoDownload>{VIDEODOWNLOAD}</S.VideoDownload>
+        {BTN.map(data => {
+          return (
+            <S.Btn key={data.id}>
+              <p>{data.content}</p>
+            </S.Btn>
+          );
+        })}
+      </S.BtnLine>
     </S.DetailReport>
   );
 };
