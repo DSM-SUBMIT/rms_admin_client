@@ -8,11 +8,12 @@ export const DetailReport = styled.div`
   box-sizing: border-box;
   background-color: ${color.background};
   padding-bottom: 55px;
-  > div:nth-child(2) {
-    width: 800px;
-    margin: 0 auto;
-    padding-top: 54px;
-  }
+`;
+
+export const Pages = styled.div`
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 54px;
 `;
 
 export const ReportPage = styled.div`
