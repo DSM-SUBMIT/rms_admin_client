@@ -8,6 +8,7 @@ import {
   SearchProjectListContainer,
   ViewProjectListContainer,
   DetailReportContainer,
+  ApproveDetailReportContainer,
 } from '../containers';
 
 const MainRouter = () => {
@@ -21,7 +22,12 @@ const MainRouter = () => {
           <Route exact path='/view/plan' component={ViewPlanContainer} />
           <Route exact path='/search' component={SearchProjectListContainer} />
           <Route exact path='/view/projectList' component={ViewProjectListContainer} />
-          <Route exact path='/detail-report/:id' component={DetailReportContainer} />
+          <Route exact path='/view/detail-report/:id' component={DetailReportContainer} />
+          <Route
+            exact
+            path='/view/approve-detail-report/:id'
+            component={ApproveDetailReportContainer}
+          />
         </Switch>
       </BrowserRouter>
     </>
