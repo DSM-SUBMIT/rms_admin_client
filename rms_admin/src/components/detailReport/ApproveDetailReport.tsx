@@ -24,18 +24,22 @@ const ApproveDetailReport = () => {
         <WritedReport />
       </S.Pages>
       <S.BtnLine>
-        <S.VideoImg src={video} />
-        <S.VideoDownload>{VIDEODOWNLOAD}</S.VideoDownload>
-        {APPROVEBTN.map(data => {
-          return (
-            <S.Btn
-              key={data.id}
-              onClick={data.id === 'approve' ? feedbackBtnClickHandler : () => {}}
-            >
-              <p>{data.content}</p>
-            </S.Btn>
-          );
-        })}
+        <div>
+          <S.VideoImg src={video} />
+          <S.VideoDownload>{VIDEODOWNLOAD}</S.VideoDownload>
+        </div>
+        <div>
+          {APPROVEBTN.map(data => {
+            return (
+              <S.Btn
+                key={data.id}
+                onClick={data.id === 'approve' ? feedbackBtnClickHandler : () => {}}
+              >
+                <p>{data.content}</p>
+              </S.Btn>
+            );
+          })}
+        </div>
       </S.BtnLine>
     </S.DetailReport>
   );
