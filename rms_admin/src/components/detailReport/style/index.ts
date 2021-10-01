@@ -124,9 +124,14 @@ export const Btn = styled.div`
 `;
 
 export const BtnLine = styled.div`
+  width: 800px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  > div {
+    display: flex;
+  }
 `;
 
 export const VideoImg = styled.img`
@@ -140,6 +145,5 @@ export const VideoDownload = styled.p`
   font-size: 18px;
   font-weight: bold;
   margin-left: 8px;
-  margin-right: 116px;
   cursor: pointer;
 `;
