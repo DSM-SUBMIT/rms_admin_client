@@ -1,5 +1,5 @@
 import React, { FC, Suspense } from 'react';
-import DetailReport from '../../components/detailReport';
+import { DetailReport } from '../../components/detailReport';
 
 const DetailReportContainer: FC = () => {
   return (

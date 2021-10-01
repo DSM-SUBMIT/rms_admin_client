@@ -1,5 +1,5 @@
 import React, { FC, Suspense } from 'react';
-import ApproveDetailReport from '../../components/approveDetailReport';
+import { ApproveDetailReport } from '../../components/detailReport';
 
 const ApproveDetailReportContainer: FC = () => {
   return (
