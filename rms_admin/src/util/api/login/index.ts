@@ -20,7 +20,7 @@ export const getToken = async (body: loginRequest) => {
 export const refreshToken = async () => {
   try {
     const request = getRequest();
-    const response = await request.put<refreshResponse>(uri.refresh_token, {
+    const response = await request.put<refreshResponse>(uri.refreshToken, {
       refresh_token: localStorage.getItem("refresh_token"),
     });
     localStorage.setItem("access_token", response.data.access_token);
