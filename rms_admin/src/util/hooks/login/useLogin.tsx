@@ -1,7 +1,11 @@
-import { useDispatch } from 'react-redux';
-import { loginRequest } from '../../../models/dto/request/loginRequest';
-import { getToken, setId, setPassword } from '../../../modules/redux/action/login';
-import { useSelectState } from '../default';
+import { useDispatch } from "react-redux";
+import {
+  getToken,
+  refreshToken,
+  setId,
+  setPassword,
+} from "../../../modules/redux/action/login";
+import { useSelectState } from "../default";
 
 const useLogin = () => {
   const dispatch = useDispatch();
@@ -13,8 +17,11 @@ const useLogin = () => {
     setPassword: (payload: string) => {
       dispatch(setPassword(payload));
     },
-    token: (payload: loginRequest) => {
+    token: () => {
       dispatch(getToken());
+    },
+    refresh_token: (callback: () => void) => {
+      dispatch(refreshToken({ callback }));
     },
   };
   return {
