@@ -4,7 +4,6 @@ import {
   ID,
   PASSWORD,
   REFRESH_TOKEN_FAILURE,
-  REFRESH_TOKEN_SUCCESS,
   TOKEN_FAILURE,
   TOKEN_SUCCESS,
 } from "../../action/login/interface";
