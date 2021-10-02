@@ -16,7 +16,7 @@ const Login = () => {
   };
 
   const onClickLogin = () => {
-    setState.getToken({
+    setState.token({
       id: state.id,
       password: state.password,
     });

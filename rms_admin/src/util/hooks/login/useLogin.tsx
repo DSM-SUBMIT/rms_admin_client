@@ -13,7 +13,7 @@ const useLogin = () => {
     setPassword: (payload: string) => {
       dispatch(setPassword(payload));
     },
-    getToken: (payload: loginRequest) => {
+    token: (payload: loginRequest) => {
       dispatch(getToken());
     },
   };
