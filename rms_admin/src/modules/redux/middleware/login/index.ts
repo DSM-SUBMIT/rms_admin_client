@@ -12,7 +12,6 @@ export const loginRequestSaga = function* (): any {
   const state = yield select(getStateFunc);
 
   try {
-    console.log(state);
     const response = yield call(getToken, state);
     yield put({
       type: SUCCESS,
@@ -22,7 +21,7 @@ export const loginRequestSaga = function* (): any {
     if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...error.response.data, type: "LOGIN/TOLEN" },
+        payload: { ...error.response.data, type: "LOGIN/TOKEN" },
       });
     } else {
       yield put({
