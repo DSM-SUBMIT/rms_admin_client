@@ -1,5 +1,9 @@
 export const ID = 'LOGIN/ID' as const;
 export const PASSWORD = 'LOGIN/PASSWORD' as const;
+export const ERROR = 'LOGIN/ERROR' as const;
 export const TOKEN = 'LOGIN/TOKEN' as const;
 export const TOKEN_SUCCESS = 'LOGIN/TOKEN_SUCCESS' as const;
 export const TOKEN_FAILURE = 'LOGIN/TOKEN_FAILURE' as const;
+export const REFRESH_TOKEN = 'LOGIN/REFRESH_TOKEN' as const;
+export const REFRESH_TOKEN_FAILURE = `${REFRESH_TOKEN}_FAILURE` as const;
+export const REFRESH_TOKEN_SUCCESS = `${REFRESH_TOKEN}_SUCCESS` as const;
