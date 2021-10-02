@@ -19,7 +19,7 @@ export const LoginWrapper = styled.div`
 `;
 
 export const Logo = styled.div`
-  margin-top: 35px;
+  margin-top: 30px;
   font-size: 25px;
   color: #386bee;
   font-weight: 700;
@@ -73,8 +73,14 @@ export const LoginButton = styled.button`
   color: white;
   background-color: #386bee;
   border: none;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 `;
+
+export const ErrorMessage = styled.span `
+  font-size: 13px;
+  color: red;
+  margin-top: 5px;
+`
