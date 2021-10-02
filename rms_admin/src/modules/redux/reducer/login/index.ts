@@ -1,15 +1,24 @@
 import { loginActionType } from "../../action/login";
 import {
+  ERROR,
   ID,
   PASSWORD,
+  REFRESH_TOKEN_FAILURE,
+  REFRESH_TOKEN_SUCCESS,
   TOKEN_FAILURE,
+  TOKEN_SUCCESS,
 } from "../../action/login/interface";
 import LoginState from "./interface";
 
 const initState: LoginState = {
   id: "",
   password: "",
-  error: null,
+  error: {
+    type: "",
+    statusCode: 0,
+    message: "",
+  },
+  isSuccessLogin: false,
 };
 
 const loginReducer = (
@@ -27,8 +36,24 @@ const loginReducer = (
         ...state,
         password: action.payload,
       };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case TOKEN_SUCCESS:
+      return {
+        ...state,
+        isSuccessLogin: true,
+      }
     case TOKEN_FAILURE:
       return {
+        ...state,
+        error: action.payload,
+        isSuccessLogin: false,
+      };
+    case REFRESH_TOKEN_FAILURE:
+      return{
         ...state,
         error: action.payload,
       };
