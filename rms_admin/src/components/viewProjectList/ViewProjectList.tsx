@@ -26,7 +26,7 @@ const ViewProjectList:FC = () => {
                                     return <ListItem key={i} />;
                                 })}
                         </S.ProjectList>
-                        <Pagination/>
+                        {/* <Pagination/> */}
                     </S.ProjectArea>
                 </S.Center>
             </S.Main>
