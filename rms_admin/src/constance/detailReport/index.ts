@@ -14,3 +14,11 @@ export const APPROVEBTN = [
   { id: 'approve', content: '승인/미승인' },
   { id: 'download', content: '다운로드' },
 ];
+export type DetailReportResponseType = {
+  field: Array<string>;
+  writer: string;
+  report: {
+    content: string;
+    videoUrl: string;
+  };
+};
