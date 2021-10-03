@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Modal from '../components/modal/Modal';
 import {
   LoginContainer,
   ViewPlanContainer,
@@ -12,8 +13,10 @@ import {
 } from '../containers';
 
 const MainRouter = () => {
+
   return (
     <>
+      <Modal/>
       <BrowserRouter>
         <Switch>
           <Route exact path='/login' component={LoginContainer} />
