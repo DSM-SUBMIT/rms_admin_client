@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
@@ -7,11 +7,23 @@ import { APPROVEBTN, VIDEODOWNLOAD } from '../../constance/detailReport';
 import { video } from '../../asset/detailReport';
 import FeedbackModal from '../modal/feedback';
 
-const ApproveDetailReport = () => {
+interface Props {
+  content: string;
+  field: Array<string>;
+  writer: string;
+  videoUrl: string;
+}
+
+const ApproveDetailReport: FC<Props> = props => {
+  const { content, field, writer, videoUrl } = props;
   const [isFeedbackModalClick, setIsFeedbackModalClick] = useState<boolean>(false);
 
   const feedbackBtnClickHandler = () => {
     setIsFeedbackModalClick(true);
+  };
+
+  const videoDownloadBtnClickHandler = () => {
+    window.location.href = videoUrl;
   };
 
   return (
@@ -19,14 +31,14 @@ const ApproveDetailReport = () => {
       {isFeedbackModalClick && <FeedbackModal setClose={setIsFeedbackModalClick} />}
       <Header />
       <S.Pages>
-        <ReportFirstPage />
-        <WritedReport isSecondPage />
-        <WritedReport />
+        <ReportFirstPage field={field} writer={writer} />
+        <WritedReport isSecondPage content={content} />
+        <WritedReport content={content} />
       </S.Pages>
       <S.BtnLine>
         <div>
-          <S.VideoImg src={video} />
-          <S.VideoDownload>{VIDEODOWNLOAD}</S.VideoDownload>
+          <S.VideoImg src={video} onClick={videoDownloadBtnClickHandler} />
+          <S.VideoDownload onClick={videoDownloadBtnClickHandler}>{VIDEODOWNLOAD}</S.VideoDownload>
         </div>
         <div>
           {APPROVEBTN.map(data => {

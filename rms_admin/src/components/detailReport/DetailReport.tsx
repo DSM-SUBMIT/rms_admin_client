@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
@@ -6,19 +6,32 @@ import WritedReport from './WritedReport';
 import { BTN, VIDEODOWNLOAD } from '../../constance/detailReport';
 import { video } from '../../asset/detailReport';
 
-const DetailReport = () => {
+interface Props {
+  content: string;
+  field: Array<string>;
+  writer: string;
+  videoUrl: string;
+}
+
+const DetailReport: FC<Props> = props => {
+  const { content, field, writer, videoUrl } = props;
+
+  const videoDownloadBtnClickHandler = () => {
+    window.location.href = videoUrl;
+  };
+
   return (
     <S.DetailReport>
       <Header />
       <S.Pages>
-        <ReportFirstPage />
-        <WritedReport isSecondPage />
-        <WritedReport />
+        <ReportFirstPage field={field} writer={writer} />
+        <WritedReport isSecondPage content={content} />
+        <WritedReport content={content} />
       </S.Pages>
       <S.BtnLine>
         <div>
-          <S.VideoImg src={video} />
-          <S.VideoDownload>{VIDEODOWNLOAD}</S.VideoDownload>
+          <S.VideoImg src={video} onClick={videoDownloadBtnClickHandler} />
+          <S.VideoDownload onClick={videoDownloadBtnClickHandler}>{VIDEODOWNLOAD}</S.VideoDownload>
         </div>
         <div>
           {BTN.map(data => {
