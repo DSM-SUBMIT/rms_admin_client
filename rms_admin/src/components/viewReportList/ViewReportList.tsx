@@ -18,7 +18,7 @@ const ViewReportList: FC = () => {
                 return <Report key={i} />;
               })}
           </S.ReportListContainer>
-          <Pagination/>
+          {/* <Pagination/> */}
         </S.ReportListWrapper>
       </S.ViewReportList>
     </>

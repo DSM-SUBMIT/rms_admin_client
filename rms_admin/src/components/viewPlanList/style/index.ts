@@ -3,8 +3,7 @@ import { color } from "../../../style";
 
 export const ViewPlanList = styled.div`
   width: 100%;
-  min-width: 1440px;
-  height: 100vh;
+  min-width: 800px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;

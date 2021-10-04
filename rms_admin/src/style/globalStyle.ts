@@ -7,6 +7,7 @@ const global = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     outline: none;
+    font-family: Noto Sans KR;
   }
   a {
     text-decoration: none;
