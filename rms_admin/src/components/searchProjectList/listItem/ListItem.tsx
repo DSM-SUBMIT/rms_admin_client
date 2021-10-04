@@ -1,20 +1,20 @@
 import React, { FC } from "react";
+import { ProjectsType } from '../../../constance/serchProject'
 import * as S from "../style";
 
-const ListItem: FC = () => {
+const ListItem: FC<ProjectsType> = props => {
+  const { type, title, team_name, fields } = props;
+
   return (
     <S.Item>
-    <S.Type>[팀 프로젝트]</S.Type>
-    <S.Title>보고서 관리 시스템</S.Title>
-    <S.Team>서브밋</S.Team>
-    <S.TagArea>
-        <S.Tag>보안</S.Tag>
-        <S.Tag>인공지능 / 빅데이터</S.Tag>
-        <S.Tag>임베디드</S.Tag>
-        <S.Tag>게임</S.Tag>
-        <S.Tag>웹</S.Tag>
-        <S.Tag>앱</S.Tag>
-    </S.TagArea>
+      <S.Type>[{type}]</S.Type>
+      <S.Title>{title}</S.Title>
+      <S.Team>{team_name}</S.Team>
+      <S.TagArea>
+        {fields.map((content: string, i: number) =>{
+          return <S.Tag key={i}>{content}</S.Tag>;
+        })}
+      </S.TagArea>
     </S.Item>
   );
 };
