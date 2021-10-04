@@ -5,5 +5,5 @@ import planListSaga from './planList';
 import reportListSaga from './reportList';
 
 export default function* rootSaga() {
-  yield all([loginSaga(), planListSaga()]);
+  yield all([loginSaga(), planListSaga(), changePasswordSaga(), reportListSaga()]);
 }

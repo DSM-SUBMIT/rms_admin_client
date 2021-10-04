@@ -10,6 +10,7 @@ const rootReducer = combineReducers({
   planList: planListReducer,
   modal: modalReducer,
   chagePassword: changePasswordReducer,
+  reportList: reportListReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
