@@ -1,16 +1,14 @@
 import React, { FC } from 'react';
-import { PlanType } from '../../models/dto/response/planListResponse';
-import { setPage } from '../../modules/redux/action/planList';
 import * as S from './style';
 
 interface Props {
   page: number;
-  total_page: number;
+  totalPage: number;
   setPage: (payload: number) => void;
 }
 
 const Pagination: FC<Props> = props => {
-  const { page, total_page, setPage } = props;
+  const { page, totalPage, setPage } = props;
 
   const onClickPrev = () => {
     if (page <= 1) {
@@ -21,7 +19,7 @@ const Pagination: FC<Props> = props => {
   };
 
   const onClickNext = () => {
-    if (page === total_page) {
+    if (page === totalPage) {
       return;
     } else {
       setPage(page + 1);
@@ -35,10 +33,10 @@ const Pagination: FC<Props> = props => {
   return (
     <S.PaginationWrapper>
       <S.PaginationButton onClick={onClickPrev}>{'<'}</S.PaginationButton>
-      {Array(total_page >= 5 ? 5 : total_page)
+      {Array(totalPage >= 5 ? 5 : totalPage)
         .fill(0)
         .map((v, i) => {
-          if((parseInt(String((page - 1) / 5)) * 5 + i + 1) > total_page){
+          if((parseInt(String((page - 1) / 5)) * 5 + i + 1) > totalPage){
             return '';
           }
           return (
