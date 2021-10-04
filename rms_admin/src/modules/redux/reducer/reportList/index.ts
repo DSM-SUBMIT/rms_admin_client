@@ -4,8 +4,8 @@ import ReportListState from "./interface";
 
 const initState: ReportListState = {
   page: 1,
-  total_page: 0,
-  total_amount: 0,
+  totalPage: 0,
+  totalAmount: 0,
   projects: [],
   error: null,
 };
@@ -15,8 +15,8 @@ const reportListReducer = (state: ReportListState = initState, action: reportLis
     case GET_REPORT_LIST_SUCCESS:
       return{
         ...state,
-        total_page: action.payload.total_page,
-        total_amount: action.payload.total_amount,
+        totalPage: action.payload.total_page,
+        totalAmount: action.payload.total_amount,
         projects: action.payload.projects,
       };
     case GET_REPORT_LIST_FAILURE:

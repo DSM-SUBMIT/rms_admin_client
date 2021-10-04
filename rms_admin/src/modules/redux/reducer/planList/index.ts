@@ -8,8 +8,8 @@ import {
 
 const initState: PlanListState = {
   page: 1,
-  total_page: 1,
-  total_amount: 0,
+  totalPage: 1,
+  totalAmount: 0,
   projects: [],
   error: null,
 };
@@ -19,8 +19,8 @@ const planListReducer = (state: PlanListState = initState, action: planListActio
     case GET_PLAN_LIST_SUCCESS:
       return {
         ...state,
-        total_page: action.payload.total_page,
-        total_amount: action.payload.total_amount,
+        totalPage: action.payload.total_page,
+        totalAmount: action.payload.total_amount,
         projects: action.payload.projects,
       };
     case GET_PLAN_LIST_FAILURE:

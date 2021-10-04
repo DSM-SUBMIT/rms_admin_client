@@ -1,12 +1,18 @@
 import React, { FC } from 'react';
+import { useHistory } from 'react-router';
 import { ReportType } from '../../../models/dto/response/reportListResponse';
 import * as S from '../style';
 
 const Report: FC<ReportType> = props => {
   const { id, type, title, team_name, fields } = props;
+  const history = useHistory();
+
+  const onClickReportDetail = () => {
+    history.push(`view/detail-report/${id}`);
+  }
 
   return (
-    <S.ReportContainer>
+    <S.ReportContainer onClick={onClickReportDetail}>
       <S.ReportContents>
         <S.ProjectDivision>[{type}]</S.ProjectDivision>
         <S.TitleFont>{title}</S.TitleFont>

@@ -8,17 +8,17 @@ import { PlanType } from '../../models/dto/response/planListResponse';
 interface Props {
   page: number;
   projects: Array<PlanType>;
-  total_page: number;
-  total_amount: number;
+  totalPage: number;
+  totalAmount: number;
   setPage: (payload: number) => void;
   setPlanList: () => void;
 }
 
 const ViewPlanList: FC<Props> = props => {
-  const { page, projects, total_page, setPage } = props;
+  const { page, projects, totalPage, setPage } = props;
   const childProps = {
     page,
-    total_page,
+    totalPage,
     setPage
   };
 
