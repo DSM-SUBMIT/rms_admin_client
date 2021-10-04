@@ -11,7 +11,7 @@ const Login = () => {
 
   useEffect(() => {
     if(state.isSuccessLogin){
-      history.push('view/planList');
+      history.push('view/plan-list');
     }
   }, [history, state.isSuccessLogin]);
 
