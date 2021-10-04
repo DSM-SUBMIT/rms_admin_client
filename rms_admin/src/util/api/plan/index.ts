@@ -1,10 +1,10 @@
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
 
-export const getPlanList = async (accessToken: string, page: number) => {
+export const getPlanDetail = async (accessToken: string, id: number) => {
   try {
     const request = getRequestWithAccessToken(accessToken);
-    const response = await request.get(uri.viewPlanList + `?page=` + page + '&limit=5&type=plan');
+    const response = await request.get(uri.viewPlanDetail + `/${id}`);
     return response;
   } catch (error) {
     throw error;
