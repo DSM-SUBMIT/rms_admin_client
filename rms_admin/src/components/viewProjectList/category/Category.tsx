@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import * as S from '../style'
 import { CategoryBox } from '../../../constance/category';
 
-const Category: FC = () => {
+const Category: FC =  () => {
     return (
 
         <S.CategoryArea>
