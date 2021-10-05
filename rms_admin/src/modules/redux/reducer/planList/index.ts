@@ -1,4 +1,4 @@
-import planListState from './interface';
+import PlanListState from './interface';
 import { planListActionType } from '../../action/planList';
 import {
   GET_PLAN_LIST_FAILURE,
@@ -6,21 +6,21 @@ import {
   PAGE,
 } from '../../action/planList/interface';
 
-const initState: planListState = {
+const initState: PlanListState = {
   page: 1,
-  total_page: 1,
-  total_amount: 0,
+  totalPage: 1,
+  totalAmount: 0,
   projects: [],
   error: null,
 };
 
-const planListReducer = (state: planListState = initState, action: planListActionType): planListState => {
+const planListReducer = (state: PlanListState = initState, action: planListActionType): PlanListState => {
   switch (action.type) {
     case GET_PLAN_LIST_SUCCESS:
       return {
         ...state,
-        total_page: action.payload.total_page,
-        total_amount: action.payload.total_amount,
+        totalPage: action.payload.total_page,
+        totalAmount: action.payload.total_amount,
         projects: action.payload.projects,
       };
     case GET_PLAN_LIST_FAILURE:
