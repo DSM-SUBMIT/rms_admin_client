@@ -18,10 +18,9 @@ export const Pages = styled.div`
 
 export const ReportPage = styled.div`
   width: 800px;
-  height: 1128px;
+  height: 1131px;
   background-color: white;
   border: 1px solid black;
-  margin-bottom: 20px;
 `;
 
 export const ReportCover = styled.p`
@@ -129,6 +128,7 @@ export const BtnLine = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  margin-top: 20px;
   > div {
     display: flex;
   }
