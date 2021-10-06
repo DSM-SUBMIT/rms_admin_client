@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
@@ -36,6 +36,12 @@ const ApproveDetailReport: FC<Props> = props => {
     history.push(`/view/plan/${id}`);
   };
 
+  const makeContentArray = useMemo(() => {
+    let contentArray: Array<string> = [];
+    contentArray = content.split('!@#$%');
+    return contentArray;
+  }, [content]);
+
   const downloadBtnClickHandler = () => {
     (document.getElementById('pdf') as HTMLElement).style.padding = '0px';
     html2canvas(document.getElementById('pdf') as HTMLElement).then(canvas => {
@@ -68,8 +74,9 @@ const ApproveDetailReport: FC<Props> = props => {
       <Header />
       <S.Pages id='pdf'>
         <ReportFirstPage field={field} writer={writer} />
-        <WritedReport isSecondPage content={content} />
-        <WritedReport content={content} />
+        {makeContentArray.map((data: string, id: number) => {
+          return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
+        })}
       </S.Pages>
       <S.BtnLine>
         <div>

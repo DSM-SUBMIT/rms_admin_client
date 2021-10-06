@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
@@ -25,6 +25,12 @@ const DetailReport: FC<Props> = props => {
     const videoPage = window.open('about:blank');
     (videoPage as Window).location.href = videoUrl;
   };
+
+  const makeContentArray = useMemo(() => {
+    let contentArray: Array<string> = [];
+    contentArray = content.split('!@#$%');
+    return contentArray;
+  }, [content]);
 
   const viewPlanBtnClickHandler = () => {
     history.push(`/view/plan/${id}`);
@@ -61,8 +67,9 @@ const DetailReport: FC<Props> = props => {
       <Header />
       <S.Pages id='pdf'>
         <ReportFirstPage field={field} writer={writer} />
-        <WritedReport isSecondPage content={content} />
-        <WritedReport content={content} />
+        {makeContentArray.map((data: string, id: number) => {
+          return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
+        })}
       </S.Pages>
       <S.BtnLine>
         <div>
