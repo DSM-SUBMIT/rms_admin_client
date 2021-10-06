@@ -9,7 +9,7 @@ const ApproveDetailReportContainer: FC = () => {
   const { state, setState } = UseDetailReoprt();
   const dispatch = useDispatch();
 
-  const path = useLocation().pathname.slice(20);
+  const path = useLocation().pathname.slice(28);
 
   useEffect(() => {
     setState.setId(path);
