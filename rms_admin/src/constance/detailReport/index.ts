@@ -19,6 +19,6 @@ export type DetailReportResponseType = {
   writer: string;
   report: {
     content: string;
-    videoUrl: string;
+    video_url: string;
   };
 };
