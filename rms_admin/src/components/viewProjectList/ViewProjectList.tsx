@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Header from '../header/Header'
+import Pagination from '../pagination/Pagination';
 import Category from './category';
 import ListItem from './listItem';
 import * as S from './style';
@@ -25,15 +26,7 @@ const ViewProjectList:FC = () => {
                                     return <ListItem key={i} />;
                                 })}
                         </S.ProjectList>
-                        <S.Footer>
-                            <button type="button">⬅</button>
-                            <S.Page>1</S.Page>
-                            <S.Page>2</S.Page>
-                            <S.Page>3</S.Page>
-                            <S.Page>4</S.Page>
-                            <S.Page>5</S.Page>
-                            <button type="button">➡️</button>
-                        </S.Footer>
+                        {/* <Pagination/> */}
                     </S.ProjectArea>
                 </S.Center>
             </S.Main>

@@ -1,31 +1,41 @@
-import React, { FC } from "react";
-import Plan from "./plan";
-import * as S from "./style";
+import React, { FC } from 'react';
+import Plan from './plan';
+import Pagination from '../pagination/Pagination';
+import * as S from './style';
+import Header from '../header/Header';
+import { PlanType } from '../../models/dto/response/planListResponse';
 
-const ViewPlanList: FC = () => {
+interface Props {
+  page: number;
+  projects: Array<PlanType>;
+  totalPage: number;
+  totalAmount: number;
+  setPage: (payload: number) => void;
+  setPlanList: () => void;
+}
+
+const ViewPlanList: FC<Props> = props => {
+  const { page, projects, totalPage, setPage } = props;
+  const childProps = {
+    page,
+    totalPage,
+    setPage
+  };
+
   return (
     <>
+      <Header />
       <S.ViewPlanList>
         <S.PlanListWrapper>
           <S.TitleFont>승인 요청된 계획서</S.TitleFont>
           <S.PlanListContainer>
-            {Array(5)
-              .fill(0)
-              .map((v, i) => {
-                return <Plan key={i} />;
-              })}
+            {projects.map((v: PlanType, i: number): any => {
+              return(
+                <Plan {...v} key={v.id}/>
+              )
+            })}
           </S.PlanListContainer>
-          <S.PageNationWrapper>
-            <S.PageNationButton>{"<"}</S.PageNationButton>
-            {Array(5)
-              .fill(0)
-              .map((v, i) => {
-                return (
-                  <S.PageNationButton key={i + 1}>{i + 1}</S.PageNationButton>
-                );
-              })}
-            <S.PageNationButton>{">"}</S.PageNationButton>
-          </S.PageNationWrapper>
+          <Pagination {...childProps}/>
         </S.PlanListWrapper>
       </S.ViewPlanList>
     </>

@@ -3,8 +3,7 @@ import { color } from "../../../style";
 
 export const ViewPlanList = styled.div`
   width: 100%;
-  min-width: 1440px;
-  height: 100vh;
+  min-width: 800px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -63,18 +62,3 @@ export const MajorField = styled.span`
   border-radius: 15px;
   margin-right: 5px;
 `;
-
-export const PageNationWrapper = styled.ul`
-  width: 235px;
-  height: 20px;
-  margin: 0 auto;
-  margin-top: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-
-export const PageNationButton = styled.li`
-  font-size: 14px;
-  cursor: pointer;
-`
