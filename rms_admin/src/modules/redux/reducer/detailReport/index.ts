@@ -21,7 +21,7 @@ const detailReportReducer = (
         ...state,
         content: action.payload.report.content,
         field: action.payload.field,
-        videoUrl: action.payload.report.videoUrl,
+        videoUrl: action.payload.report.video_url,
         writer: action.payload.writer,
       };
     case GET_REPORT_FAILURE:
