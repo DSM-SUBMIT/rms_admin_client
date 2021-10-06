@@ -10,7 +10,7 @@ export const saveFeedback = async (
 ) => {
   try {
     const request = getRequestWithAccessToken(access_token);
-    return await request.post(`${uri.feedback}/${id}/${type}`, {
+    return await request.patch(`${uri.feedback}/${id}/${type}`, {
       comment: comment,
       type: approveType,
     });
