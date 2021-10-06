@@ -15,7 +15,7 @@ export const APPROVEBTN = [
   { id: 'download', content: '다운로드' },
 ];
 export type DetailReportResponseType = {
-  field: Array<string>;
+  project_name: string;
   writer: string;
   report: {
     content: string;

@@ -2,10 +2,10 @@ import { error } from '../../../../../models/error';
 
 interface DetailReportState {
   content: string;
-  field: Array<string>;
   videoUrl: string;
   writer: string;
   id: string;
+  projectName: string;
   error: error | null;
 }
 

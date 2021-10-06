@@ -11,13 +11,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 interface Props {
   content: string;
-  field: Array<string>;
+  projectName: string;
   writer: string;
   videoUrl: string;
 }
 
 const DetailReport: FC<Props> = props => {
-  const { content, field, writer, videoUrl } = props;
+  const { content, projectName, writer, videoUrl } = props;
   const history = useHistory();
   const id = useLocation().pathname.slice(20);
 
@@ -66,7 +66,7 @@ const DetailReport: FC<Props> = props => {
     <S.DetailReport>
       <Header />
       <S.Pages id='pdf'>
-        <ReportFirstPage field={field} writer={writer} />
+        <ReportFirstPage projectName={projectName} writer={writer} />
         {makeContentArray.map((data: string, id: number) => {
           return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
         })}

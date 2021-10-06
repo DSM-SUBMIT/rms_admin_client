@@ -13,13 +13,13 @@ import { useHistory } from 'react-router-dom';
 interface Props {
   id: string;
   content: string;
-  field: Array<string>;
   writer: string;
   videoUrl: string;
+  projectName: string;
 }
 
 const ApproveDetailReport: FC<Props> = props => {
-  const { content, field, writer, videoUrl, id } = props;
+  const { content, projectName, writer, videoUrl, id } = props;
   const [isFeedbackModalClick, setIsFeedbackModalClick] = useState<boolean>(false);
   const history = useHistory();
 
@@ -73,7 +73,7 @@ const ApproveDetailReport: FC<Props> = props => {
       {isFeedbackModalClick && <FeedbackModal type={'report'} setClose={setIsFeedbackModalClick} />}
       <Header />
       <S.Pages id='pdf'>
-        <ReportFirstPage field={field} writer={writer} />
+        <ReportFirstPage projectName={projectName} writer={writer} />
         {makeContentArray.map((data: string, id: number) => {
           return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
         })}

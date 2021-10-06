@@ -4,7 +4,7 @@ import DetailReportState from './interface';
 
 const initState: DetailReportState = {
   content: '',
-  field: [],
+  projectName: '',
   videoUrl: '',
   writer: '',
   id: '',
@@ -20,7 +20,7 @@ const detailReportReducer = (
       return {
         ...state,
         content: action.payload.report.content,
-        field: action.payload.field,
+        projectName: action.payload.project_name,
         videoUrl: action.payload.report.video_url,
         writer: action.payload.writer,
       };
