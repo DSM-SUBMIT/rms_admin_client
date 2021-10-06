@@ -22,7 +22,8 @@ const DetailReport: FC<Props> = props => {
   const id = useLocation().pathname.slice(20);
 
   const videoDownloadBtnClickHandler = () => {
-    window.location.href = videoUrl;
+    const videoPage = window.open('about:blank');
+    (videoPage as Window).location.href = videoUrl;
   };
 
   const viewPlanBtnClickHandler = () => {

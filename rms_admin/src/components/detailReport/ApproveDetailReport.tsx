@@ -28,7 +28,8 @@ const ApproveDetailReport: FC<Props> = props => {
   };
 
   const videoDownloadBtnClickHandler = () => {
-    window.location.href = videoUrl;
+    const videoPage = window.open('about:blank');
+    (videoPage as Window).location.href = videoUrl;
   };
 
   const viewPlanBtnClickHandler = () => {
