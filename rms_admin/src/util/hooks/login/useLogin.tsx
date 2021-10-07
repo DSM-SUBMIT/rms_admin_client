@@ -1,11 +1,6 @@
-import { useDispatch } from "react-redux";
-import {
-  getToken,
-  refreshToken,
-  setId,
-  setPassword,
-} from "../../../modules/redux/action/login";
-import { useSelectState } from "../default";
+import { useDispatch } from 'react-redux';
+import { getToken, refreshToken, setId, setPassword } from '../../../modules/redux/action/login';
+import { useSelectState } from '../default';
 
 const useLogin = () => {
   const dispatch = useDispatch();

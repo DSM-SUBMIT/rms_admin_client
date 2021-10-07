@@ -39,8 +39,8 @@ export const loginRequestSaga = function* (): any {
 };
 
 export const refreshTokenSaga = function* (action: any): any {
-  const SUCCESS = 'REFRESH_TOKEN_SUCCESS';
-  const FAILURE = 'REFRESH_TOKEN_FAILURE';
+  const SUCCESS = 'LOGIN/REFRESH_TOKEN_SUCCESS';
+  const FAILURE = 'LOGIN/REFRESH_TOKEN_FAILURE';
   try {
     yield call(refreshToken);
     yield put({

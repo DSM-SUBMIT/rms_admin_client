@@ -52,13 +52,11 @@ const loginReducer = (state: LoginState = initState, action: loginActionType): L
     case REFRESH_TOKEN_SUCCESS:
       return {
         ...state,
-        isSuccessLogin: true,
       };
     case REFRESH_TOKEN_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isSuccessLogin: false,
       };
     default:
       return state;

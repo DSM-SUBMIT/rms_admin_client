@@ -31,6 +31,7 @@ export const refreshToken = async () => {
       'access_token_expiration_time',
       moment().add(1, 'day').format('yyyy-MM-DD HH:mm:ss'),
     );
+    window.location.reload();
   } catch (error) {
     throw error;
   }

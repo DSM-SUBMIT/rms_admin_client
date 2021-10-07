@@ -8,13 +8,14 @@ import moment from 'moment';
 import { useHistory } from 'react-router';
 
 const Header = () => {
-  const loginState = useLogin();
   const { setState } = useModal();
+  const loginState = useLogin();
   const history = useHistory();
+  const { error } = loginState.state;
 
   useEffect(() => {
     if (
-      moment(localStorage.getItem('access_token_expiration_time')).diff(moment()) < 0 &&
+      moment(localStorage.getItem('access_token_expiration_time')).diff(moment()) <= 0 &&
       localStorage.getItem('refresh_token')
     ) {
       loginState.setState.refresh_token();
@@ -22,15 +23,13 @@ const Header = () => {
   });
 
   useEffect(() => {
-    if (
-      loginState.state.error?.statusCode === 401 &&
-      loginState.state.error.type === REFRESH_TOKEN
-    ) {
+    if ((error?.statusCode === 401 && error.type === REFRESH_TOKEN) || (!localStorage.getItem('refresh_token') && !localStorage.getItem('access_token'))) {
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
+      alert('로그인 후 이용해주세요.');
       history.push('/');
     }
-  }, [loginState.state.error]);
+  }, [error]);
 
   const onClickChangePasswordModal = () => {
     setState.setModalOn('changePassword');
