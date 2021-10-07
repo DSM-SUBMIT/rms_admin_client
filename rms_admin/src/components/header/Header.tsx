@@ -6,6 +6,7 @@ import { useLogin } from '../../util/hooks/login';
 import { REFRESH_TOKEN } from '../../modules/redux/action/login/interface';
 import moment from 'moment';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { setState } = useModal();
@@ -23,7 +24,10 @@ const Header = () => {
   });
 
   useEffect(() => {
-    if ((error?.statusCode === 401 && error.type === REFRESH_TOKEN) || (!localStorage.getItem('refresh_token') && !localStorage.getItem('access_token'))) {
+    if (
+      (error?.statusCode === 401 && error.type === REFRESH_TOKEN) ||
+      (!localStorage.getItem('refresh_token') && !localStorage.getItem('access_token'))
+    ) {
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
       alert('로그인 후 이용해주세요.');
@@ -38,11 +42,19 @@ const Header = () => {
   return (
     <S.Header>
       <S.Center>
-        <S.Logo>RMS</S.Logo>
+        <S.Logo>
+          <Link to='/view/plan-list'>RMS</Link>
+        </S.Logo>
         <S.Nav>
-          <span>계획서</span>
-          <span>보고서</span>
-          <span>승인된 프로젝트</span>
+          <span>
+            <Link to='/view/plan-list'>계획서</Link>
+          </span>
+          <span>
+            <Link to='/view/report-list'>보고서</Link>
+          </span>
+          <span>
+            <Link to='/view/project-list'>승인된 프로젝트</Link>
+          </span>
           <S.Profile onClick={onClickChangePasswordModal}>
             <img src={profile} alt='profile' />
             <span>비밀번호 변경</span>
