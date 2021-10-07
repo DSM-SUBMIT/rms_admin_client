@@ -5,6 +5,8 @@ interface SearchProjectState{
   total_page: number;
   total_amount: number;
   error: error | null;
+  query: string;
+  page: number;
   projects: Array<ProjectsType>;
 }
 
