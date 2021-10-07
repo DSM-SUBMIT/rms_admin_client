@@ -1,19 +1,19 @@
 import { call, put, select, takeLatest } from '@redux-saga/core/effects';
-import { getPlanList } from '../../../../util/api/planList';
-import { GET_PLAN_LIST } from '../../action/planList/interface';
+import { getReportList } from '../../../../util/api/reportList';
+import { GET_REPORT_LIST } from '../../action/reportList/interface';
 import { reducerType } from '../../reducer';
-import PlanListState from '../../reducer/planList/interface';
+import ReportListState from '../../reducer/reportList/interface';
 
-const getStateFunc = (state: reducerType): PlanListState => state.planList;
+const getStateFunc = (state: reducerType): ReportListState => state.reportList;
 
-const getPlanListSaga = function* (): any {
-  const type = "PLANLIST/GET_PLAN_LIST";
+const getReportListSaga = function* (): any {
+  const type = 'REPORTLIST/GET_REPORT_LIST';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getPlanList, accessToken, state.page);
+    const response = yield call(getReportList, accessToken, state.page);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
@@ -36,8 +36,8 @@ const getPlanListSaga = function* (): any {
   }
 };
 
-function* planListSaga() {
-  yield takeLatest(GET_PLAN_LIST, getPlanListSaga);
+function* reportListSaga() {
+  yield takeLatest(GET_REPORT_LIST, getReportListSaga);
 }
 
-export default planListSaga;
+export default reportListSaga;
