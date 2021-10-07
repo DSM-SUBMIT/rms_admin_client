@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { getPlanList, setPage } from "../../../modules/redux/action/planList";
 import { useSelectState } from "../default";
 
-
 const usePlanList = () => {
   const dispatch = useDispatch();
   const state = useSelectState().planList;

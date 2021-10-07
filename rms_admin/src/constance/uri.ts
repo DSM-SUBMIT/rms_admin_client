@@ -1,7 +1,8 @@
 enum uri {
   login = '/auth',
   refreshToken = '/auth/refresh',
-  viewPlanList = '/projects/pending',
+  viewPlanReportList = '/projects/pending',
+  changePassword = '/auth/password',
 }
 
 export default uri;
