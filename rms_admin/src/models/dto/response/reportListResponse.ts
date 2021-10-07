@@ -1,6 +1,7 @@
 export type ReportType = {
   id: number;
-  type: string;
+  project_type: string;
+  is_individual: boolean;
   title: string;
   team_name: string;
   fields: Array<string>;
