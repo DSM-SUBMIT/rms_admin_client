@@ -13,13 +13,12 @@ import {
 } from '../containers';
 
 const MainRouter = () => {
-
   return (
     <>
-      <Modal/>
+      <Modal />
       <BrowserRouter>
         <Switch>
-          <Route exact path='/login' component={LoginContainer} />
+          <Route exact path='/' component={LoginContainer} />
           <Route exact path='/view/plan-list' component={ViewPlanListContainer} />
           <Route exact path='/view/report-list' component={ViewReportListContainer} />
           <Route exact path='/view/plan' component={ViewPlanContainer} />
