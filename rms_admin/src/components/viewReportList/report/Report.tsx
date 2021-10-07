@@ -8,8 +8,8 @@ const Report: FC<ReportType> = props => {
   const history = useHistory();
 
   const onClickReportDetail = () => {
-    history.push(`view/detail-report/${id}`);
-  }
+    history.push(`detail-report/${id}`);
+  };
 
   return (
     <S.ReportContainer onClick={onClickReportDetail}>
