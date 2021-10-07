@@ -1,15 +1,15 @@
-import React, { FC } from "react";
-import { useHistory } from "react-router";
-import { PlanType } from "../../../models/dto/response/planListResponse";
-import * as S from "../style";
+import React, { FC } from 'react';
+import { useHistory } from 'react-router';
+import { PlanType } from '../../../models/dto/response/planListResponse';
+import * as S from '../style';
 
 const Plan: FC<PlanType> = props => {
-  const { id, type, title, team_name, fields} = props;
+  const { id, is_individual, title, team_name, fields } = props;
   const history = useHistory();
 
   const onClickPlanDetail = () => {
-    history.push(`view/plan/${id}`);
-  }
+    history.push(`plan/${id}`);
+  };
 
   return (
     <S.PlanContainer onClick={onClickPlanDetail}>

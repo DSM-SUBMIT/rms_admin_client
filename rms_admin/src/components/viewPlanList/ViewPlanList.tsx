@@ -19,7 +19,7 @@ const ViewPlanList: FC<Props> = props => {
   const childProps = {
     page,
     totalPage,
-    setPage
+    setPage,
   };
 
   return (

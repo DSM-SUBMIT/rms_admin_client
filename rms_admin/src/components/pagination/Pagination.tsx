@@ -36,7 +36,7 @@ const Pagination: FC<Props> = props => {
       {Array(totalPage >= 5 ? 5 : totalPage)
         .fill(0)
         .map((v, i) => {
-          if (parseInt(String((page - 1) / 5)) * 5 + i + 1 > total_page) {
+          if (parseInt(String((page - 1) / 5)) * 5 + i + 1 > totalPage) {
             return '';
           }
           return (
