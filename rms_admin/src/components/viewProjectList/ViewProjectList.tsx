@@ -7,22 +7,27 @@ import ListItem from './listItem';
 import * as S from './style';
 
 interface Props {
+    page: number;
     projects: Array<ProjectsType>;
     total_page: number;
-    fields: CheckStateType;
+    field: CheckStateType;
     setField: (payload: CheckStateType) => void;
     setPage: (payload: number) => void;
   }
 
 const ViewProjectList : FC<Props> = props => {
-    const { projects, fields } = props;
-
+    const { page, projects, total_page, field, setField, setPage } = props;
+    const childProps = {
+        page,
+        total_page,
+        setPage
+    }
     return (
         <>
             <Header/>
             <S.Main>
                 <S.Center>
-                    <Category/>
+                    <Category field={field} setField={setField}/>
                     <S.ProjectArea>
                         <S.SearchArea>
                             <form>
@@ -44,7 +49,7 @@ const ViewProjectList : FC<Props> = props => {
                                     );
                                 })}
                         </S.ProjectList>
-                        <Pagination/>
+                        <Pagination {...childProps}/>
                     </S.ProjectArea>
                 </S.Center>
             </S.Main>

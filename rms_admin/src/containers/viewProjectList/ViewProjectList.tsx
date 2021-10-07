@@ -14,7 +14,7 @@ const ViewProjectListContainer: FC = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <ViewProjectList {...state} {...setState}/>
+      <ViewProjectList  {...setState}/>
     </Suspense>
   );
 };

@@ -11,8 +11,8 @@ export type CheckStateType = {
   app: boolean;
   game: boolean;
   embedded: boolean;
+  ai: boolean;
   security: boolean;
-  aiAndBigData: boolean;
 };
 
 export type ViewProjectResponseType = {
