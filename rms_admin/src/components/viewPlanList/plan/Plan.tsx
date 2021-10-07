@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import { PlanType } from "../../../models/dto/response/planListResponse";
-import * as S from "../style";
+import React, { FC } from 'react';
+import { PlanType } from '../../../models/dto/response/planListResponse';
+import * as S from '../style';
 
 const Plan: FC<PlanType> = props => {
-  const { id, type, title, team_name, fields} = props;
+  const { id, is_individual, title, team_name, fields } = props;
 
   return (
     <S.PlanContainer>
       <S.PlanContents>
-        <S.ProjectDivision>[{type}]</S.ProjectDivision>
+        <S.ProjectDivision>[{is_individual ? '개인' : '팀'}프로젝트]</S.ProjectDivision>
         <S.TitleFont>{title}</S.TitleFont>
         <S.Writer>{team_name}</S.Writer>
         <S.MajorFieldWrapper>

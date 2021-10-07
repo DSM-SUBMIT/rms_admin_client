@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import { PlanType } from '../../models/dto/response/planListResponse';
-import { setPage } from '../../modules/redux/action/planList';
 import * as S from './style';
 
 interface Props {
@@ -38,13 +36,15 @@ const Pagination: FC<Props> = props => {
       {Array(total_page >= 5 ? 5 : total_page)
         .fill(0)
         .map((v, i) => {
-          if((parseInt(String((page - 1) / 5)) * 5 + i + 1) > total_page){
+          if (parseInt(String((page - 1) / 5)) * 5 + i + 1 > total_page) {
             return '';
           }
           return (
             <S.PaginationButton
               key={i + 1}
-              style={{ color: parseInt(String((page - 1) / 5)) * 5 + i + 1 === page ? '#386BEE' : 'black' }}
+              style={{
+                color: parseInt(String((page - 1) / 5)) * 5 + i + 1 === page ? '#386BEE' : 'black',
+              }}
               onClick={() => {
                 onClickPageNumber(parseInt(String((page - 1) / 5)) * 5 + i + 1);
               }}
