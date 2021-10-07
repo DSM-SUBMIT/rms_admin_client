@@ -1,17 +1,14 @@
-import { call, put, select, takeLatest } from "redux-saga/effects";
-import {
-  REFRESH_TOKEN,
-  TOKEN,
-} from "../../action/login/interface";
-import { getToken, refreshToken } from "../../../../util/api/login";
-import { reducerType } from "../../reducer";
-import LoginState from "../../reducer/login/interface";
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { REFRESH_TOKEN, TOKEN } from '../../action/login/interface';
+import { getToken, refreshToken } from '../../../../util/api/login';
+import { reducerType } from '../../reducer';
+import LoginState from '../../reducer/login/interface';
 
 const getStateFunc = (state: reducerType): LoginState => state.login;
 
 export const loginRequestSaga = function* (): any {
-  const SUCCESS = "LOGIN/TOKEN_SUCCESS";
-  const FAILURE = "LOGIN/TOKEN_FAILURE";
+  const SUCCESS = 'LOGIN/TOKEN_SUCCESS';
+  const FAILURE = 'LOGIN/TOKEN_FAILURE';
   const state = yield select(getStateFunc);
 
   try {
@@ -27,7 +24,7 @@ export const loginRequestSaga = function* (): any {
     if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...error.response.data, type: "LOGIN/TOKEN" },
+        payload: { ...error.response.data, type: 'LOGIN/TOKEN' },
       });
     } else {
       yield put({
@@ -42,20 +39,18 @@ export const loginRequestSaga = function* (): any {
 };
 
 export const refreshTokenSaga = function* (action: any): any {
-  const SUCCESS = "REFRESH_TOKEN_SUCCESS";
-  const FAILURE = "REFRESH_TOKEN_FAILURE";
-  const callback = action.payload.callback;
+  const SUCCESS = 'REFRESH_TOKEN_SUCCESS';
+  const FAILURE = 'REFRESH_TOKEN_FAILURE';
   try {
     yield call(refreshToken);
     yield put({
       type: SUCCESS,
     });
-    yield call(callback);
   } catch (error: any) {
     if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...error.response.data, type: REFRESH_TOKEN},
+        payload: { ...error.response.data, type: REFRESH_TOKEN },
       });
     } else {
       yield put({
@@ -71,6 +66,7 @@ export const refreshTokenSaga = function* (action: any): any {
 
 function* loginSaga() {
   yield takeLatest(TOKEN, loginRequestSaga);
+  yield takeLatest(REFRESH_TOKEN, refreshTokenSaga);
 }
 
 export default loginSaga;

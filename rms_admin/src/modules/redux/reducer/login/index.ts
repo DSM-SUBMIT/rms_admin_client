@@ -1,29 +1,27 @@
-import { loginActionType } from "../../action/login";
+import { loginActionType } from '../../action/login';
 import {
   ERROR,
   ID,
   PASSWORD,
   REFRESH_TOKEN_FAILURE,
+  REFRESH_TOKEN_SUCCESS,
   TOKEN_FAILURE,
   TOKEN_SUCCESS,
-} from "../../action/login/interface";
-import LoginState from "./interface";
+} from '../../action/login/interface';
+import LoginState from './interface';
 
 const initState: LoginState = {
-  id: "",
-  password: "",
+  id: '',
+  password: '',
   error: {
-    type: "",
+    type: '',
     statusCode: 0,
-    message: "",
+    message: '',
   },
   isSuccessLogin: false,
 };
 
-const loginReducer = (
-  state: LoginState = initState,
-  action: loginActionType
-): LoginState => {
+const loginReducer = (state: LoginState = initState, action: loginActionType): LoginState => {
   switch (action.type) {
     case ID:
       return {
@@ -44,17 +42,23 @@ const loginReducer = (
       return {
         ...state,
         isSuccessLogin: true,
-      }
+      };
     case TOKEN_FAILURE:
       return {
         ...state,
         error: action.payload,
         isSuccessLogin: false,
       };
+    case REFRESH_TOKEN_SUCCESS:
+      return {
+        ...state,
+        isSuccessLogin: true,
+      };
     case REFRESH_TOKEN_FAILURE:
-      return{
+      return {
         ...state,
         error: action.payload,
+        isSuccessLogin: false,
       };
     default:
       return state;

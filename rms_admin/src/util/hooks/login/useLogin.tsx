@@ -20,8 +20,8 @@ const useLogin = () => {
     token: () => {
       dispatch(getToken());
     },
-    refresh_token: (callback: () => void) => {
-      dispatch(refreshToken({ callback }));
+    refresh_token: () => {
+      dispatch(refreshToken());
     },
   };
   return {
