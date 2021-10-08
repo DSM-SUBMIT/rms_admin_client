@@ -29,7 +29,7 @@ const ViewPlanList: FC<Props> = props => {
         <S.PlanListWrapper>
           <S.TitleFont>승인 요청된 계획서</S.TitleFont>
           <S.PlanListContainer>
-            {projects.map((v: PlanType, i: number): any => {
+            {projects.map((v: PlanType): any => {
               return <Plan {...v} key={v.id} />;
             })}
           </S.PlanListContainer>

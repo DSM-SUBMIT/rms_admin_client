@@ -1,4 +1,4 @@
-export type PlanType = {
+export type PlanResponseType = {
   id: number;
   project_type: string;
   is_individual: boolean;
@@ -7,8 +7,17 @@ export type PlanType = {
   fields: Array<string>;
 };
 
+export type PlanType = {
+  id: number;
+  projecType: string;
+  isIndividual: boolean;
+  title: string;
+  teamName: string;
+  fields: Array<string>;
+};
+
 export type PlanListResponseType = {
-  projects: Array<PlanType>;
+  projects: Array<PlanResponseType>;
   total_page: number;
   total_amount: number;
 };
