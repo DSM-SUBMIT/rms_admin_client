@@ -11,7 +11,7 @@ const ViewPlanListContainer: FC = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <ViewPlanList {...state} {...setState}/>
+      <ViewPlanList {...state} {...setState} />
     </Suspense>
   );
 };
