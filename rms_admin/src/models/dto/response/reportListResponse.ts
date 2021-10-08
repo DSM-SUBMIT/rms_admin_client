@@ -1,5 +1,14 @@
 export type ReportType = {
   id: number;
+  projectType: string;
+  isIndividual: boolean;
+  title: string;
+  teamName: string;
+  fields: Array<string>;
+};
+
+export type ReportResponseType = {
+  id: number;
   project_type: string;
   is_individual: boolean;
   title: string;
@@ -8,7 +17,7 @@ export type ReportType = {
 };
 
 export type ReportListResponseType = {
-  projects: Array<ReportType>;
+  projects: Array<ReportResponseType>;
   total_page: number;
   total_amount: number;
 };
