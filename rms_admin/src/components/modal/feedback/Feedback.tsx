@@ -21,7 +21,7 @@ const FeedbackModal: FC<Props> = ({ setClose, type }) => {
   useEffect(() => {
     setType(type);
     if (type === 'report') setState.setId(id.slice(28));
-    else if (type === 'plan') setState.setId(id.slice(11));
+    else if (type === 'plan') setState.setId(id.slice(26));
   }, [type]);
 
   const closeModalClickHandler = () => {
