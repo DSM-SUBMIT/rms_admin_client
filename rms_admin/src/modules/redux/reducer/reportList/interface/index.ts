@@ -1,11 +1,11 @@
-import { ReportType } from "../../../../../models/dto/response/reportListResponse";
-import { error } from "../../../../../models/error";
+import { ReportType } from '../../../../../models/dto/response/reportListResponse';
+import { error } from '../../../../../models/error';
 
-interface ReportListState{
+interface ReportListState {
   page: number;
   totalPage: number;
   totalAmount: number;
-  error: error| null;
+  error: error | null;
   projects: Array<ReportType>;
 }
 
