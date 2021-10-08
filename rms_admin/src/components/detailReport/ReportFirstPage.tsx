@@ -12,7 +12,7 @@ interface Props {
   projectName: string;
   writer: string;
   isIndividual: boolean;
-  writerStdNumber: number;
+  writerStdNumber: number | null;
 }
 
 const ReportFirstPage: FC<Props> = props => {

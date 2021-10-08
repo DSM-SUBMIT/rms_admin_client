@@ -24,7 +24,7 @@ const detailReportReducer = (
         content: action.payload.report.content,
         projectName: action.payload.project_name,
         isIndividual: action.payload.is_individual,
-        // writerStdNumber: action.payload.
+        writerStdNumber: action.payload.writer_number,
         writer: action.payload.writer,
       };
     case GET_REPORT_FAILURE:

@@ -5,7 +5,7 @@ interface DetailReportState {
   writer: string;
   id: string;
   projectName: string;
-  writerStdNumber: number;
+  writerStdNumber: number | null;
   error: error | null;
   isIndividual: boolean;
 }

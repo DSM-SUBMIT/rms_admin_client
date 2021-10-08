@@ -20,7 +20,7 @@ export type DetailReportResponseType = {
   writer: string;
   project_id: number;
   is_individual: boolean;
-  writerStudentNumber: number | null;
+  writer_number: number | null;
   report: {
     content: string;
   };

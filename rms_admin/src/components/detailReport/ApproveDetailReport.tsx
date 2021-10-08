@@ -17,7 +17,7 @@ interface Props {
   writer: string;
   projectName: string;
   isIndividual: boolean;
-  writerStdNumber: number;
+  writerStdNumber: number | null;
 }
 
 const ApproveDetailReport: FC<Props> = props => {
