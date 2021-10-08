@@ -8,7 +8,7 @@ const Report: FC<ReportType> = props => {
   const history = useHistory();
 
   const onClickReportDetail = () => {
-    history.push(`detail-report/${id}`);
+    history.push(`approve-detail-report/${id}`);
   };
 
   return (
