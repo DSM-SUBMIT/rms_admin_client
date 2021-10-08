@@ -15,25 +15,22 @@ const Header = () => {
   const { error } = loginState.state;
 
   useEffect(() => {
+    if (error?.statusCode === 401 && error.type === REFRESH_TOKEN) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('access_token_expiration_time');
+      history.replace('/');
+    }
+  }, [loginState.state.error]);
+
+  useEffect(() => {
     if (
       moment(localStorage.getItem('access_token_expiration_time')).diff(moment()) <= 0 &&
       localStorage.getItem('refresh_token')
     ) {
       loginState.setState.refresh_token();
     }
-  });
-
-  useEffect(() => {
-    if (
-      (error?.statusCode === 401 && error.type === REFRESH_TOKEN) ||
-      (!localStorage.getItem('refresh_token') && !localStorage.getItem('access_token'))
-    ) {
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('refresh_token');
-      alert('로그인 후 이용해주세요.');
-      history.push('/');
-    }
-  }, [error]);
+  }, []);
 
   const onClickChangePasswordModal = () => {
     setState.setModalOn('changePassword');
