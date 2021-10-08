@@ -1,3 +1,5 @@
+import { error } from '../../../../../models/error';
+
 interface ModalState {
   type: string;
   postType: string;
@@ -5,6 +7,7 @@ interface ModalState {
   isSuccessSaveFeedback: boolean | undefined;
   id: string;
   approveType: string;
+  error: error | null;
 }
 
 export default ModalState;

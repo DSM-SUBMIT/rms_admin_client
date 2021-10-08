@@ -1,6 +1,7 @@
 import { modalActionType } from '../../action/modal';
 import {
   APPROVETYPE,
+  FEEDBACK,
   FEEDBACK_FAILURE,
   FEEDBACK_SUCCESS,
   ID,
@@ -18,6 +19,7 @@ const initState: ModalState = {
   isSuccessSaveFeedback: undefined,
   id: '',
   approveType: '',
+  error: null,
 };
 
 const modalReducer = (state: ModalState = initState, action: modalActionType): ModalState => {
@@ -28,6 +30,11 @@ const modalReducer = (state: ModalState = initState, action: modalActionType): M
     case MODAL_OFF: {
       return { ...state, type: action.payload };
     }
+    case FEEDBACK:
+      return {
+        ...state,
+        isSuccessSaveFeedback: undefined,
+      };
     case FEEDBACK_SUCCESS:
       return {
         ...state,
@@ -36,6 +43,7 @@ const modalReducer = (state: ModalState = initState, action: modalActionType): M
     case FEEDBACK_FAILURE:
       return {
         ...state,
+        error: action.payload,
         isSuccessSaveFeedback: false,
       };
     case SET_COMMENT:
