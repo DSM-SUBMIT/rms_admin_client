@@ -4,24 +4,43 @@ export type MemberType = {
 };
 
 export type IncludesType = {
-  result_report: boolean,
+  resultReport: boolean;
   code: boolean;
   outcome: boolean;
-  others: boolean;
-  others_content: string;
-}
+  others: string | false;
+};
 
 export type PlanContentType = {
   goal: string;
   content: string;
-  start_date: string;
-  end_date: string;
+  startDate: string;
+  endDate: string;
   includes: IncludesType;
 };
 
-export type PlanDetailType = {
+export type IncludesResponseType = {
+  result_report: boolean;
+  code: boolean;
+  outcome: boolean;
+  others: string;
+};
+
+export type PlanContentResponseType = {
+  goal: string;
+  content: string;
+  start_date: string;
+  end_date: string;
+  includes: IncludesResponseType;
+};
+
+export type DetailPlanResponseType = {
+  project_id: number;
   project_name: string;
+  project_type: string;
+  is_individual: boolean;
   writer: string;
+  writer_number: number;
   members: Array<MemberType>;
-  plan: PlanContentType;
+  fields: Array<string>;
+  plan: PlanContentResponseType;
 };
