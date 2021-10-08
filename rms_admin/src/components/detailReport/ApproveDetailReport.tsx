@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
@@ -10,6 +10,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useHistory } from 'react-router-dom';
 import { getDownloadFile } from '../../util/api/detailReport';
+import { useModal } from '../../util/hooks/modal';
 
 interface Props {
   id: string;
@@ -25,6 +26,20 @@ const ApproveDetailReport: FC<Props> = props => {
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isFeedbackModalClick, setIsFeedbackModalClick] = useState<boolean>(false);
   const history = useHistory();
+  const modalState = useModal().state;
+
+  useEffect(() => {
+    if (modalState.isSuccessSaveFeedback) {
+      history.push('/view/report-list');
+      alert('승인/미승인을 성공하였습니다.');
+    } else if (modalState.isSuccessSaveFeedback === false) {
+      if (modalState.error?.statusCode === 409) {
+        alert('이미 승인 여부가 결정된 프로젝트입니다.');
+      } else {
+        alert('승인/미승인을 실패하였습니다. 다시 시도해 주세요.');
+      }
+    }
+  }, [modalState.isSuccessSaveFeedback]);
 
   const feedbackBtnClickHandler = () => {
     setIsFeedbackModalClick(true);

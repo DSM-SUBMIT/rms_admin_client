@@ -36,16 +36,12 @@ const FeedbackModal: FC<Props> = ({ setClose, type }) => {
     setClose(false);
     setState.setApproveType('approve');
     dispatch({ type: FEEDBACK });
-    if (type === 'report') history.push('/view/report-list');
-    else if (type === 'plan') history.push('/view/plan-list');
   };
 
   const disApproveBtnClickHandler = () => {
     setClose(false);
     setState.setApproveType('deny');
     dispatch({ type: FEEDBACK });
-    if (type === 'report') history.push('/view/report-list');
-    else if (type === 'plan') history.push('/view/plan-list');
   };
 
   return (
