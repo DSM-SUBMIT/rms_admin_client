@@ -7,8 +7,8 @@ import ModalState from '../../reducer/modal/interface';
 const getStateFunc = (state: reducerType): ModalState => state.modal;
 
 export const feedbackRequestSaga = function* (): any {
-  const SUCCESS = 'LOGIN/TOKEN_SUCCESS';
-  const FAILURE = 'LOGIN/TOKEN_FAILURE';
+  const SUCCESS = 'MODAL/FEEDBACK_SUCCESS';
+  const FAILURE = 'MODAL/FEEDBACK_FAILURE';
   const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
@@ -28,7 +28,7 @@ export const feedbackRequestSaga = function* (): any {
     if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...error.response.data, type: 'LOGIN/TOKEN' },
+        payload: { ...error.response.data, type: 'MODAL/FEEDBACK' },
       });
     } else {
       yield put({
