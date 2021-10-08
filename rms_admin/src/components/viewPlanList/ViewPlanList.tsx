@@ -19,7 +19,7 @@ const ViewPlanList: FC<Props> = props => {
   const childProps = {
     page,
     totalPage,
-    setPage
+    setPage,
   };
 
   return (
@@ -29,13 +29,11 @@ const ViewPlanList: FC<Props> = props => {
         <S.PlanListWrapper>
           <S.TitleFont>승인 요청된 계획서</S.TitleFont>
           <S.PlanListContainer>
-            {projects.map((v: PlanType, i: number): any => {
-              return(
-                <Plan {...v} key={v.id}/>
-              )
+            {projects.map((v: PlanType): any => {
+              return <Plan {...v} key={v.id} />;
             })}
           </S.PlanListContainer>
-          <Pagination {...childProps}/>
+          <Pagination {...childProps} />
         </S.PlanListWrapper>
       </S.ViewPlanList>
     </>

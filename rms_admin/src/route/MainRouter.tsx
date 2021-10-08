@@ -21,7 +21,7 @@ const MainRouter = () => {
           <Route exact path='/' component={LoginContainer} />
           <Route exact path='/view/plan-list' component={ViewPlanListContainer} />
           <Route exact path='/view/report-list' component={ViewReportListContainer} />
-          <Route exact path='/view/plan' component={ViewPlanContainer} />
+          <Route exact path='/view/plan/:id' component={ViewPlanContainer} />
           <Route exact path='/search' component={SearchProjectListContainer} />
           <Route exact path='/view/project-list' component={ViewProjectListContainer} />
           <Route exact path='/view/detail-report/:id' component={DetailReportContainer} />
