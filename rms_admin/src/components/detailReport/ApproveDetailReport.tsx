@@ -3,23 +3,26 @@ import * as S from './style';
 import Header from '../header/Header';
 import ReportFirstPage from './ReportFirstPage';
 import WritedReport from './WritedReport';
-import { APPROVEBTN, VIDEODOWNLOAD } from '../../constance/detailReport';
+import { APPROVEBTN, DOWNLOADING, VIDEODOWNLOAD } from '../../constance/detailReport';
 import { video } from '../../asset/detailReport';
 import FeedbackModal from '../modal/feedback';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useHistory } from 'react-router-dom';
+import { getDownloadFile } from '../../util/api/detailReport';
 
 interface Props {
   id: string;
   content: string;
   writer: string;
-  videoUrl: string;
   projectName: string;
+  isIndividual: boolean;
+  writerStdNumber: number;
 }
 
 const ApproveDetailReport: FC<Props> = props => {
-  const { content, projectName, writer, videoUrl, id } = props;
+  const { content, projectName, writer, isIndividual, id, writerStdNumber } = props;
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isFeedbackModalClick, setIsFeedbackModalClick] = useState<boolean>(false);
   const history = useHistory();
 
@@ -28,8 +31,8 @@ const ApproveDetailReport: FC<Props> = props => {
   };
 
   const videoDownloadBtnClickHandler = () => {
-    const videoPage = window.open('about:blank');
-    (videoPage as Window).location.href = videoUrl;
+    getDownloadFile(id, projectName);
+    setIsDownloading(true);
   };
 
   const viewPlanBtnClickHandler = () => {
@@ -73,7 +76,12 @@ const ApproveDetailReport: FC<Props> = props => {
       {isFeedbackModalClick && <FeedbackModal type={'report'} setClose={setIsFeedbackModalClick} />}
       <Header />
       <S.Pages id='pdf'>
-        <ReportFirstPage projectName={projectName} writer={writer} />
+        <ReportFirstPage
+          projectName={projectName}
+          writer={writer}
+          isIndividual={isIndividual}
+          writerStdNumber={writerStdNumber}
+        />
         {makeContentArray.map((data: string, id: number) => {
           return <WritedReport isSecondPage={id === 0 ? true : false} content={data} />;
         })}
@@ -81,7 +89,15 @@ const ApproveDetailReport: FC<Props> = props => {
       <S.BtnLine>
         <div>
           <S.VideoImg src={video} onClick={videoDownloadBtnClickHandler} />
-          <S.VideoDownload onClick={videoDownloadBtnClickHandler}>{VIDEODOWNLOAD}</S.VideoDownload>
+          <S.VideoDownload onClick={videoDownloadBtnClickHandler}>
+            {VIDEODOWNLOAD}
+            {isDownloading && (
+              <S.DownloadingMessage>
+                <br />
+                {DOWNLOADING}
+              </S.DownloadingMessage>
+            )}
+          </S.VideoDownload>
         </div>
         <div>
           {APPROVEBTN.map(data => {
