@@ -145,9 +145,14 @@ export const VideoImg = styled.img`
 `;
 
 export const VideoDownload = styled.p`
-  width: 150px;
+  width: 260px;
   font-size: 18px;
   font-weight: bold;
   margin-left: 8px;
   cursor: pointer;
+`;
+
+export const DownloadingMessage = styled.span`
+  font-size: 10px;
+  color: ${color.main};
 `;
