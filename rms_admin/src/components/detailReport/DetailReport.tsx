@@ -60,7 +60,7 @@ const DetailReport: FC<Props> = props => {
         heightLeft -= pageHeight;
       }
 
-      pdf.save('report.pdf');
+      pdf.save(`${projectName}.pdf`);
     });
     (document.getElementById('pdf') as HTMLElement).style.paddingTop = '54px';
   };
