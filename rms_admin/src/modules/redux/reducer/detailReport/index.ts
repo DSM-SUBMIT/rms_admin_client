@@ -5,9 +5,10 @@ import DetailReportState from './interface';
 const initState: DetailReportState = {
   content: '',
   projectName: '',
-  videoUrl: '',
   writer: '',
   id: '',
+  isIndividual: false,
+  writerStdNumber: 1101,
   error: null,
 };
 
@@ -19,9 +20,11 @@ const detailReportReducer = (
     case GET_REPORT_SUCCESS:
       return {
         ...state,
+        id: String(action.payload.project_id),
         content: action.payload.report.content,
         projectName: action.payload.project_name,
-        videoUrl: action.payload.report.video_url,
+        isIndividual: action.payload.is_individual,
+        // writerStdNumber: action.payload.
         writer: action.payload.writer,
       };
     case GET_REPORT_FAILURE:
