@@ -33,7 +33,7 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
         ...state,
         currentPage: action.payload.currentPage,
         projects: action.payload.projects,
-        total_page: action.payload.total_Page,
+        total_page: action.payload.total_page,
       };
     case GET_VIEW_PROJECT_FAILURE:
       return {

@@ -15,6 +15,8 @@ const rootReducer = combineReducers({
   modal: modalReducer,
   chagePassword: changePasswordReducer,
   reportList: reportListReducer,
+  searchProject: searchProjectReducer,
+  viewProject: viewProjectReducer
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;

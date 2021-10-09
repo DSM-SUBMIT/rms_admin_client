@@ -32,5 +32,5 @@ export type ProjectsType = {
 export type ViewProjectResponseType = {
   currentPage: number;
   projects: Array<ProjectsType>;
-  total_Page: number;
+  total_page: number;
 };

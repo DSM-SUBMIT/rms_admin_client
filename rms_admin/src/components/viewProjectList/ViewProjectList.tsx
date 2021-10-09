@@ -11,7 +11,7 @@ interface Props {
     currentPage: number;
     page: number;
     projects: Array<ProjectsType>;
-    total_page: number;
+    totalPage: number;
     field: CategoryStateType;
     setField: (payload: CategoryStateType) => void;
     setPage: (payload: number) => void;
@@ -19,12 +19,12 @@ interface Props {
   }
 
 const ViewProjectList : FC<Props> = props => {
-    const { currentPage ,page, projects, total_page, field, setField, setPage, setCurrentProjectId } = props;
+    const { currentPage ,page, projects, totalPage, field, setField, setPage, setCurrentProjectId } = props;
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const childProps = {
         page,
-        total_page,
+        totalPage,
         setPage
     }
       const projectViewModal = useMemo(() => {
