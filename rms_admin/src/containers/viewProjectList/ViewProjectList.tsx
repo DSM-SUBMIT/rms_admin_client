@@ -2,15 +2,17 @@ import React, { FC, Suspense, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { ViewProjectList } from "../../components";
 import { GET_VIEW_PROJECT } from "../../modules/redux/action/viewProject/interface";
-import { useViewProject } from "../../util/hooks/viewProject";
+import useViewProject from "../../util/hooks/viewProject/useViewProject";
 
 const ViewProjectListContainer: FC = () => {
   const { state, setState } = useViewProject();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({type: GET_VIEW_PROJECT});
-  }, [state.page]);
+    dispatch({ type: GET_VIEW_PROJECT});
+  }, );
+
+  // [state.field, state.page]
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

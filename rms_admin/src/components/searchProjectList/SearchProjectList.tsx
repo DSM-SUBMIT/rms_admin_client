@@ -4,22 +4,23 @@ import Header from '../header/Header';
 import ListItem from './listItem';
 import useSearchProject from '../../util/hooks/searchProject/useSearchProject'
 import { ProjectsType } from '../../constance/viewProject';
+import Pagination from '../pagination/Pagination';
 
 interface Props {
     page: number;
     projects: Array<ProjectsType>;
-    total_page: number;
+    totalPage: number;
     total_amount: number;
     query: string;
     setPage: (payload: number) => void;
-    setPlanList: () => void;
+    setPlanList: (payload: string) => void;
 }
 
 const SearchProjectList: FC<Props> = props => {
-    const { page, projects, total_page, query, setPage } = props;
+    const { page, projects, totalPage, query, setPage } = props;
     const childProps = {
         page,
-        total_page,
+        totalPage,
         setPage
     };
     const { setState, state  } = useSearchProject();
@@ -48,6 +49,7 @@ const SearchProjectList: FC<Props> = props => {
                             })}
                         {/* <S.SearchResult>검색결과가 없습니다<br/>검색어를 다시 입력해주세요!</S.SearchResult> */}
                     </S.SearchList>
+                    <Pagination {...childProps}/>
                 </S.Center>
             </S.Main>
         </>

@@ -2,9 +2,9 @@ import { call, put, select, takeLatest } from '@redux-saga/core/effects';
 import { getPlanList } from '../../../../util/api/planList';
 import { GET_PLAN_LIST } from '../../action/planList/interface';
 import { reducerType } from '../../reducer';
-import planListState from '../../reducer/planList/interface';
+import PlanListState from '../../reducer/planList/interface';
 
-const getStateFunc = (state: reducerType): planListState => state.planList;
+const getStateFunc = (state: reducerType): PlanListState => state.planList;
 
 const getPlanListSaga = function* (): any {
   const type = "PLANLIST/GET_PLAN_LIST";

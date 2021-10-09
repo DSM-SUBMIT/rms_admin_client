@@ -1,20 +1,26 @@
-import React, { FC } from "react";
-import * as S from "../style";
+import React, { FC } from 'react';
+import { useHistory } from 'react-router';
+import { ReportType } from '../../../models/dto/response/reportListResponse';
+import * as S from '../style';
 
-const Report: FC = () => {
+const Report: FC<ReportType> = props => {
+  const { id, isIndividual, title, teamName, fields } = props;
+  const history = useHistory();
+
+  const onClickReportDetail = () => {
+    history.push(`approve-detail-report/${id}`);
+  };
+
   return (
-    <S.ReportContainer>
+    <S.ReportContainer onClick={onClickReportDetail}>
       <S.ReportContents>
-        <S.ProjectDivision>[팀프로젝트]</S.ProjectDivision>
-        <S.TitleFont>보고서 관리 시스템</S.TitleFont>
-        <S.Writer>서브밋</S.Writer>
+        <S.ProjectDivision>[{isIndividual ? '팀' : '개인'}프로젝트]</S.ProjectDivision>
+        <S.TitleFont>{title}</S.TitleFont>
+        <S.Writer>{teamName}</S.Writer>
         <S.MajorFieldWrapper>
-          <S.MajorField>보안</S.MajorField>
-          <S.MajorField>임베디드</S.MajorField>
-          <S.MajorField>인공지능/빅데이터</S.MajorField>
-          <S.MajorField>게임</S.MajorField>
-          <S.MajorField>웹</S.MajorField>
-          <S.MajorField>앱</S.MajorField>
+          {fields.map((v: string, i: number) => {
+            return <S.MajorField key={i}>{v}</S.MajorField>;
+          })}
         </S.MajorFieldWrapper>
       </S.ReportContents>
     </S.ReportContainer>

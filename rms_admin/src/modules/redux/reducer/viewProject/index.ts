@@ -4,6 +4,7 @@ import {
   GET_VIEW_PROJECT_FAILURE,
   FIELD,
   PAGE,
+  CURRENTPROJECTID
 } from '../../action/viewProject/interface';
 import ViewProjectState from './interface';
 
@@ -12,6 +13,7 @@ const initState: ViewProjectState= {
   projects: [],
   total_page: 1,
   error: null,
+  currentPage: 1,
   field: {
     web: false,
     app: false,
@@ -21,6 +23,7 @@ const initState: ViewProjectState= {
     aiAndBigData: false,
   },
   page: 1,
+  currentProjectId: 1
 };
 
 const viewProjectReducer = (state: ViewProjectState = initState, action: viewProjectActionType) => {
@@ -28,7 +31,7 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
     case GET_VIEW_PROJECT_SUCCESS:
       return {
         ...state,
-        total_amount: action.payload.total_amount,
+        currentPage: action.payload.currentPage,
         projects: action.payload.projects,
         total_page: action.payload.total_page,
       };
@@ -46,8 +49,13 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
           game: action.payload.game,
           embedded: action.payload.embedded,
           security: action.payload.security,
-          aiAndBigData: action.payload.aiAndBigData,
+          ai: action.payload.aiAndBigData,
         },
+      };
+    case CURRENTPROJECTID:
+      return {
+        ...state,
+        currentProjectId: action.payload,
       };
     case PAGE:
       return {

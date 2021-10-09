@@ -8,18 +8,18 @@ import { PlanType } from '../../models/dto/response/planListResponse';
 interface Props {
   page: number;
   projects: Array<PlanType>;
-  total_page: number;
-  total_amount: number;
+  totalPage: number;
+  totalAmount: number;
   setPage: (payload: number) => void;
   setPlanList: () => void;
 }
 
 const ViewPlanList: FC<Props> = props => {
-  const { page, projects, total_page, setPage } = props;
+  const { page, projects, totalPage, setPage } = props;
   const childProps = {
     page,
-    total_page,
-    setPage
+    totalPage,
+    setPage,
   };
 
   return (
@@ -29,13 +29,11 @@ const ViewPlanList: FC<Props> = props => {
         <S.PlanListWrapper>
           <S.TitleFont>승인 요청된 계획서</S.TitleFont>
           <S.PlanListContainer>
-            {projects.map((v: PlanType, i: number): any => {
-              return(
-                <Plan {...v} key={v.id}/>
-              )
+            {projects.map((v: PlanType): any => {
+              return <Plan {...v} key={v.id} />;
             })}
           </S.PlanListContainer>
-          <Pagination {...childProps}/>
+          <Pagination {...childProps} />
         </S.PlanListWrapper>
       </S.ViewPlanList>
     </>
