@@ -49,7 +49,7 @@ const ViewProjectList : FC<Props> = props => {
                                     );
                                 })}
                         </S.ProjectList>
-                        <Pagination {...childProps}/>
+                        <Pagination/>
                     </S.ProjectArea>
                 </S.Center>
             </S.Main>

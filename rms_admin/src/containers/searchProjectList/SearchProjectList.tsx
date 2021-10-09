@@ -6,12 +6,12 @@ const SearchProjectListContainer: FC = () => {
   const { setState, state } = useSearchProject();
 
   useEffect(() => {
-    setState.setSearchProject();
+    setState.getSearchProject();
   }, [state.query]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <SearchProjectList />
+      <SearchProjectList {...state} {...setState}/>
     </Suspense>
   );
 };

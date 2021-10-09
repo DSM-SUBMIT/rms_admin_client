@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { getSearchProject } from "../../../modules/redux/action/searchProject";
+import { getSearchProject, setPage } from "../../../modules/redux/action/searchProject";
 import { useSelectState } from "../default";
 
 
@@ -7,9 +7,12 @@ const useSearchProject = () => {
   const dispatch = useDispatch();
   const state = useSelectState().searchProject;
   const setState = {
-    setSearchProject: () => {
+    getSearchProject: () => {
       dispatch(getSearchProject());
-    }
+    },
+    setPage: (payload: number) => {
+      dispatch(setPage(payload));
+    },
   }
   return {state, setState};
 };

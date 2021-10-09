@@ -6,14 +6,14 @@ import SearchProjectState from '../../reducer/searchProject/interface';
 
 const getStateFunc = (state: reducerType): SearchProjectState => state.searchProject;
 
-const getSearchProjectSaga = function* (): any {
+export const getSearchProjectSaga = function* (): any {
   const type = "PROJECT/GET_SEARCH_PROJECT";
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield call(getSearchProject, accessToken, state.query);
+    const response = yield call(getSearchProject, accessToken, state.query, state.page);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,

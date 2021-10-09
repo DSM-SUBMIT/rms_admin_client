@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ListItem from './listItem';
+import useSearchProject from '../../util/hooks/searchProject/useSearchProject'
 import { ProjectsType } from '../../constance/viewProject';
 
 interface Props {
@@ -21,6 +22,10 @@ const SearchProjectList: FC<Props> = props => {
         total_page,
         setPage
     };
+    const { setState, state  } = useSearchProject();
+    // const onSubmitSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setState.getSearching(e.target.value)
+    // }
 
     return (
         <>
@@ -30,11 +35,15 @@ const SearchProjectList: FC<Props> = props => {
                     <S.SearchArea>
                         <form>
                             <h3>"{query}"에 대한 검색결과 입니다.</h3>
-                            <input type="search" name="search" placeholder="보고서를 입력하세요"/>
+                            <input
+                                type="search" name="search"
+                                placeholder="보고서를 입력하세요"
+                                
+                            />
                         </form>
                     </S.SearchArea>
                     <S.SearchList>
-                        {projects.map((v: ProjectsType, i: number) => {
+                        {projects.map((v: ProjectsType, i: number) : any => {
                                 return <ListItem {...v} key={i} />;
                             })}
                         {/* <S.SearchResult>검색결과가 없습니다<br/>검색어를 다시 입력해주세요!</S.SearchResult> */}

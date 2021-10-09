@@ -20,3 +20,4 @@ export type ViewProjectResponseType = {
   total_amount: number;
   projects: Array<ProjectsType>;
 }
+
