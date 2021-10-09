@@ -23,9 +23,9 @@ const SearchProjectList: FC<Props> = props => {
         setPage
     };
     const { setState, state  } = useSearchProject();
-    const onSubmitSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState.getSearching(e.target.value)
-    }
+    // const onSubmitSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setState.getSearching(e.target.value)
+    // }
 
     return (
         <>
@@ -38,7 +38,7 @@ const SearchProjectList: FC<Props> = props => {
                             <input
                                 type="search" name="search"
                                 placeholder="보고서를 입력하세요"
-                                onChange={onSubmitSearch}
+                                
                             />
                         </form>
                     </S.SearchArea>

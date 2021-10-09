@@ -16,6 +16,12 @@ interface Props {
 
 const ViewProjectList : FC<Props> = props => {
     const { projects, fields } = props;
+    const childProps = {
+        page,
+        total_page,
+        setPage
+      };
+    
 
     return (
         <>
@@ -44,7 +50,7 @@ const ViewProjectList : FC<Props> = props => {
                                     );
                                 })}
                         </S.ProjectList>
-                        <Pagination/>
+                        <Pagination />
                     </S.ProjectArea>
                 </S.Center>
             </S.Main>

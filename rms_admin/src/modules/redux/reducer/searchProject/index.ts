@@ -3,8 +3,7 @@ import { searchProjectActionType } from '../../action/searchProject';
 import {
   GET_SEARCH_PROJECT_FAILURE,
   GET_SEARCH_PROJECT_SUCCESS,
-  PAGE,
-  SEARCHING
+  PAGE
 } from '../../action/searchProject/interface';
 
 const initState: SearchProjectState = {
@@ -34,11 +33,6 @@ const searchProjectReducer = (state: SearchProjectState = initState, action: sea
       return {
         ...state,
         page: action.payload,
-      }
-    case SEARCHING:
-      return {
-        ...state,
-        query: action.payload
       }
     default:
       return state;
