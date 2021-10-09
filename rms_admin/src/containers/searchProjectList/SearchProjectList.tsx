@@ -1,5 +1,6 @@
 import React, { FC, Suspense, useEffect } from "react";
 import { SearchProjectList } from "../../components";
+import { getSearchProject } from "../../modules/redux/action/searchProject";
 import useSearchProject from "../../util/hooks/searchProject/useSearchProject";
 
 const SearchProjectListContainer: FC = () => {
@@ -11,7 +12,7 @@ const SearchProjectListContainer: FC = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <SearchProjectList {...state} {...setState}/>
+      {/* <SearchProjectList {...state} {...setState}/> */}
     </Suspense>
   );
 };

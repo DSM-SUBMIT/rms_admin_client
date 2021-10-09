@@ -2,19 +2,37 @@ import React, {FC} from 'react';
 import * as S from '../style';
 
 interface Props {
+    id: number;
     type: string;
     title: string;
     team_name: string;
     fields: Array<string>;
+    setCurrentProjectId: (payload: number) => void;
+    setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
 // const TagName = ['보안', '인공지능 / 빅데이터', '임베디드', '게임', '웹', '앱']
   
-const ListItem: FC<Props> = ({ title, type, team_name, fields}) => {
+const ListItem: FC<Props> = props => {
+    const {
+        id,
+        title,
+        type,
+        team_name,
+        fields,
+        setCurrentProjectId,
+        setIsOpenModal
+      } = props;
+
+    const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+    setCurrentProjectId(Number(event.currentTarget.dataset.id));
+    setIsOpenModal(true)
+    };
+
     return (
-        <S.Item>
-            <S.Type>[{title}]</S.Type>
-            <S.Title>{type}</S.Title>
+        <S.Item onClick={projectClickHandler} data-id={id}>
+            <S.Type>{type}</S.Type>
+            <S.Title>[{title}]</S.Title>
             <S.Team>{team_name}</S.Team>
             <S.TagArea>
                 {fields.map((content, i) => {

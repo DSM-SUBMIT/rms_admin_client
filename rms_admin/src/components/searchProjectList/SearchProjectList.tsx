@@ -12,7 +12,7 @@ interface Props {
     total_amount: number;
     query: string;
     setPage: (payload: number) => void;
-    setPlanList: () => void;
+    setPlanList: (payload: string) => void;
 }
 
 const SearchProjectList: FC<Props> = props => {

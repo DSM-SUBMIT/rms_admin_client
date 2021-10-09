@@ -1,4 +1,4 @@
-import { CheckStateType, ProjectsType } from '../../../../../constance/viewProject';
+import { CategoryStateType, ProjectsType } from '../../../../../constance/viewProject';
 import { error } from '../../../../../models/error';
 
 interface ViewProjectState {
@@ -7,7 +7,7 @@ interface ViewProjectState {
   projects: Array<ProjectsType>;
   total_page: number;
   error: error | null;
-  field: CheckStateType;
+  field: CategoryStateType;
   page: number;
   currentProjectId: number;
 }
