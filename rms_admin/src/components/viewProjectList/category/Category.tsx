@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
 import * as S from '../style'
-import { CategoryBox, DataIdType, FieldMapPropsType, CheckStateType } from '../../../constance/category';
+import { CategoryBox, DataIdType, FieldMapPropsType, CategoryStateType } from '../../../constance/viewProject';
 
 interface Props {
-    field: CheckStateType;
-    setField: (payload : CheckStateType) => void;
+    field: CategoryStateType;
+    setField: (payload : CategoryStateType) => void;
 }
 
 const Category: FC<Props> = props => {
@@ -17,7 +17,6 @@ const Category: FC<Props> = props => {
       };
 
     return (
-
         <S.CategoryArea>
         <h3>분야 선택</h3>
         <S.Category>

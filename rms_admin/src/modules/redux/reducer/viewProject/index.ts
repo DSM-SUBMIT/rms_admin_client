@@ -20,7 +20,7 @@ const initState: ViewProjectState= {
     game: false,
     embedded: false,
     security: false,
-    ai: false,
+    aiAndBigData: false,
   },
   page: 1,
   currentProjectId: 1
@@ -31,9 +31,9 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
     case GET_VIEW_PROJECT_SUCCESS:
       return {
         ...state,
-        total_amount: action.payload.total_amount,
+        currentPage: action.payload.currentPage,
         projects: action.payload.projects,
-        total_page: action.payload.total_page,
+        total_page: action.payload.total_Page,
       };
     case GET_VIEW_PROJECT_FAILURE:
       return {
@@ -49,7 +49,7 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
           game: action.payload.game,
           embedded: action.payload.embedded,
           security: action.payload.security,
-          ai: action.payload.ai,
+          ai: action.payload.aiAndBigData,
         },
       };
     case CURRENTPROJECTID:

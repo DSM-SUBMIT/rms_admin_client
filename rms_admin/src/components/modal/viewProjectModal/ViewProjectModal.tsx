@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from '.';
 import { git, api, fn, closeModalIcon} from '../../../asset'
 
-const ViewProjectModal = () => {
+interface Props {
+    setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+
+const ViewProjectModal : FC<Props> = props => {
+    const { setIsOpenModal } = props;
+
+    const closeBoxClickHandler = () => {
+        if (setIsOpenModal !== undefined) setIsOpenModal(false);
+    };
+
     return (
         <S.Main>
             <S.Modal>
-                <S.Close>
+                <S.Close onClick={closeBoxClickHandler}>
                     <img src={closeModalIcon} alt="close"/>
                 </S.Close>
                 <S.ProjectName>오늘 저녁은 뿌링클</S.ProjectName>

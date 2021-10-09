@@ -1,23 +1,36 @@
-export type ProjectsType = {
-  id: number;
-  type: string;
-  title: string;
-  team_name: string;
-  fields: Array<string>;
-};
+export const CategoryBox: Array<FieldMapPropsType> = [
+    { id : 'web', span : '웹' },
+    { id : 'app', span : '앱' },
+    { id : 'embedded', span : '임베디드' },
+    { id : 'game', span : '게임' },
+    { id : 'aiAndBigData', span : '인공지능 / 빅데이터' },
+    { id : 'security', span : '보안' }
+  ]
 
-export type CheckStateType = {
+export type CategoryStateType = {
   web: boolean;
   app: boolean;
   game: boolean;
   embedded: boolean;
-  ai: boolean;
   security: boolean;
+  aiAndBigData: boolean;
 };
 
-export type ViewProjectResponseType = {
-  total_page: number;
-  total_amount: number;
-  projects: Array<ProjectsType>;
-}
+export type DataIdType = 'web' | 'app' | 'game' | 'embedded' | 'security' | 'aiAndBigData';
+export type FieldMapPropsType = {
+  id: DataIdType;
+  span: string;
+};
+export type ProjectsType = {
+    id: number;
+    type: string;
+    title: string;
+    team_name: string;
+    fields: Array<string>;
+  };
 
+export type ViewProjectResponseType = {
+  currentPage: number;
+  projects: Array<ProjectsType>;
+  total_Page: number;
+};

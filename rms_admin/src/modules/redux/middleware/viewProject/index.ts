@@ -7,13 +7,13 @@ import ViewProjectState from '../../reducer/viewProject/interface';
 const getStateFunc = (state: reducerType): ViewProjectState => state.viewProject;
 
 const viewProjectGetSaga = function* (): any {
-  const type = 'MAIN/GET_VIEW_PROJECT';
+  const type = 'VIEW/GET_VIEW_PROJECT';
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
-    const response = yield(call as any)(getViewProject, accessToken, state.page, state.field);
+    const response = yield call(getViewProject, accessToken, state.page, state.field);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
