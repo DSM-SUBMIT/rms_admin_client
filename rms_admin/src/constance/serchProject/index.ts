@@ -1,13 +1,14 @@
-export type ProjectsType = {
+export type ProjectType = {
   id: number;
-  type: string;
+  project_type: string;
+  is_individual: boolean;
   title: string;
   team_name: string;
   fields: Array<string>;
 };
 
-export type SearchProjectResponseType = {
+export type SearchProjectType = {
   total_page: number;
   total_amount: number;
-  projects: Array<ProjectsType>;
+  projects: Array<ProjectType>;
 }

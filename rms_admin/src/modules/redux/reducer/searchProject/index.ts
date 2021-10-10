@@ -15,14 +15,13 @@ const initState: SearchProjectState = {
   error: null,
 };
 
-const searchProjectReducer = (state: SearchProjectState = initState, action: searchProjectActionType): SearchProjectState => {
+const searchProjectReducer = (state: SearchProjectState = initState, action: searchProjectActionType) => {
   switch (action.type) {
     case GET_SEARCH_PROJECT_SUCCESS:
       return {
         ...state,
+        projects: action.payload.projects,
         total_page: action.payload.total_page,
-        total_amount: action.payload.total_amount,
-        projects: action.payload.projects
       };
     case GET_SEARCH_PROJECT_FAILURE:
       return {
@@ -33,7 +32,7 @@ const searchProjectReducer = (state: SearchProjectState = initState, action: sea
       return {
         ...state,
         page: action.payload,
-      }
+      };
     default:
       return state;
   }
