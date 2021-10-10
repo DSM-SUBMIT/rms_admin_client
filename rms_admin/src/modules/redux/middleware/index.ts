@@ -14,6 +14,8 @@ export default function* rootSaga() {
     detailReportSaga(),
     planListSaga(),
     changePasswordSaga(),
+    viewProjectSaga(),
+    searchProjectSaga(),
     reportListSaga(),
     modalSaga(),
   ]);

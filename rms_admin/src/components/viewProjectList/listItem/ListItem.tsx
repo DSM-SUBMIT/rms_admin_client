@@ -3,7 +3,7 @@ import * as S from '../style';
 
 interface Props {
     id: number;
-    type: string;
+    project_type: string;
     title: string;
     team_name: string;
     fields: Array<string>;
@@ -12,12 +12,12 @@ interface Props {
   }
 
 // const TagName = ['보안', '인공지능 / 빅데이터', '임베디드', '게임', '웹', '앱']
-  
+
 const ListItem: FC<Props> = props => {
     const {
         id,
         title,
-        type,
+        project_type,
         team_name,
         fields,
         setCurrentProjectId,
@@ -31,7 +31,7 @@ const ListItem: FC<Props> = props => {
 
     return (
         <S.Item onClick={projectClickHandler} data-id={id}>
-            <S.Type>{type}</S.Type>
+            <S.Type>{project_type}</S.Type>
             <S.Title>[{title}]</S.Title>
             <S.Team>{team_name}</S.Team>
             <S.TagArea>

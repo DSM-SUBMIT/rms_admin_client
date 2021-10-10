@@ -51,7 +51,7 @@ const ViewProjectList : FC<Props> = props => {
                                     return(
                                         <ListItem
                                             id={data.id}
-                                            type={data.type}
+                                            project_type={data.project_type}
                                             title={data.title}
                                             team_name={data.team_name}
                                             fields={data.fields}
