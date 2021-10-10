@@ -23,7 +23,7 @@ export type FieldMapPropsType = {
 };
 export type ProjectsType = {
     id: number;
-    type: string;
+    project_type: string;
     title: string;
     team_name: string;
     fields: Array<string>;
