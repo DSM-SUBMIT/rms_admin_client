@@ -1,4 +1,4 @@
-import { ProjectsType } from '../../../../../constance/serchProject';
+import { ProjectType } from '../../../../../constance/serchProject';
 import { error } from '../../../../../models/error';
 
 interface SearchProjectState{
@@ -7,7 +7,7 @@ interface SearchProjectState{
   error: error | null;
   query: string;
   page: number;
-  projects: Array<ProjectsType>;
+  projects: Array<ProjectType>;
 }
 
 export default SearchProjectState;

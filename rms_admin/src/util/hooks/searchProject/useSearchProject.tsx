@@ -7,8 +7,8 @@ const useSearchProject = () => {
   const dispatch = useDispatch();
   const state = useSelectState().searchProject;
   const setState = {
-    getSearchProject: () => {
-      dispatch(getSearchProject());
+    getSearchProject: (payload: string) => {
+      dispatch(getSearchProject(payload));
     },
     setPage: (payload: number) => {
       dispatch(setPage(payload));
