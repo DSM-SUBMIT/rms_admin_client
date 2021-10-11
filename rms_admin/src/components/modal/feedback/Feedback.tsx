@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { closeModalIcon } from '../../../asset';
-import { setType } from '../../../modules/redux/action/modal';
 import { FEEDBACK } from '../../../modules/redux/action/modal/interface';
 import { useModal } from '../../../util/hooks/modal';
 import * as S from './style';
@@ -19,9 +18,9 @@ const FeedbackModal: FC<Props> = ({ setClose, type }) => {
   const id = useLocation().pathname;
 
   useEffect(() => {
-    setType(type);
+    setState.setType(type);
     if (type === 'report') setState.setId(id.slice(28));
-    else if (type === 'plan') setState.setId(id.slice(26));
+    else if (type === 'plan') setState.setId(id.slice(11));
   }, [type]);
 
   const closeModalClickHandler = () => {
