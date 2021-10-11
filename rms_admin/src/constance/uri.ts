@@ -4,6 +4,7 @@ enum uri {
   project = '/projects',
   viewPlanReportList = '/projects/pending',
   changePassword = '/auth/password',
+  detailPlan = '/projects',
   feedback = '/projects/confirm',
 }
 
