@@ -10,6 +10,7 @@ import {
   ViewProjectListContainer,
   DetailReportContainer,
   ApproveDetailReportContainer,
+  ViewApprovePlanContainer,
 } from '../containers';
 
 const MainRouter = () => {
@@ -30,6 +31,7 @@ const MainRouter = () => {
             path='/view/approve-detail-report/:id'
             component={ApproveDetailReportContainer}
           />
+          <Route exact path='/view/approve-detail-plan/:id' component={ViewApprovePlanContainer} />
         </Switch>
       </BrowserRouter>
     </>

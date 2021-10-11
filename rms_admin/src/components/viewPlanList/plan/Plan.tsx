@@ -8,7 +8,7 @@ const Plan: FC<PlanType> = props => {
   const history = useHistory();
 
   const onClickPlanDetail = () => {
-    history.push(`plan/${id}`);
+    history.push(`approve-detail-plan/${id}`);
   };
 
   return (
