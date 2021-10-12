@@ -1,4 +1,4 @@
-import { createAction } from "typesafe-actions";
+import { createAction } from 'typesafe-actions';
 import {
   ERROR,
   ID,
@@ -9,8 +9,8 @@ import {
   TOKEN,
   TOKEN_FAILURE,
   TOKEN_SUCCESS,
-} from "./interface";
-import { error } from "../../../../models/error";
+} from './interface';
+import { error } from '../../../../models/error';
 
 export const setId = createAction(ID)<string>();
 export const setPassword = createAction(PASSWORD)<string>();
@@ -18,7 +18,7 @@ export const setError = createAction(ERROR)<error>();
 export const getToken = createAction(TOKEN)();
 export const getTokenSuccess = createAction(TOKEN_SUCCESS)();
 export const getTokenFailure = createAction(TOKEN_FAILURE)<error>();
-export const refreshToken = createAction(REFRESH_TOKEN)<{ callback: () => void}>();
+export const refreshToken = createAction(REFRESH_TOKEN)();
 export const refreshTokenFailure = createAction(REFRESH_TOKEN_FAILURE)<error>();
 export const refreshTokenSuccess = createAction(REFRESH_TOKEN_SUCCESS)();
 
