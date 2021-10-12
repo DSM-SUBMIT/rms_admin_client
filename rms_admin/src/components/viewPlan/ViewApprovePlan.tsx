@@ -19,6 +19,7 @@ const ViewPlan: FC<DetailPlanState> = props => {
     if (modalState.isSuccessSaveFeedback) {
       history.push('/view/plan-list');
       alert('승인/미승인을 성공하였습니다.');
+      window.location.reload();
     } else if (modalState.isSuccessSaveFeedback === false) {
       if (modalState.error?.statusCode === 409) {
         alert('이미 승인 여부가 결정된 프로젝트입니다.');
@@ -26,6 +27,7 @@ const ViewPlan: FC<DetailPlanState> = props => {
         window.location.reload();
       } else {
         alert('승인/미승인을 실패하였습니다. 다시 시도해 주세요.');
+        window.location.reload();
       }
     }
   }, [modalState.isSuccessSaveFeedback]);
