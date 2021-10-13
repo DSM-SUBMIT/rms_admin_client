@@ -20,6 +20,8 @@ const Header = () => {
       localStorage.removeItem('refresh_token');
       localStorage.removeItem('access_token_expiration_time');
       history.replace('/');
+      alert('로그인 후 이용해주세요');
+      window.location.reload();
     }
   }, [loginState.state.error]);
 
