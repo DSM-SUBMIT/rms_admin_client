@@ -10,7 +10,7 @@ import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
 interface Props {
     page: number;
     projects: Array<ProjectType>;
-    totalPage: number;
+    total_page: number;
     total_amount: number;
     query: string;
     setQuery: (Payload: string) => void;
@@ -19,11 +19,11 @@ interface Props {
 }
 
 const SearchProjectList: FC<Props> = props => {
-    const { page, projects, totalPage, query, setPage, setQuery, setCurrentProjectId } = props;
+    const { page, projects, total_page, query, setPage, setQuery, setCurrentProjectId } = props;
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const childProps = {
         page,
-        totalPage,
+        total_page,
         setPage
     };
 
@@ -35,10 +35,6 @@ const SearchProjectList: FC<Props> = props => {
 
     useEffect(() => {
         switch (state.query) {
-            // case setQuery:
-            //     return;
-            // case null:
-            //     return;
         }
     })
 
@@ -65,21 +61,21 @@ const SearchProjectList: FC<Props> = props => {
                         {projects.map((data: ProjectType) : any => {
                             return (
                                 <ListItem 
-                                id={data.id}
-                                title={data.title}
-                                project_type={data.project_type}
-                                team_name={data.team_name}
-                                fields={data.fields}
-                                is_individual={data.is_individual}
-                                key={data.id}
-                                setCurrentProjectId={setCurrentProjectId}
-                                setIsOpenModal={setIsOpenModal}
+                                    id={data.id}
+                                    title={data.title}
+                                    project_type={data.project_type}
+                                    team_name={data.team_name}
+                                    fields={data.fields}
+                                    is_individual={data.is_individual}
+                                    key={data.id}
+                                    setCurrentProjectId={setCurrentProjectId}
+                                    setIsOpenModal={setIsOpenModal}
                                 />
                             );
                         })}
                         {/* <S.SearchResult>검색결과가 없습니다<br/>검색어를 다시 입력해주세요!</S.SearchResult> */}
                     </S.SearchList>
-                    <Pagination {...childProps}/>
+                    <Pagination totalPage={total_page} {...childProps}/>
                 </S.Center>
             </S.Main>
         </>
