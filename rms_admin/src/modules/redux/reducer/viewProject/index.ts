@@ -9,11 +9,10 @@ import {
 import ViewProjectState from './interface';
 
 const initState: ViewProjectState= {
-  total_amount: 1,
+  totalAmount: 1,
   projects: [],
-  total_page: 1,
+  totalPage: 1,
   error: null,
-  currentPage: 1,
   field: {
     web: false,
     app: false,
@@ -22,8 +21,7 @@ const initState: ViewProjectState= {
     security: false,
     aiAndBigData: false,
   },
-  page: 1,
-  currentProjectId: 1
+  page: 1
 };
 
 const viewProjectReducer = (state: ViewProjectState = initState, action: viewProjectActionType) => {
@@ -31,9 +29,8 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
     case GET_VIEW_PROJECT_SUCCESS:
       return {
         ...state,
-        currentPage: action.payload.currentPage,
         projects: action.payload.projects,
-        total_page: action.payload.total_page,
+        totalPage: action.payload.total_page,
       };
     case GET_VIEW_PROJECT_FAILURE:
       return {

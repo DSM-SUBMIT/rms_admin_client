@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { CategoryStateType } from '../../../constance/viewProject';
 import { setField, setPage, setCurrentProjectId } from '../../../modules/redux/action/viewProject';
+import ViewProjectState from '../../../modules/redux/reducer/viewProject/interface';
 import { useSelectState } from '../default';
 
 const useViewProject = () => {
   const dispatch = useDispatch();
-  const state = useSelectState().viewProject;
+  const state:ViewProjectState = useSelectState().viewProject;
   const setState = {
     setField: (payload: CategoryStateType) => {
       dispatch(setField(payload));

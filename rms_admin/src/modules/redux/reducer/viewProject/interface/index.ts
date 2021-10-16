@@ -2,14 +2,12 @@ import { CategoryStateType, ProjectsType } from '../../../../../constance/viewPr
 import { error } from '../../../../../models/error';
 
 interface ViewProjectState {
-  currentPage: number;
-  total_amount: number;
+  totalAmount: number;
   projects: Array<ProjectsType>;
-  total_page: number;
+  totalPage: number;
   error: error | null;
   field: CategoryStateType;
   page: number;
-  currentProjectId: number;
 }
 
 

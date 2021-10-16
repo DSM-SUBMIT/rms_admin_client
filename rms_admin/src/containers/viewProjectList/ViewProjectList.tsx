@@ -10,8 +10,8 @@ const ViewProjectListContainer: FC = () => {
 
   useEffect(() => {
     dispatch({type: GET_VIEW_PROJECT});
-  }, );
-  // [state.page, state.filed]
+  }, [state.page, state.field]);
+  // 
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

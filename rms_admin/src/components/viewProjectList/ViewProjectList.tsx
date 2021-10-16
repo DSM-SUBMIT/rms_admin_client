@@ -8,18 +8,16 @@ import * as S from './style';
 import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal'
 
 interface Props {
-    currentPage: number;
     page: number;
     projects: Array<ProjectsType>;
     totalPage: number;
     field: CategoryStateType;
     setField: (payload: CategoryStateType) => void;
     setPage: (payload: number) => void;
-    setCurrentProjectId: (payload: number) => void;
   }
 
 const ViewProjectList : FC<Props> = props => {
-    const { currentPage ,page, projects, totalPage, field, setField, setPage, setCurrentProjectId } = props;
+    const { page, projects, totalPage, field, setField, setPage } = props;
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const childProps = {
@@ -56,7 +54,6 @@ const ViewProjectList : FC<Props> = props => {
                                             team_name={data.team_name}
                                             fields={data.fields}
                                             key={data.id}
-                                            setCurrentProjectId={setCurrentProjectId}
                                             setIsOpenModal={setIsOpenModal}
                                         />
                                     );

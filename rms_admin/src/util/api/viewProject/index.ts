@@ -1,6 +1,6 @@
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
-import { CategoryStateType } from '../../../constance/viewProject';
+import { CategoryStateType, ViewProjectResponseType } from '../../../constance/viewProject';
 
 const setField = (field: CategoryStateType) => {
   let fields: Array<string> = [];
@@ -15,7 +15,7 @@ const setField = (field: CategoryStateType) => {
 export const getViewProject = async (access_token: string, page: number, field: CategoryStateType) => {
   try {
     const request = getRequestWithAccessToken(access_token);
-    return await request.get(uri.viewProject + '?page=' + page + '&size=5&field=' + setField(field));
+    return await request.get<ViewProjectResponseType>(uri.viewProject + '?page=' + page + '&size=5&field=' + setField(field));
   } catch (error) {
     throw error;
   }
