@@ -1,4 +1,5 @@
 import { call, put, select, takeLatest } from '@redux-saga/core/effects';
+import { PayloadAction } from 'typesafe-actions';
 import { getSearchProject } from '../../../../util/api/searchProject';
 import { GET_SEARCH_PROJECT } from '../../action/searchProject/interface';
 import { reducerType } from '../../reducer';
@@ -6,7 +7,7 @@ import SearchProjectState from '../../reducer/searchProject/interface';
 
 const getStateFunc = (state: reducerType): SearchProjectState => state.searchProject;
 
-export const getSearchProjectSaga = function* (): any {
+export const getSearchProjectSaga = function* (action:PayloadAction<string, string>): any {
   const type = "PROJECT/GET_SEARCH_PROJECT";
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;

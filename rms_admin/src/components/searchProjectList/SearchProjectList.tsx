@@ -6,58 +6,57 @@ import { ProjectType } from '../../constance/serchProject';
 import Pagination from '../pagination/Pagination';
 import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal';
 import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
+import { useHistory } from 'react-router';
 
 interface Props {
     page: number;
     projects: Array<ProjectType>;
     totalPage: number;
-    total_amount: number;
+    totalAmount: number;
     query: string;
-    setQuery: (Payload: string) => void;
+    setQuery: (payload: string) => void;
+    getSearchProject: () => void;
     setPage: (payload: number) => void;
-    setCurrentProjectId: (payload: number) => void;
 }
 
 const SearchProjectList: FC<Props> = props => {
-    const { page, projects, totalPage, query, setPage, setQuery, setCurrentProjectId } = props;
-    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const history = useHistory();
+    const { page, projects, totalPage, query, setPage, setQuery } = props;
+    const {state, setState } = useSearchProject();
+    const [searchResult, setSearchResult] = useState<boolean>(false);
+    // const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const childProps = {
         page,
         totalPage,
         setPage
     };
 
-    const projectViewModal = useMemo(() => {
-    if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>
-    }, [isOpenModal]);
+    // const projectViewModal = useMemo(() => {
+    // if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>
+    // }, [isOpenModal]);
 
-    const { state, setState } = useSearchProject();
-
-    useEffect(() => {
-        switch (state.query) {
-            // case setQuery:
-            //     return;
-            // case null:
-            //     return;
-        }
-    })
+    const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("search");
+        
+    }
 
     return (
         <>
-            {projectViewModal}
+            {/* {projectViewModal} */}
             <Header/>
             <S.Main>
                 <S.Center>
                     <S.SearchArea>
-                        <form>
-                            <h3>"{query}"에 대한 검색결과 입니다.</h3>
+                        <form onSubmit={searching}>
+                            <h3>"{setState.setQuery}"에 대한 검색결과 입니다.</h3>
                             <input
                                 type="search" name="search"
                                 placeholder="보고서를 입력하세요"
                                 onChange={(event) => {
-                                setQuery(event.target.value);
+                                    setState.setQuery(event.target.value);
                                 }}
-                                value={query}
+                                value={state.query}
                             />
                         </form>
                     </S.SearchArea>
@@ -72,8 +71,6 @@ const SearchProjectList: FC<Props> = props => {
                                 fields={data.fields}
                                 is_individual={data.is_individual}
                                 key={data.id}
-                                setCurrentProjectId={setCurrentProjectId}
-                                setIsOpenModal={setIsOpenModal}
                                 />
                             );
                         })}

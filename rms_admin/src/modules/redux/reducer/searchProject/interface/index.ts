@@ -2,8 +2,8 @@ import { ProjectType } from '../../../../../constance/serchProject';
 import { error } from '../../../../../models/error';
 
 interface SearchProjectState{
-  total_page: number;
-  total_amount: number;
+  totalPage: number;
+  totalAmount: number;
   error: error | null;
   query: string;
   page: number;
