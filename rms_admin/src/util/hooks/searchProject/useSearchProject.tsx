@@ -15,7 +15,7 @@ const useSearchProject = () => {
     },
     setPage: (payload: number) => {
       dispatch(setPage(payload));
-    },
+    }
   }
   return {state, setState};
 };

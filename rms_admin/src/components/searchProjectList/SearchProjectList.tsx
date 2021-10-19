@@ -20,14 +20,11 @@ interface Props {
 }
 
 const SearchProjectList: FC<Props> = props => {
-    const history = useHistory();
-    const { page, projects, totalPage, query, setPage, setQuery } = props;
-    const {state, setState } = useSearchProject();
-    const [searchResult, setSearchResult] = useState<boolean>(false);
-    // const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const { page, projects, totalPage, query, setPage, setQuery, setCurrentProjectId } = props;
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const childProps = {
         page,
-        totalPage,
+        total_page,
         setPage
     };
 
@@ -40,6 +37,15 @@ const SearchProjectList: FC<Props> = props => {
         console.log("search");
         
     }
+
+    useEffect(() => {
+        switch (state.query) {
+            // case setQuery:
+            //     return;
+            // case null:
+            //     return;
+        }
+    })
 
     return (
         <>
@@ -71,12 +77,14 @@ const SearchProjectList: FC<Props> = props => {
                                 fields={data.fields}
                                 is_individual={data.is_individual}
                                 key={data.id}
+                                setCurrentProjectId={setCurrentProjectId}
+                                setIsOpenModal={setIsOpenModal}
                                 />
                             );
                         })}
                         {/* <S.SearchResult>검색결과가 없습니다<br/>검색어를 다시 입력해주세요!</S.SearchResult> */}
                     </S.SearchList>
-                    <Pagination {...childProps}/>
+                    <Pagination totalPage={total_page} {...childProps}/>
                 </S.Center>
             </S.Main>
         </>

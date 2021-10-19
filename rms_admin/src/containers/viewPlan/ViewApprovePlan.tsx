@@ -1,8 +1,7 @@
 import React, { FC, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
-import { ViewPlan } from '../../components';
-import Header from '../../components/header/Header';
+import { useHistory, useParams } from 'react-router-dom';
+import { ViewApprovePlan } from '../../components/viewPlan';
 import { GET_DETAIL_PLAN } from '../../modules/redux/action/plan/interface';
 import UseDetailPlan from '../../util/hooks/plan';
 
@@ -10,7 +9,7 @@ type DetailPlanParams = {
   id: string;
 };
 
-const ViewPlanContainer: FC = () => {
+const ViewApprovePlanContainer: FC = () => {
   const { state, setState } = UseDetailPlan();
   const { id } = useParams<DetailPlanParams>();
   const history = useHistory();
@@ -39,10 +38,9 @@ const ViewPlanContainer: FC = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Header />
-      <ViewPlan {...state} />
+      <ViewApprovePlan {...state} />
     </Suspense>
   );
 };
 
-export default ViewPlanContainer;
+export default ViewApprovePlanContainer;
