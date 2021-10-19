@@ -7,7 +7,7 @@ import SearchProjectState from '../../reducer/searchProject/interface';
 
 const getStateFunc = (state: reducerType): SearchProjectState => state.searchProject;
 
-export const getSearchProjectSaga = function* (action: PayloadAction<'SEARCH_PROJECT/GET_SEARCH_PROJECT', string>): any {
+export const getSearchProjectSaga = function* (action:PayloadAction<string, string>): any {
   const type = "PROJECT/GET_SEARCH_PROJECT";
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;

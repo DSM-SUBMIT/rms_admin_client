@@ -8,16 +8,13 @@ interface Props {
   title: string;
   fields: Array<string>;
   is_individual: boolean;
-  setCurrentProjectId: (payload: number) => void;
-  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ListItem: FC<Props> = props => {
-  const { id, project_type, title, team_name, fields, is_individual, setCurrentProjectId, setIsOpenModal, } = props;
+  const { id, project_type, title, team_name, fields, is_individual } = props;
   
   const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    setCurrentProjectId(Number(event.currentTarget.dataset.id));
-    setIsOpenModal(true);
+    
   };
   return (
     <S.Item onClick={projectClickHandler}>

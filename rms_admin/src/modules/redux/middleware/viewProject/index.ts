@@ -26,7 +26,7 @@ const viewProjectGetSaga = function* (): any {
       });
     } else {
       yield put({
-        type: FAILURE,
+        type: FAILURE, 
         payload: {
           message: 'Network Error',
           status: 500,
