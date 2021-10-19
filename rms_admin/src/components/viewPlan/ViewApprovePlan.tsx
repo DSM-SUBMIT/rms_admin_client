@@ -1,14 +1,41 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import DetailPlanState from '../../modules/redux/reducer/plan/interface';
-import ProjectMember from './projectMember/ProjectMember';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import * as S from './style';
 import SoloPlanTable from './planTable/SoloPlanTable';
 import TeamPlanTable from './planTable/TeamPlanTable';
+import FeedbackModal from '../modal/feedback';
+import { useModal } from '../../util/hooks/modal';
+import { useHistory } from 'react-router';
 import { Header } from '../header/style';
 
 const ViewPlan: FC<DetailPlanState> = props => {
+  const [isFeedbackModalClick, setIsFeedbackModalClick] = useState<boolean>(false);
+  const modalState = useModal().state;
+  const history = useHistory();
+
+  useEffect(() => {
+    if (modalState.isSuccessSaveFeedback) {
+      history.push('/view/plan-list');
+      alert('승인/미승인을 성공하였습니다.');
+      window.location.reload();
+    } else if (modalState.isSuccessSaveFeedback === false) {
+      if (modalState.error?.statusCode === 409) {
+        alert('이미 승인 여부가 결정된 프로젝트입니다.');
+        history.push('/view/plan-list');
+        window.location.reload();
+      } else {
+        alert('승인/미승인을 실패하였습니다. 다시 시도해 주세요.');
+        window.location.reload();
+      }
+    }
+  }, [modalState.isSuccessSaveFeedback]);
+
+  const feedbackBtnClickHandler = () => {
+    setIsFeedbackModalClick(true);
+  };
+
   const onClickPdfDownload = () => {
     const plan = document.getElementById('planTable')!;
 
@@ -39,11 +66,13 @@ const ViewPlan: FC<DetailPlanState> = props => {
   return (
     <>
       <Header />
+      {isFeedbackModalClick && <FeedbackModal type={'plan'} setClose={setIsFeedbackModalClick} />}
       <S.ViewPlanWrapper>
         <S.PlanTableWrapper>
           {props.isIndividual ? <SoloPlanTable {...props} /> : <TeamPlanTable {...props} />}
         </S.PlanTableWrapper>
         <S.ButtonsWrapper>
+          <S.Button onClick={feedbackBtnClickHandler}>승인/미승인</S.Button>
           <S.Button onClick={onClickPdfDownload}>다운로드</S.Button>
         </S.ButtonsWrapper>
       </S.ViewPlanWrapper>
