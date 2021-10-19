@@ -7,11 +7,8 @@ interface Props {
     title: string;
     team_name: string;
     fields: Array<string>;
-    setCurrentProjectId: (payload: number) => void;
-    setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
-// const TagName = ['보안', '인공지능 / 빅데이터', '임베디드', '게임', '웹', '앱']
 
 const ListItem: FC<Props> = props => {
     const {
@@ -19,14 +16,11 @@ const ListItem: FC<Props> = props => {
         title,
         project_type,
         team_name,
-        fields,
-        setCurrentProjectId,
-        setIsOpenModal
+        fields
       } = props;
 
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    setCurrentProjectId(Number(event.currentTarget.dataset.id));
-    setIsOpenModal(true)
+    
     };
 
     return (

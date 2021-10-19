@@ -6,6 +6,8 @@ import Category from './category';
 import ListItem from './listItem';
 import * as S from './style';
 import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal'
+import { useHistory } from 'react-router';
+import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
 
 interface Props {
     page: number;
@@ -17,30 +19,44 @@ interface Props {
   }
 
 const ViewProjectList : FC<Props> = props => {
+    const history = useHistory();
     const { page, projects, totalPage, field, setField, setPage } = props;
-    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const {state, setState} = useSearchProject();
+    // const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const childProps = {
         page,
         totalPage,
         setPage
     }
-      const projectViewModal = useMemo(() => {
-        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} />;
-      }, [isOpenModal]);
+    // const projectViewModal = useMemo(() => {
+    //     if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} />;
+    //   }, [isOpenModal]);
     
     return (
         <>
-            {projectViewModal}
+            {/* {projectViewModal} */}
             <Header/>
             <S.Main>
                 <S.Center>
                     <Category field={field} setField={setField}/>
                     <S.ProjectArea>
                         <S.SearchArea>
-                            <form>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                history.push(`project-list/search`)
+                                setState.setQuery(state.query)
+                            }}>
                                 <h2>승인된 프로젝트</h2>
-                                <input type="search" name="search" placeholder="보고서를 입력하세요"/>
+                                <input
+                                    type="search"
+                                    name="search"
+                                    placeholder="보고서를 입력하세요"
+                                    onChange={(e) => {
+                                        setState.setQuery(e.target.value)
+                                    }}
+                                    value={state.query}
+                                />
                             </form>
                         </S.SearchArea>
                         <S.ProjectList>
@@ -54,7 +70,6 @@ const ViewProjectList : FC<Props> = props => {
                                             team_name={data.team_name}
                                             fields={data.fields}
                                             key={data.id}
-                                            setIsOpenModal={setIsOpenModal}
                                         />
                                     );
                                 })}
