@@ -36,13 +36,15 @@ const Pagination: FC<Props> = props => {
       {Array(totalPage >= 5 ? 5 : totalPage)
         .fill(0)
         .map((v, i) => {
-          if((parseInt(String((page - 1) / 5)) * 5 + i + 1) > totalPage){
+          if (parseInt(String((page - 1) / 5)) * 5 + i + 1 > totalPage) {
             return '';
           }
           return (
             <S.PaginationButton
               key={i + 1}
-              style={{ color: parseInt(String((page - 1) / 5)) * 5 + i + 1 === page ? '#386BEE' : 'black' }}
+              style={{
+                color: parseInt(String((page - 1) / 5)) * 5 + i + 1 === page ? '#386BEE' : 'black',
+              }}
               onClick={() => {
                 onClickPageNumber(parseInt(String((page - 1) / 5)) * 5 + i + 1);
               }}
