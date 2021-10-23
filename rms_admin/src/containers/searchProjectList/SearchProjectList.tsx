@@ -10,7 +10,7 @@ const SearchProjectListContainer: FC = () => {
   
   useEffect(() => {
     dispatch({ type: GET_SEARCH_PROJECT });
-  }, [ state.page, state.query]);
+  }, [ state.page, state.query ]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
