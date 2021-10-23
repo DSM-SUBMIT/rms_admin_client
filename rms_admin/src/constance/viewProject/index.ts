@@ -10,13 +10,13 @@ export const CategoryBox: Array<FieldMapPropsType> = [
 export type CategoryStateType = {
   web: boolean;
   app: boolean;
-  game: boolean;
   embedded: boolean;
-  security: boolean;
+  game: boolean;
   aiAndBigData: boolean;
+  security: boolean;
 };
 
-export type DataIdType = 'web' | 'app' | 'game' | 'embedded' | 'security' | 'aiAndBigData';
+export type DataIdType = 'web' | 'app' | 'embedded' | 'game' | 'aiAndBigData' | 'security';
 export type FieldMapPropsType = {
   id: DataIdType;
   span: string;
