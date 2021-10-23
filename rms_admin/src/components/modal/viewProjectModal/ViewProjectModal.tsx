@@ -14,7 +14,8 @@ const ViewProjectModal : FC<Props> = props => {
     };
 
     return (
-        <S.Main>
+        <>
+            <S.Main onClick={closeBoxClickHandler}/>
             <S.Modal>
                 <S.Close onClick={closeBoxClickHandler}>
                     <img src={closeModalIcon} alt="close"/>
@@ -46,7 +47,7 @@ const ViewProjectModal : FC<Props> = props => {
                     </S.EtcButton>
                 </S.Etc>
             </S.Modal>
-        </S.Main>
+        </>
     );
 };
 
