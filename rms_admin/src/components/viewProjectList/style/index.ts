@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { color } from '../../../style';
 
 export const Main = styled.main`
@@ -14,10 +14,10 @@ export const Center = styled.div`
 `
 
 export const CategoryArea = styled.div`
-    width: 190px;
+    width: 205px;
     height: 233px;
     background-color: white;
-    margin-top: 125px;
+    margin-top: 105px;
     border-radius: 10px;
     border: 1px solid ${color.border};
     padding: 20px 22px;
@@ -25,14 +25,31 @@ export const CategoryArea = styled.div`
 
 export const Category = styled.form`
     margin-top: 15px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     div {
-        margin: 6px 0;
-    }
-    label {
-        padding-left: 10px;
-        font-size: 15px;
+        display: flex;
+        align-items: center;
+        label {
+            padding-left: 10px;
+            font-size: 15px;
+        }
     }
 `
+
+export const CheckDiv = styled.div<{
+    isClick: boolean;
+}>`
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    ${({ isClick }) => css`
+    background-color: ${isClick ? color.main : color.border};
+  `}
+`
+
 export const ProjectArea = styled.div`
     display: flex;
     flex-direction: column;
@@ -50,6 +67,7 @@ export const SearchArea = styled.section`
         border: 1px solid ${color.border};
         width: 190px;
         height: 30px;
+        font-size: 12px;
     }
     form {
         width: 525px;
@@ -76,6 +94,7 @@ export const Item = styled.li`
     border: none;
     justify-content: space-between;
     margin: 12px;
+    cursor: pointer;
 `
 
 export const Type = styled.span`
@@ -96,6 +115,7 @@ export const TagArea = styled.div`
 `
 
 export const Tag = styled.div`
+    height: 18px;
     font-size: 12px;
     color: ${color.main};
     padding: 2px 10px;

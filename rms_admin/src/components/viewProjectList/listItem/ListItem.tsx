@@ -7,6 +7,7 @@ interface Props {
     title: string;
     team_name: string;
     fields: Array<string>;
+    setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
 
@@ -17,13 +18,11 @@ const ListItem: FC<Props> = props => {
         project_type,
         team_name,
         fields,
-        setCurrentProjectId,
         setIsOpenModal
       } = props;
 
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    setCurrentProjectId(Number(event.currentTarget.dataset.id));
-    setIsOpenModal(true)
+        setIsOpenModal(true)
     };
 
     return (
