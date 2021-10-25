@@ -22,20 +22,26 @@ const ViewProjectList : FC<Props> = props => {
     const history = useHistory();
     const { page, projects, totalPage, field, setField, setPage } = props;
     const {state, setState} = useSearchProject();
-    // const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const childProps = {
         page,
         totalPage,
         setPage
     }
-    // const projectViewModal = useMemo(() => {
-    //     if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} />;
-    //   }, [isOpenModal]);
+
+const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        history.push(`project-list/search/${state.query}`);
+    }
+
+    const projectViewModal = useMemo(() => {
+        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} />;
+      }, [isOpenModal]);
     
     return (
         <>
-            {/* {projectViewModal} */}
+            {projectViewModal}
             <Header/>
             <S.Main>
                 <S.Center>
@@ -44,8 +50,7 @@ const ViewProjectList : FC<Props> = props => {
                         <S.SearchArea>
                             <form onSubmit={(e) => {
                                 e.preventDefault();
-                                history.push(`project-list/search`)
-                                setState.setQuery(state.query)
+                                history.push(`project-list/search/${state.query}`)
                             }}>
                                 <h2>승인된 프로젝트</h2>
                                 <input
@@ -55,7 +60,7 @@ const ViewProjectList : FC<Props> = props => {
                                     onChange={(e) => {
                                         setState.setQuery(e.target.value)
                                     }}
-                                    value={state.query}
+                                  value={state.query}
                                 />
                             </form>
                         </S.SearchArea>
@@ -70,6 +75,7 @@ const ViewProjectList : FC<Props> = props => {
                                             team_name={data.team_name}
                                             fields={data.fields}
                                             key={data.id}
+                                            setIsOpenModal={setIsOpenModal}
                                         />
                                     );
                                 })}

@@ -18,20 +18,20 @@ const Category: FC<Props> = props => {
 
     return (
         <S.CategoryArea>
-        <h3>분야 선택</h3>
-        <S.Category>
-            {CategoryBox &&
-                CategoryBox.map((props: FieldMapPropsType) => {
-                    return(
-                        <div>
-                            <input onClick={clickBtnHandler} type="checkbox" id={props.id}/>
-                            <label htmlFor={props.id}>{props.span}</label>
-                        </div>
-                    )
-                })
-            }
-        </S.Category>
-    </S.CategoryArea>
+            <h3>분야 선택</h3>
+            <S.Category>
+                {CategoryBox &&
+                    CategoryBox.map((item: FieldMapPropsType, i: number) => {
+                        return(
+                            <div key={i}>
+                                <S.CheckDiv onClick={clickBtnHandler} data-id={item.id} isClick={field[item.id]}></S.CheckDiv>
+                                <label htmlFor={item.id}>{item.span}</label>
+                            </div>
+                        )
+                    })
+                }
+            </S.Category>
+        </S.CategoryArea>
     );
 };
 
