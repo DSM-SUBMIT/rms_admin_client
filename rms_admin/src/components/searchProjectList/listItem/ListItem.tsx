@@ -1,20 +1,38 @@
 import React, { FC } from "react";
 import * as S from "../style";
 
-const ListItem: FC = () => {
+interface Props {
+  id: number;
+  project_type: string;
+  team_name: string;
+  title: string;
+  fields: Array<string>;
+  is_individual: boolean;
+}
+
+const ListItem: FC<Props> = props => {
+  const {
+    id,
+    project_type,
+    title, 
+    team_name, 
+    fields, 
+    is_individual
+  } = props;
+  
+  const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+    
+  };
   return (
-    <S.Item>
-    <S.Type>[팀 프로젝트]</S.Type>
-    <S.Title>보고서 관리 시스템</S.Title>
-    <S.Team>서브밋</S.Team>
-    <S.TagArea>
-        <S.Tag>보안</S.Tag>
-        <S.Tag>인공지능 / 빅데이터</S.Tag>
-        <S.Tag>임베디드</S.Tag>
-        <S.Tag>게임</S.Tag>
-        <S.Tag>웹</S.Tag>
-        <S.Tag>앱</S.Tag>
-    </S.TagArea>
+    <S.Item onClick={projectClickHandler} data-id={id}>
+      <S.Type>[{is_individual ? '개인' : '팀'}프로젝트]</S.Type>
+      <S.Title>{title}</S.Title>
+      <S.Team>{team_name}</S.Team>
+      <S.TagArea>
+        {fields.map((content: string, i: number) =>{
+          return <S.Tag key={i}>{content}</S.Tag>;
+        })}
+      </S.TagArea>
     </S.Item>
   );
 };

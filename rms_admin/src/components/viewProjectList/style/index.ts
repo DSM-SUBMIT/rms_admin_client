@@ -33,7 +33,6 @@ export const Category = styled.form`
         font-size: 15px;
     }
 `
-
 export const ProjectArea = styled.div`
     display: flex;
     flex-direction: column;
