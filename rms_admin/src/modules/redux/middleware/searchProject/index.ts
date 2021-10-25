@@ -8,7 +8,7 @@ import SearchProjectState from '../../reducer/searchProject/interface';
 const getStateFunc = (state: reducerType): SearchProjectState => state.searchProject;
 
 export const getSearchProjectSaga = function* (action:PayloadAction<string, string>): any {
-  const type = "PROJECT/GET_SEARCH_PROJECT";
+  const type = "SEARCH_PROJECT/GET_SEARCH_PROJECT";
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
   const state = yield select(getStateFunc);
@@ -26,6 +26,7 @@ export const getSearchProjectSaga = function* (action:PayloadAction<string, stri
         payload: { ...error.response.data, type: type },
       });
     } else {
+      console.log(error)
       yield put({
         type: FAILURE,
         payload: {

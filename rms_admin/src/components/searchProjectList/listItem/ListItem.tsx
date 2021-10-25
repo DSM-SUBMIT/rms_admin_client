@@ -11,13 +11,20 @@ interface Props {
 }
 
 const ListItem: FC<Props> = props => {
-  const { id, project_type, title, team_name, fields, is_individual } = props;
+  const {
+    id,
+    project_type,
+    title, 
+    team_name, 
+    fields, 
+    is_individual
+  } = props;
   
   const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     
   };
   return (
-    <S.Item onClick={projectClickHandler}>
+    <S.Item onClick={projectClickHandler} data-id={id}>
       <S.Type>[{is_individual ? '개인' : '팀'}프로젝트]</S.Type>
       <S.Title>{title}</S.Title>
       <S.Team>{team_name}</S.Team>
