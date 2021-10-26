@@ -4,7 +4,7 @@ export const PaginationWrapper = styled.ul`
   width: 235px;
   height: 90px;
   margin-top: 25px;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
