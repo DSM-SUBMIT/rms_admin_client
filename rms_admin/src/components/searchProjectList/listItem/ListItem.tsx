@@ -8,20 +8,22 @@ interface Props {
   title: string;
   fields: Array<string>;
   is_individual: boolean;
+  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ListItem: FC<Props> = props => {
   const {
     id,
     project_type,
-    title, 
+    title,
     team_name, 
     fields, 
-    is_individual
+    is_individual,
+    setIsOpenModal
   } = props;
   
   const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    
+    setIsOpenModal(true)
   };
   return (
     <S.Item onClick={projectClickHandler} data-id={id}>
