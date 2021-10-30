@@ -1,8 +1,8 @@
-import React, { FC, useState, useMemo, useEffect} from 'react';
+import React, { FC, useState, useMemo, useEffect } from 'react';
 import * as S from './style';
 import Header from '../header/Header';
 import ListItem from './listItem';
-import { ProjectType } from '../../constance/serchProject';
+import { ProjectType, SEARCH_RESULT } from '../../constance/serchProject';
 import Pagination from '../pagination/Pagination';
 import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal';
 import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
@@ -17,6 +17,7 @@ interface Props {
     totalAmount: number;
     getSearchProject: () => void;
     setPage: (payload: number) => void;
+    // setSearchResult?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 type SearchParams = {
@@ -24,10 +25,11 @@ type SearchParams = {
 }
 
 const SearchProjectList: FC<Props> = props => {
+    const [searchResult,  setSearchResult]= useState<string>();
+    // const { setSearchResult } = props;
     const history = useHistory();
     const dispatch = useDispatch();
     const { page, projects, totalPage, setPage } = props;
-
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const childProps = {
         page,
@@ -37,19 +39,29 @@ const SearchProjectList: FC<Props> = props => {
     const {state, setState} = useSearchProject();
     const { keyword } = useParams<SearchParams>();
 
-    // const projectViewModal = useMemo(() => {
-    // if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>
-    // }, [isOpenModal]);
+    useEffect(() => {
+        if(!projects && setSearchResult !== undefined) setSearchResult(SEARCH_RESULT);
+        else if(projects && setSearchResult !== undefined) setSearchResult("");
+    })
+
+    const projectViewModal = useMemo(() => {
+    if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>
+    }, [isOpenModal]);
 
     const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch({type : GET_SEARCH_PROJECT});
-        history.push(`/view/project-list/search/${state.query}`);
+        if(state.query == ""){
+            alert("검색어를 입력해주세요");
+        }
+        else history.push(`/view/project-list/search/${state.query}`);
+        if(!projects && setSearchResult !== undefined) setSearchResult(SEARCH_RESULT);
+        else if(projects && setSearchResult !== undefined) setSearchResult("");
     }
 
     return (
         <>
-            {/* {projectViewModal} */}
+            {projectViewModal}
             <Header/>
             <S.Main>
                 <S.Center>
@@ -57,7 +69,8 @@ const SearchProjectList: FC<Props> = props => {
                         <form onSubmit={searching}>
                             <h3>"{keyword}"에 대한 검색결과 입니다.</h3>
                             <input
-                                type="search" name="search"
+                                type="search"
+                                name="search"
                                 placeholder="보고서를 입력하세요"
                                 onChange={(e) => {
                                     setState.setQuery(e.target.value);
@@ -67,7 +80,8 @@ const SearchProjectList: FC<Props> = props => {
                         </form>
                     </S.SearchArea>
                     <S.SearchList>
-                        {projects.map((data: ProjectType) : any => {
+                        {projects &&
+                            projects.map((data: ProjectType) : any => {
                             return (
                                 <ListItem 
                                     id={data.id}
@@ -77,11 +91,11 @@ const SearchProjectList: FC<Props> = props => {
                                     fields={data.fields}
                                     is_individual={data.is_individual}
                                     key={data.id}
-                                    // setIsOpenModal={setIsOpenModal}
+                                    setIsOpenModal={setIsOpenModal}
                                 />
                             );
                         })}
-                        {/* <S.SearchResult>검색결과가 없습니다<br/>검색어를 다시 입력해주세요!</S.SearchResult> */}
+                        <S.SearchResult>{searchResult}</S.SearchResult>
                     </S.SearchList>
                     <Pagination {...childProps}/>
                 </S.Center>

@@ -24,7 +24,7 @@ const Category: FC<Props> = props => {
                     CategoryBox.map((item: FieldMapPropsType, i: number) => {
                         return(
                             <div key={i}>
-                                <S.CheckDiv onClick={clickBtnHandler} data-id={item.id} isClick={field[item.id]}></S.CheckDiv>
+                                <S.CheckDiv onClick={clickBtnHandler} id={item.id} data-id={item.id} isClick={field[item.id]}></S.CheckDiv>
                                 <label htmlFor={item.id}>{item.span}</label>
                             </div>
                         )

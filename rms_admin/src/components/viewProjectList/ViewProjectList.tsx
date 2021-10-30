@@ -8,6 +8,7 @@ import * as S from './style';
 import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal'
 import { useHistory } from 'react-router';
 import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
+import { SearchResult } from '../searchProjectList/style';
 
 interface Props {
     page: number;
@@ -32,7 +33,10 @@ const ViewProjectList : FC<Props> = props => {
 
 const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
-        history.push(`project-list/search/${state.query}`);
+        if(state.query == ""){
+            alert("검색어를 입력해주세요");
+        }
+        else history.push(`project-list/search/${state.query}`);
     }
 
     const projectViewModal = useMemo(() => {
@@ -48,10 +52,7 @@ const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
                     <Category field={field} setField={setField}/>
                     <S.ProjectArea>
                         <S.SearchArea>
-                            <form onSubmit={(e) => {
-                                e.preventDefault();
-                                history.push(`project-list/search/${state.query}`)
-                            }}>
+                            <form onSubmit={searching}>
                                 <h2>승인된 프로젝트</h2>
                                 <input
                                     type="search"
