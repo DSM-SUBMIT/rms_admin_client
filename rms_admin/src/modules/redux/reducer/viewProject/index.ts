@@ -18,8 +18,8 @@ const initState: ViewProjectState= {
     app: false,
     game: false,
     embedded: false,
-    security: false,
     aiAndBigData: false,
+    security: false,
   },
   page: 1
 };
@@ -45,8 +45,8 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
           app: action.payload.app,
           game: action.payload.game,
           embedded: action.payload.embedded,
+          aiAndBigData: action.payload.aiAndBigData,
           security: action.payload.security,
-          ai: action.payload.aiAndBigData,
         },
       };
     case CURRENTPROJECTID:
