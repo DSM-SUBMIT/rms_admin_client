@@ -36,7 +36,7 @@ export const ProjectName = styled.div`
     margin: 15px 0;
 `
 
-export const ViewButton = styled.div`
+export const ProjectViewButton = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,6 +49,7 @@ export const ViewButton = styled.div`
         border: 1px solid ${color.border};
         color: ${color.main};
         font-size: 15px;
+        cursor: pointer;    
     }
 `
 
@@ -76,6 +77,7 @@ export const EtcButton = styled.div`
         background-color: white;
         border: 1px solid ${color.border};
         border-radius: 10px;
+        cursor: pointer;
     }
     span {
         font-size: 7px;

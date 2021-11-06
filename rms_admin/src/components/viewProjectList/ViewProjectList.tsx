@@ -17,11 +17,12 @@ interface Props {
     field: CategoryStateType;
     setField: (payload: CategoryStateType) => void;
     setPage: (payload: number) => void;
-  }
+    setCurrentProjectId: (payload: number) => void;
+}
 
 const ViewProjectList : FC<Props> = props => {
     const history = useHistory();
-    const { page, projects, totalPage, field, setField, setPage } = props;
+    const { page, projects, totalPage, field, setField, setPage, setCurrentProjectId } = props;
     const {state, setState} = useSearchProject();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
@@ -40,8 +41,8 @@ const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
     }
 
     const projectViewModal = useMemo(() => {
-        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} />;
-      }, [isOpenModal]);
+        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} setCurrentProjectId={} {...state}/>;
+      }, [isOpenModal, state]);
     
     return (
         <>
@@ -77,6 +78,7 @@ const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
                                             fields={data.fields}
                                             key={data.id}
                                             setIsOpenModal={setIsOpenModal}
+                                            setCurrentProjectId={setCurrentProjectId}
                                         />
                                     );
                                 })}

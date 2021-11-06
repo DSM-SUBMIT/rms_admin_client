@@ -1,17 +1,25 @@
 import React, { FC } from 'react';
+import { useHistory } from 'react-router';
 import * as S from '.';
 import { git, api, fn, closeModalIcon} from '../../../asset'
 
 interface Props {
+    projectId: number;
     setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
-  }
+}
 
 const ViewProjectModal : FC<Props> = props => {
+    // const {id} = props;
+    const history = useHistory();
     const { setIsOpenModal } = props;
 
     const closeBoxClickHandler = () => {
         if (setIsOpenModal !== undefined) setIsOpenModal(false);
     };
+
+    const clickBtn = () => {
+        history.push(`/view/plan/`);
+    }
 
     return (
         <>
@@ -21,10 +29,10 @@ const ViewProjectModal : FC<Props> = props => {
                     <img src={closeModalIcon} alt="close"/>
                 </S.Close>
                 <S.ProjectName>오늘 저녁은 뿌링클</S.ProjectName>
-                <S.ViewButton>
-                    <button type="button">계획서 보러가기</button>
+                <S.ProjectViewButton>
+                    <button type="button" onClick={clickBtn}>계획서 보러가기</button>
                     <button type="button">보고서 보러가기</button>
-                </S.ViewButton>
+                </S.ProjectViewButton>
                 <S.Etc>
                     <span>기타</span>
                     <S.EtcButton>
