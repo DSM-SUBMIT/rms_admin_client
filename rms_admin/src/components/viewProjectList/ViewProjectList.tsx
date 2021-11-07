@@ -41,7 +41,7 @@ const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
     }
 
     const projectViewModal = useMemo(() => {
-        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} setCurrentProjectId={} {...state}/>;
+        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} id={0} title={"asdf"}/>;
       }, [isOpenModal, state]);
     
     return (

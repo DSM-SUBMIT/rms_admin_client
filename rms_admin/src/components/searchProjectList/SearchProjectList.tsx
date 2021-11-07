@@ -45,7 +45,7 @@ const SearchProjectList: FC<Props> = props => {
     })
 
     const projectViewModal = useMemo(() => {
-    if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>
+    if (isOpenModal) return <ViewProjectModal id={page} title="Asdf" setIsOpenModal={setIsOpenModal}/>
     }, [isOpenModal]);
 
     const searching = (e: React.ChangeEvent<HTMLFormElement>) => {

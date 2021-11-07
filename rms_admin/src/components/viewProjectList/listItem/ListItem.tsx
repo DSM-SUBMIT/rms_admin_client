@@ -1,5 +1,6 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import { PayloadAction } from 'typesafe-actions';
+import ViewProjectModal from '../../modal/viewProjectModal/ViewProjectModal';
 import * as S from '../style';
 
 interface Props {
@@ -10,8 +11,7 @@ interface Props {
     fields: Array<string>;
     setCurrentProjectId: (payload: number) => void;
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-  }
-
+}
 
 const ListItem: FC<Props> = props => {
     const {
@@ -22,7 +22,7 @@ const ListItem: FC<Props> = props => {
         fields,
         setCurrentProjectId,
         setIsOpenModal
-      } = props;
+    } = props;
 
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
         setCurrentProjectId(Number(event.currentTarget.dataset.id));

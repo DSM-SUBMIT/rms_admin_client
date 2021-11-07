@@ -4,21 +4,21 @@ import * as S from '.';
 import { git, api, fn, closeModalIcon} from '../../../asset'
 
 interface Props {
-    projectId: number;
     setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+    id: number;
+    title: string;
 }
 
 const ViewProjectModal : FC<Props> = props => {
-    // const {id} = props;
     const history = useHistory();
-    const { setIsOpenModal } = props;
+    const { id, title, setIsOpenModal } = props;
 
     const closeBoxClickHandler = () => {
         if (setIsOpenModal !== undefined) setIsOpenModal(false);
     };
 
     const clickBtn = () => {
-        history.push(`/view/plan/`);
+        history.push(`/view/plan/${id}`);
     }
 
     return (
@@ -28,7 +28,7 @@ const ViewProjectModal : FC<Props> = props => {
                 <S.Close onClick={closeBoxClickHandler}>
                     <img src={closeModalIcon} alt="close"/>
                 </S.Close>
-                <S.ProjectName>오늘 저녁은 뿌링클</S.ProjectName>
+                <S.ProjectName>{title}</S.ProjectName>
                 <S.ProjectViewButton>
                     <button type="button" onClick={clickBtn}>계획서 보러가기</button>
                     <button type="button">보고서 보러가기</button>
