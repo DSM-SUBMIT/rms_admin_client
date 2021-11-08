@@ -9,6 +9,7 @@ interface ViewProjectState {
   field: CategoryStateType;
   page: number;
   currentProjectId: number;
+  currentProjectTitle: string
 }
 
 

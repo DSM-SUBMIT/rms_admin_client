@@ -10,8 +10,6 @@ interface Props {
     title: string;
     team_name: string;
     fields: Array<string>;
-    // currentProjectId:any;
-    // setCurrentProjectId: (payload: number) => void;
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -29,7 +27,7 @@ const ListItem: FC<Props> = props => {
 
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
         setState.setCurrentProjectId(id);
-        console.log(state.currentProjectId)
+        setState.setCurrentProjectTitle(title);
         setIsOpenModal(true);
     };
 

@@ -4,7 +4,8 @@ import {
   GET_VIEW_PROJECT_FAILURE,
   FIELD,
   PAGE,
-  CURRENTPROJECTID
+  CURRENTPROJECTID,
+  CURRENTPROJECTTITLE
 } from '../../action/viewProject/interface';
 import ViewProjectState from './interface';
 
@@ -13,6 +14,7 @@ const initState: ViewProjectState= {
   projects: [],
   totalPage: 1,
   error: null,
+  currentProjectTitle: "",
   currentProjectId: 1,
   field: {
     web: false,
@@ -54,6 +56,11 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
       return {
         ...state,
         currentProjectId: action.payload,
+      };
+    case CURRENTPROJECTTITLE:
+      return {
+        ...state,
+        currentProjectTitle: action.payload
       };
     case PAGE:
       return {
