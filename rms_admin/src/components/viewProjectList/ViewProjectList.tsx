@@ -9,6 +9,7 @@ import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal'
 import { useHistory } from 'react-router';
 import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
 import { SearchResult } from '../searchProjectList/style';
+import useViewProject from '../../util/hooks/viewProject/useViewProject';
 
 interface Props {
     page: number;
@@ -17,12 +18,13 @@ interface Props {
     field: CategoryStateType;
     setField: (payload: CategoryStateType) => void;
     setPage: (payload: number) => void;
-  }
+}
 
 const ViewProjectList : FC<Props> = props => {
     const history = useHistory();
     const { page, projects, totalPage, field, setField, setPage } = props;
     const {state, setState} = useSearchProject();
+    const currentProjectIdState = useViewProject().state.currentProjectId;
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const childProps = {
@@ -30,8 +32,7 @@ const ViewProjectList : FC<Props> = props => {
         totalPage,
         setPage
     }
-
-const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
+    const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(state.query == ""){
             alert("검색어를 입력해주세요");
@@ -40,8 +41,8 @@ const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
     }
 
     const projectViewModal = useMemo(() => {
-        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal} />;
-      }, [isOpenModal]);
+        if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>;
+      }, [isOpenModal, state]);
     
     return (
         <>
@@ -61,7 +62,7 @@ const searching = (e: React.ChangeEvent<HTMLFormElement>) => {
                                     onChange={(e) => {
                                         setState.setQuery(e.target.value)
                                     }}
-                                  value={state.query}
+                                    value={state.query}
                                 />
                             </form>
                         </S.SearchArea>

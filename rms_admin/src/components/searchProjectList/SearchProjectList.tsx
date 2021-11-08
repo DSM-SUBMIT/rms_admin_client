@@ -17,7 +17,6 @@ interface Props {
     totalAmount: number;
     getSearchProject: () => void;
     setPage: (payload: number) => void;
-    // setSearchResult?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 type SearchParams = {
@@ -26,7 +25,6 @@ type SearchParams = {
 
 const SearchProjectList: FC<Props> = props => {
     const [searchResult,  setSearchResult]= useState<string>();
-    // const { setSearchResult } = props;
     const history = useHistory();
     const dispatch = useDispatch();
     const { page, projects, totalPage, setPage } = props;
