@@ -17,10 +17,6 @@ const ViewProjectModal : FC<Props> = props => {
         if (setIsOpenModal !== undefined) setIsOpenModal(false);
     };
 
-    const clickBtn = () => {
-        history.push(`/view/plan/${state.currentProjectId}`);
-    }
-
     return (
         <>
             <S.Main onClick={closeBoxClickHandler}/>
@@ -28,10 +24,14 @@ const ViewProjectModal : FC<Props> = props => {
                 <S.Close onClick={closeBoxClickHandler}>
                     <img src={closeModalIcon} alt="close"/>
                 </S.Close>
-                <S.ProjectName>{"currnetProejctTitle"}</S.ProjectName>
+                <S.ProjectName>{state.currentProjectTitle}</S.ProjectName>
                 <S.ProjectViewButton>
-                    <button type="button" onClick={clickBtn}>계획서 보러가기</button>
-                    <button type="button">보고서 보러가기</button>
+                    <button type="button" onClick={(e) => {
+                        history.push(`/view/plan/${state.currentProjectId}`);
+                    }}>계획서 보러가기</button>
+                    <button type="button" onClick={(e) => {
+                        history.push(`/view/detail-report/${state.currentProjectId}`);
+                    }}>보고서 보러가기</button>
                 </S.ProjectViewButton>
                 <S.Etc>
                     <span>기타</span>
