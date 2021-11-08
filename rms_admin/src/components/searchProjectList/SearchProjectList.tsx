@@ -17,7 +17,6 @@ interface Props {
     totalAmount: number;
     getSearchProject: () => void;
     setPage: (payload: number) => void;
-    // setSearchResult?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 type SearchParams = {
@@ -26,7 +25,6 @@ type SearchParams = {
 
 const SearchProjectList: FC<Props> = props => {
     const [searchResult,  setSearchResult]= useState<string>();
-    // const { setSearchResult } = props;
     const history = useHistory();
     const dispatch = useDispatch();
     const { page, projects, totalPage, setPage } = props;
@@ -45,7 +43,7 @@ const SearchProjectList: FC<Props> = props => {
     })
 
     const projectViewModal = useMemo(() => {
-    if (isOpenModal) return <ViewProjectModal id={page} title="Asdf" setIsOpenModal={setIsOpenModal}/>
+    if (isOpenModal) return <ViewProjectModal setIsOpenModal={setIsOpenModal}/>
     }, [isOpenModal]);
 
     const searching = (e: React.ChangeEvent<HTMLFormElement>) => {

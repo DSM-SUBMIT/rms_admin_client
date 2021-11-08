@@ -13,6 +13,7 @@ const initState: ViewProjectState= {
   projects: [],
   totalPage: 1,
   error: null,
+  currentProjectId: 1,
   field: {
     web: false,
     app: false,

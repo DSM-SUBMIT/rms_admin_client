@@ -8,6 +8,7 @@ interface ViewProjectState {
   error: error | null;
   field: CategoryStateType;
   page: number;
+  currentProjectId: number;
 }
 
 

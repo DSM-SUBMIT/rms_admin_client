@@ -1,24 +1,24 @@
 import React, { FC } from 'react';
 import { useHistory } from 'react-router';
+import { ProjectsType } from '../../../constance/viewProject';
 import * as S from '.';
 import { git, api, fn, closeModalIcon} from '../../../asset'
+import useViewProject from '../../../util/hooks/viewProject/useViewProject';
 
 interface Props {
     setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
-    id: number;
-    title: string;
 }
 
 const ViewProjectModal : FC<Props> = props => {
     const history = useHistory();
-    const { id, title, setIsOpenModal } = props;
-
+    const { setIsOpenModal } = props;
+    const {state, setState} = useViewProject();
     const closeBoxClickHandler = () => {
         if (setIsOpenModal !== undefined) setIsOpenModal(false);
     };
 
     const clickBtn = () => {
-        history.push(`/view/plan/${id}`);
+        history.push(`/view/plan/${state.currentProjectId}`);
     }
 
     return (
@@ -28,7 +28,7 @@ const ViewProjectModal : FC<Props> = props => {
                 <S.Close onClick={closeBoxClickHandler}>
                     <img src={closeModalIcon} alt="close"/>
                 </S.Close>
-                <S.ProjectName>{title}</S.ProjectName>
+                <S.ProjectName>{"currnetProejctTitle"}</S.ProjectName>
                 <S.ProjectViewButton>
                     <button type="button" onClick={clickBtn}>계획서 보러가기</button>
                     <button type="button">보고서 보러가기</button>
