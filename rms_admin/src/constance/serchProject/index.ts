@@ -1,4 +1,4 @@
-export const SEARCH_RESULT = "검색결과가 없습니다 검색어를 다시 입력해주세요";
+export const SEARCH_RESULT = "검색결과가 없습니다. 검색어를 다시 입력해주세요 😀";
 
 export type ProjectType = {
   id: number;
