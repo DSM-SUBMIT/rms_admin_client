@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { CategoryStateType } from '../../../constance/viewProject';
-import { setField, setPage, setCurrentProjectId } from '../../../modules/redux/action/viewProject';
+import { setField, setPage, setCurrentProjectId, setCurrentProjectTitle } from '../../../modules/redux/action/viewProject';
 import ViewProjectState from '../../../modules/redux/reducer/viewProject/interface';
 import { useSelectState } from '../default';
 
@@ -17,6 +17,9 @@ const useViewProject = () => {
     setCurrentProjectId: (payload: number) => {
       dispatch(setCurrentProjectId(payload));
     },
+    setCurrentProjectTitle: (payload: string) => {
+      dispatch(setCurrentProjectTitle(payload));
+    }
   };
   return { state, setState };
 };
