@@ -7,7 +7,8 @@ import {
     GET_VIEW_PROJECT_FAILURE,
     FIELD,
     PAGE,
-    CURRENTPROJECTID
+    CURRENTPROJECTID,
+    CURRENTPROJECTTITLE
 } from './interface';
 
 export const getViewProject = createAction(GET_VIEW_PROJECT)();
@@ -16,6 +17,8 @@ export const getViewProjectFailure = createAction(GET_VIEW_PROJECT_FAILURE)<erro
 export const setField = createAction(FIELD)<CategoryStateType>();
 export const setPage = createAction(PAGE)<number>();
 export const setCurrentProjectId = createAction(CURRENTPROJECTID)<number>();
+export const setCurrentProjectTitle = createAction(CURRENTPROJECTTITLE)<string>();
+
 
 export type viewProjectActionType =
   | ReturnType<typeof getViewProject>
@@ -23,4 +26,5 @@ export type viewProjectActionType =
   | ReturnType<typeof getViewProjectFailure>
   | ReturnType<typeof setField>
   | ReturnType<typeof setPage>
-  | ReturnType<typeof setCurrentProjectId>;
+  | ReturnType<typeof setCurrentProjectId>
+  | ReturnType<typeof setCurrentProjectTitle>;
