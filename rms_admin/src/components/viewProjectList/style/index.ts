@@ -112,6 +112,7 @@ export const Team = styled.span`
 
 export const TagArea = styled.div`
     display: flex;
+    align-items: center;
 `
 
 export const Tag = styled.div`
