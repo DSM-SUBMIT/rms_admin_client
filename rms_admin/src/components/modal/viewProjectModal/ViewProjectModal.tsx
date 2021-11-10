@@ -44,7 +44,7 @@ const ViewProjectModal : FC<Props> = props => {
                             <img src={api} alt="api"/>
                             <span>api 명세</span>
                         </button>
-                        <button type="button">
+                        <button type="button" onClick={() => window.open(`${state.currentProjectTitle}`, '_blank')}>
                             <img src={fn} alt="function"/>
                             <span>기능 명세</span>
                         </button>

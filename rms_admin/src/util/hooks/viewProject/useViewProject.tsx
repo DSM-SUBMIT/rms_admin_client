@@ -19,7 +19,8 @@ const useViewProject = () => {
     },
     setCurrentProjectTitle: (payload: string) => {
       dispatch(setCurrentProjectTitle(payload));
-    }
+    },
+    
   };
   return { state, setState };
 };
