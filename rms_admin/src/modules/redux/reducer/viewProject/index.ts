@@ -4,8 +4,11 @@ import {
   GET_VIEW_PROJECT_FAILURE,
   FIELD,
   PAGE,
-  CURRENTPROJECTID,
-  CURRENTPROJECTTITLE
+  CURRENT_PROJECT_ID,
+  CURRENT_PROJECT_TITLE,
+  CURRENT_PROJECT_DOCS_URL,
+  CURRENT_PROJECT_GIT_URL,
+  CURRENT_PROJECT_SERVICE_URL
 } from '../../action/viewProject/interface';
 import ViewProjectState from './interface';
 
@@ -16,6 +19,9 @@ const initState: ViewProjectState= {
   error: null,
   currentProjectTitle: "",
   currentProjectId: 1,
+  currentProjectDocsUrl: "",
+  currentProjectServiceUrl: "",
+  currentProjectGitUrl: "",
   field: {
     web: false,
     app: false,
@@ -52,15 +58,30 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
           security: action.payload.security,
         },
       };
-    case CURRENTPROJECTID:
+    case CURRENT_PROJECT_ID:
       return {
         ...state,
         currentProjectId: action.payload,
       };
-    case CURRENTPROJECTTITLE:
+    case CURRENT_PROJECT_TITLE:
       return {
         ...state,
         currentProjectTitle: action.payload
+      };
+    case CURRENT_PROJECT_SERVICE_URL:
+      return {
+        ...state,
+        currentProjectServiceUrl: action.payload
+      };
+    case CURRENT_PROJECT_DOCS_URL:
+      return {
+        ...state,
+        currentProjectDocsUrl: action.payload
+      };
+    case CURRENT_PROJECT_GIT_URL:
+      return {
+        ...state,
+        currentProjectGitUrl: action.payload
       };
     case PAGE:
       return {

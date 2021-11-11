@@ -6,7 +6,10 @@ import {
   setField,
   setPage,
   setCurrentProjectId,
-  setCurrentProjectTitle
+  setCurrentProjectTitle,
+  setCurrentProjectDocsUrl,
+  setCurrentProjectGitUrl,
+  setCurrentProjectServiceUrl
 } from '../../../modules/redux/action/viewProject';
 
 
@@ -26,7 +29,15 @@ const useViewProject = () => {
     setCurrentProjectTitle: (payload: string) => {
       dispatch(setCurrentProjectTitle(payload));
     },
-    
+    setCurrentProjectDocsUrl: (payload: string) => {
+      dispatch(setCurrentProjectDocsUrl(payload));
+    },
+    setCurrentProjectGitUrl: (payload: string) => {
+      dispatch(setCurrentProjectGitUrl(payload));
+    },
+    setCurrentProjectServiceUrl: (payload: string) => {
+      dispatch(setCurrentProjectServiceUrl(payload));
+    }
   };
   return { state, setState };
 };
