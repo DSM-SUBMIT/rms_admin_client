@@ -8,7 +8,10 @@ import {
     FIELD,
     PAGE,
     CURRENTPROJECTID,
-    CURRENTPROJECTTITLE
+    CURRENTPROJECTTITLE,
+    CURRENTPROJECT_DOCS_URL,
+    CURRENTPROJECT_GIT_URL,
+    CURRENTPROJECT_SERVICE_URL
 } from './interface';
 
 export const getViewProject = createAction(GET_VIEW_PROJECT)();
@@ -18,6 +21,9 @@ export const setField = createAction(FIELD)<CategoryStateType>();
 export const setPage = createAction(PAGE)<number>();
 export const setCurrentProjectId = createAction(CURRENTPROJECTID)<number>();
 export const setCurrentProjectTitle = createAction(CURRENTPROJECTTITLE)<string>();
+export const setCurrentProjectDocsUrl = createAction(CURRENTPROJECT_DOCS_URL)<string>();
+export const setCurrentProjectServiceUrl = createAction(CURRENTPROJECT_SERVICE_URL)<string>();
+export const setCurrentProjectGitUrl = createAction(CURRENTPROJECT_GIT_URL)<string>();
 
 
 export type viewProjectActionType =
@@ -27,4 +33,7 @@ export type viewProjectActionType =
   | ReturnType<typeof setField>
   | ReturnType<typeof setPage>
   | ReturnType<typeof setCurrentProjectId>
-  | ReturnType<typeof setCurrentProjectTitle>;
+  | ReturnType<typeof setCurrentProjectTitle>
+  | ReturnType<typeof setCurrentProjectDocsUrl>
+  | ReturnType<typeof setCurrentProjectServiceUrl>
+  | ReturnType<typeof setCurrentProjectGitUrl>;
