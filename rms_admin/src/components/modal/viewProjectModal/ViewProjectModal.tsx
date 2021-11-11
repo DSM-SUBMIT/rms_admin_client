@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useHistory } from 'react-router';
-import { ProjectsType } from '../../../constance/viewProject';
 import * as S from '.';
 import { git, api, fn, closeModalIcon} from '../../../asset'
 import useViewProject from '../../../util/hooks/viewProject/useViewProject';
