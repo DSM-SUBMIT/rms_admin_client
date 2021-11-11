@@ -23,7 +23,7 @@ const ListItem: FC<Props> = props => {
   } = props;
   
   const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    setIsOpenModal(true)
+    setIsOpenModal(true);
   };
   return (
     <S.Item onClick={projectClickHandler} data-id={id}>

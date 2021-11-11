@@ -27,6 +27,9 @@ export type ProjectsType = {
     title: string;
     team_name: string;
     fields: Array<string>;
+    github_url: string;
+    service_url: string;
+    docs_url: string;
   };
 
 export type ViewProjectResponseType = {
