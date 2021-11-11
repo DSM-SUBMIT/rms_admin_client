@@ -9,7 +9,6 @@ import ViewProjectModal from '../modal/viewProjectModal/ViewProjectModal'
 import { useHistory } from 'react-router';
 import useSearchProject from '../../util/hooks/searchProject/useSearchProject';
 import { SearchResult } from '../searchProjectList/style';
-import useViewProject from '../../util/hooks/viewProject/useViewProject';
 
 interface Props {
     page: number;
@@ -24,7 +23,6 @@ const ViewProjectList : FC<Props> = props => {
     const history = useHistory();
     const { page, projects, totalPage, field, setField, setPage } = props;
     const {state, setState} = useSearchProject();
-    const currentProjectIdState = useViewProject().state.currentProjectId;
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const childProps = {

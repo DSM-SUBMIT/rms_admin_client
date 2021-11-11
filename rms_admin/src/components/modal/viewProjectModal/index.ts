@@ -58,6 +58,9 @@ export const Etc = styled.div`
     height: 130px;
     margin: 0 auto;
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const EtcButton = styled.div`
@@ -65,7 +68,7 @@ export const EtcButton = styled.div`
     height: 80px;
     padding-top: 8px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     button {
         width: 55px;
         height: 70px;
@@ -78,7 +81,6 @@ export const EtcButton = styled.div`
         border: 1px solid ${color.border};
         border-radius: 10px;
         cursor: pointer;
-        margin: 0 15px;
     }
     span {
         font-size: 7px;
