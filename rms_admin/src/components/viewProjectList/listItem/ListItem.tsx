@@ -10,6 +10,9 @@ interface Props {
     title: string;
     team_name: string;
     fields: Array<string>;
+    github_url: string;
+    service_url: string;
+    docs_url: string;
     setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -20,6 +23,9 @@ const ListItem: FC<Props> = props => {
         project_type,
         team_name,
         fields,
+        github_url,
+        service_url,
+        docs_url,
         setIsOpenModal
     } = props;
 
@@ -28,6 +34,9 @@ const ListItem: FC<Props> = props => {
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
         setState.setCurrentProjectId(id);
         setState.setCurrentProjectTitle(title);
+        setState.setCurrentProjectDocsUrl(docs_url);
+        setState.setCurrentProjectGitUrl(github_url);
+        setState.setCurrentProjectServiceUrl(service_url);
         setIsOpenModal(true);
     };
 

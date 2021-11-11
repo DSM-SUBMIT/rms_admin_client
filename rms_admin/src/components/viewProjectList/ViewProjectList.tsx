@@ -77,6 +77,9 @@ const ViewProjectList : FC<Props> = props => {
                                             team_name={data.team_name}
                                             fields={data.fields}
                                             key={data.id}
+                                            github_url={data.github_url}
+                                            docs_url={data.docs_url}
+                                            service_url={data.service_url}
                                             setIsOpenModal={setIsOpenModal}
                                         />
                                     );

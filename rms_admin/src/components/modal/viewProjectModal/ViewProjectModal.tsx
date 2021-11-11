@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useHistory } from 'react-router';
-import { ProjectsType } from '../../../constance/viewProject';
 import * as S from '.';
 import { git, api, fn, closeModalIcon} from '../../../asset'
 import useViewProject from '../../../util/hooks/viewProject/useViewProject';
@@ -36,22 +35,22 @@ const ViewProjectModal : FC<Props> = props => {
                 <S.Etc>
                     <span>기타</span>
                     <S.EtcButton>
-                        <button type="button">
+                        <button type="button" onClick={() => window.open(`${state.currentProjectGitUrl}`, '_blank')}>
                             <img src={git} alt="git"/>
                             <span>깃허브</span>
                         </button>
-                        <button type="button">
+                        <button type="button" onClick={() => window.open(`${state.currentProjectServiceUrl}`, '_blank')}>
                             <img src={api} alt="api"/>
                             <span>api 명세</span>
                         </button>
-                        <button type="button">
+                        <button type="button" onClick={() => window.open(`${state.currentProjectDocsUrl}`, '_blank')}>
                             <img src={fn} alt="function"/>
                             <span>기능 명세</span>
                         </button>
-                        <button type="button">
+                        {/* <button type="button">
                             <img src={git} alt="git"/>
                             <span>깃허브</span>
-                        </button>
+                        </button> */}
                     </S.EtcButton>
                 </S.Etc>
             </S.Modal>
