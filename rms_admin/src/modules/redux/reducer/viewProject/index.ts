@@ -5,10 +5,7 @@ import {
   FIELD,
   PAGE,
   CURRENTPROJECTID,
-  CURRENTPROJECTTITLE,
-  CURRENTPROJECT_SERVICE_URL,
-  CURRENTPROJECT_GIT_URL,
-  CURRENTPROJECT_DOCS_URL
+  CURRENTPROJECTTITLE
 } from '../../action/viewProject/interface';
 import ViewProjectState from './interface';
 
@@ -19,9 +16,6 @@ const initState: ViewProjectState= {
   error: null,
   currentProjectTitle: "",
   currentProjectId: 1,
-  currentProjectDocsUrl: "",
-  currentProjectGitUrl: "",
-  currentProjectServiceUrl: "",
   field: {
     web: false,
     app: false,
@@ -67,21 +61,6 @@ const viewProjectReducer = (state: ViewProjectState = initState, action: viewPro
       return {
         ...state,
         currentProjectTitle: action.payload
-      };
-    case CURRENTPROJECT_SERVICE_URL:
-      return {
-        state,
-        currentProjectServiceUrl: action.payload
-      };
-    case CURRENTPROJECT_DOCS_URL:
-      return {
-        state,
-        currentProjectDocsUrl: action.payload
-      };
-    case CURRENTPROJECT_GIT_URL:
-      return {
-        state,
-        currentProjectGitUrl: action.payload
       };
     case PAGE:
       return {

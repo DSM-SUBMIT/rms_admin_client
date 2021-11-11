@@ -34,9 +34,6 @@ const ListItem: FC<Props> = props => {
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
         setState.setCurrentProjectId(id);
         setState.setCurrentProjectTitle(title);
-        setState.setCurrentProjectDocsUrl(docs_url);
-        setState.setCurrentProjectGitUrl(github_url);
-        setState.setCurrentProjectServiceUrl(service_url);
         setIsOpenModal(true);
     };
 
