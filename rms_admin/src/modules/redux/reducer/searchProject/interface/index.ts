@@ -8,6 +8,11 @@ interface SearchProjectState{
   query: string;
   page: number;
   projects: Array<ProjectType>;
+  currentProjectId: number;
+  currentProjectTitle: string;
+  currentProjectDocsUrl: string;
+  currentProjectGitUrl: string;
+  currentProjectServiceUrl: string;
 }
 
 export default SearchProjectState;

@@ -4,7 +4,12 @@ import {
   GET_SEARCH_PROJECT_FAILURE,
   GET_SEARCH_PROJECT_SUCCESS,
   QUERY,
-  PAGE
+  PAGE,
+  CURRENT_PROJECT_ID,
+  CURRENT_PROJECT_TITLE,
+  CURRENT_PROJECT_DOCS_URL,
+  CURRENT_PROJECT_GIT_URL,
+  CURRENT_PROJECT_SERVICE_URL
 } from '../../action/searchProject/interface';
 
 const initState: SearchProjectState = {
@@ -14,6 +19,11 @@ const initState: SearchProjectState = {
   projects: [],
   query: "",
   error: null,
+  currentProjectTitle: "",
+  currentProjectId: 1,
+  currentProjectDocsUrl: "",
+  currentProjectServiceUrl: "",
+  currentProjectGitUrl: ""
 };
 
 const searchProjectReducer = (
@@ -42,6 +52,31 @@ const searchProjectReducer = (
       return {
         ...state,
         page: action.payload,
+      };
+    case CURRENT_PROJECT_ID:
+      return {
+        ...state,
+        currentProjectId: action.payload,
+      };
+    case CURRENT_PROJECT_TITLE:
+      return {
+        ...state,
+        currentProjectTitle: action.payload
+      };
+    case CURRENT_PROJECT_SERVICE_URL:
+      return {
+        ...state,
+        currentProjectServiceUrl: action.payload
+      };
+    case CURRENT_PROJECT_DOCS_URL:
+      return {
+        ...state,
+        currentProjectDocsUrl: action.payload
+      };
+    case CURRENT_PROJECT_GIT_URL:
+      return {
+        ...state,
+        currentProjectGitUrl: action.payload
       };
     default:
       return state;

@@ -20,9 +20,9 @@ export const getViewProjectFailure = createAction(GET_VIEW_PROJECT_FAILURE)<erro
 export const setField = createAction(FIELD)<CategoryStateType>();
 export const setPage = createAction(PAGE)<number>();
 export const setCurrentProjectId = createAction(CURRENT_PROJECT_ID)<number>();
-export const setCurrentProjectTitle = createAction(CURRENT_PROJECT_TITLE)<string>()
-export const setCurrentProjectDocsUrl = createAction(CURRENT_PROJECT_DOCS_URL)<string>()
-export const setCurrentProjectGitUrl = createAction(CURRENT_PROJECT_GIT_URL)<string>()
+export const setCurrentProjectTitle = createAction(CURRENT_PROJECT_TITLE)<string>();
+export const setCurrentProjectDocsUrl = createAction(CURRENT_PROJECT_DOCS_URL)<string>();
+export const setCurrentProjectGitUrl = createAction(CURRENT_PROJECT_GIT_URL)<string>();
 export const setCurrentProjectServiceUrl = createAction(CURRENT_PROJECT_SERVICE_URL)<string>();
 
 export type viewProjectActionType =
