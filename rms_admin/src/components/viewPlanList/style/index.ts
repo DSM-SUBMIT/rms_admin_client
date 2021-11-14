@@ -25,13 +25,15 @@ export const PlanListContainer = styled.div`
 
 export const PlanContainer = styled.div`
   width: 100%;
-  height: 120px;
+  height: 130px;
   border: 1px solid #f1f1f1;
   border-radius: 5px;
   background-color: white;
   margin-bottom: 6px;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 export const PlanContents = styled.div`
@@ -41,21 +43,21 @@ export const PlanContents = styled.div`
 `;
 
 export const ProjectDivision = styled.span`
-  font-size: 10px;
+  font-size: 14px;
   margin-bottom: 5px;
 `;
 
 export const Writer = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 5px;
 `;
 
 export const MajorFieldWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 export const MajorField = styled.span`
-  font-size: 10px;
+  font-size: 14px;
   padding: 0px 10px;
   color: ${color.main};
   border: 1px solid #386bee;

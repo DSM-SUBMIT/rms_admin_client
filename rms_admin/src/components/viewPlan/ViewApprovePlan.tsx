@@ -8,7 +8,6 @@ import TeamPlanTable from './planTable/TeamPlanTable';
 import FeedbackModal from '../modal/feedback';
 import { useModal } from '../../util/hooks/modal';
 import { useHistory } from 'react-router';
-import { Header } from '../header/style';
 
 const ViewPlan: FC<DetailPlanState> = props => {
   const [isFeedbackModalClick, setIsFeedbackModalClick] = useState<boolean>(false);
@@ -65,7 +64,6 @@ const ViewPlan: FC<DetailPlanState> = props => {
 
   return (
     <>
-      <Header />
       {isFeedbackModalClick && <FeedbackModal type={'plan'} setClose={setIsFeedbackModalClick} />}
       <S.ViewPlanWrapper>
         <S.PlanTableWrapper>

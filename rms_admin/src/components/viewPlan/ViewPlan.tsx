@@ -6,7 +6,6 @@ import html2canvas from 'html2canvas';
 import * as S from './style';
 import SoloPlanTable from './planTable/SoloPlanTable';
 import TeamPlanTable from './planTable/TeamPlanTable';
-import { Header } from '../header/style';
 
 const ViewPlan: FC<DetailPlanState> = props => {
   const onClickPdfDownload = () => {
@@ -38,7 +37,6 @@ const ViewPlan: FC<DetailPlanState> = props => {
 
   return (
     <>
-      <Header />
       <S.ViewPlanWrapper>
         <S.PlanTableWrapper>
           {props.isIndividual ? <SoloPlanTable {...props} /> : <TeamPlanTable {...props} />}

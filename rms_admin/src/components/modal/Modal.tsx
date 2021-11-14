@@ -6,7 +6,9 @@ const Modal: FC = (): any => {
   const { state, setState } = useModal();
 
   return (
-    <>{state.type === 'changePassword' ? <ChangePasswordModal {...state} {...setState} /> : null}</>
+    <>
+    {state.type === 'changePassword' ? <ChangePasswordModal {...state} {...setState} /> : null}
+    </>
   );
 };
 
