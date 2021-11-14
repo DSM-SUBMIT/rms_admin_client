@@ -89,6 +89,9 @@ const SearchProjectList: FC<Props> = props => {
                                     fields={data.fields}
                                     is_individual={data.is_individual}
                                     key={data.id}
+                                    github_url={data.github_url}
+                                    docs_url={data.docs_url}
+                                    service_url={data.service_url}
                                     setIsOpenModal={setIsOpenModal}
                                 />
                             );
