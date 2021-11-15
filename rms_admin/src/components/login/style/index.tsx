@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Login = styled.div`
   width: 100%;
@@ -16,6 +16,7 @@ export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
 `;
 
 export const Logo = styled.div`
@@ -39,7 +40,7 @@ export const LoginInput = styled.div`
 
   & input {
     border: none;
-    background-color: #f7f9fd;
+    background-color: white;
     font-size: 13px;
     color: #b1b1b1;
     margin-left: 10px;
@@ -52,6 +53,7 @@ export const PasswordInput = styled.div`
   margin-top: 15px;
   display: flex;
   align-items: center;
+  background-color: white;
   border: 1px solid #e5e5e5;
 
   & img {
@@ -64,6 +66,7 @@ export const PasswordInput = styled.div`
     font-size: 13px;
     color: #b1b1b1;
     margin-left: 10px;
+    background-color: white;
   }
 `;
 
@@ -79,8 +82,8 @@ export const LoginButton = styled.button`
   cursor: pointer;
 `;
 
-export const ErrorMessage = styled.span `
+export const ErrorMessage = styled.span`
   font-size: 13px;
   color: red;
   margin-top: 5px;
-`
+`;

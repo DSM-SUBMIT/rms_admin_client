@@ -1,7 +1,5 @@
 import React, {FC, useState} from 'react';
-import { PayloadAction } from 'typesafe-actions';
 import useViewProject from '../../../util/hooks/viewProject/useViewProject';
-import ViewProjectModal from '../../modal/viewProjectModal/ViewProjectModal';
 import * as S from '../style';
 
 interface Props {
@@ -29,7 +27,7 @@ const ListItem: FC<Props> = props => {
         setIsOpenModal
     } = props;
 
-    const {state, setState} = useViewProject()
+    const {state, setState} = useViewProject();
 
     const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
         setState.setCurrentProjectId(id);
