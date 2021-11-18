@@ -31,7 +31,7 @@ const DetailReport: FC<Props> = props => {
 
   const makeContentArray = useMemo(() => {
     let contentArray: Array<string> = [];
-    contentArray = content.split('!@#$%');
+    if(content) contentArray = content.split('!@#$%');
     return contentArray;
   }, [content]);
 
