@@ -9,7 +9,7 @@ import ReportListState from './interface';
 
 const initState: ReportListState = {
   page: 1,
-  totalPage: 0,
+  totalPage: 1,
   totalAmount: 0,
   projects: [],
   error: null,
