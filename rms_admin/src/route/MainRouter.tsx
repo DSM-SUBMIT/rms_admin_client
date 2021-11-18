@@ -10,6 +10,7 @@ import {
   ViewProjectListContainer,
   DetailReportContainer,
   ApproveDetailReportContainer,
+  ViewApprovePlanContainer,
 } from '../containers';
 
 const MainRouter = () => {
@@ -18,11 +19,11 @@ const MainRouter = () => {
       <Modal />
       <BrowserRouter>
         <Switch>
-          <Route exact path='/login' component={LoginContainer} />
+          <Route exact path='/' component={LoginContainer} />
           <Route exact path='/view/plan-list' component={ViewPlanListContainer} />
           <Route exact path='/view/report-list' component={ViewReportListContainer} />
           <Route exact path='/view/plan/:id' component={ViewPlanContainer} />
-          <Route exact path='/search' component={SearchProjectListContainer} />
+          <Route exact path='/view/project-list/search/:keyword' component={SearchProjectListContainer} />
           <Route exact path='/view/project-list' component={ViewProjectListContainer} />
           <Route exact path='/view/detail-report/:id' component={DetailReportContainer} />
           <Route
@@ -30,6 +31,7 @@ const MainRouter = () => {
             path='/view/approve-detail-report/:id'
             component={ApproveDetailReportContainer}
           />
+          <Route exact path='/view/approve-detail-plan/:id' component={ViewApprovePlanContainer} />
         </Switch>
       </BrowserRouter>
     </>

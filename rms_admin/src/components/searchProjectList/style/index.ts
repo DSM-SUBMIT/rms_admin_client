@@ -51,6 +51,7 @@ export const Item = styled.button`
     border: none;
     justify-content: space-between;
     margin: 10px;
+    cursor: pointer;
 `
 
 export const Type = styled.span`
@@ -71,6 +72,7 @@ export const TagArea = styled.div`
 `
 
 export const Tag = styled.div`
+    height: 18px;
     font-size: 12px;
     color: ${color.main};
     padding: 2px 10px;
@@ -82,6 +84,6 @@ export const Tag = styled.div`
 `
 
 export const SearchResult = styled.h3`
-    margin: 80px;
+    margin: 30px;
     text-align: center;
 `

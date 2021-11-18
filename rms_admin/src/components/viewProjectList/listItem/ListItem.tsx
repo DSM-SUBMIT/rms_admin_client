@@ -1,19 +1,56 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
+import useViewProject from '../../../util/hooks/viewProject/useViewProject';
 import * as S from '../style';
 
-const ListItem: FC = () => {
+interface Props {
+    id: number;
+    project_type: string;
+    title: string;
+    team_name: string;
+    fields: Array<string>;
+    github_url: string;
+    service_url: string;
+    docs_url: string;
+    setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ListItem: FC<Props> = props => {
+    const {
+        id,
+        title,
+        project_type,
+        team_name,
+        fields,
+        github_url,
+        service_url,
+        docs_url,
+        setIsOpenModal
+    } = props;
+
+    const {state, setState} = useViewProject();
+
+    const projectClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+        setState.setCurrentProjectId(id);
+        setState.setCurrentProjectTitle(title);
+        setState.setCurrentProjectDocsUrl(docs_url);
+        setState.setCurrentProjectGitUrl(github_url);
+        setState.setCurrentProjectServiceUrl(service_url);
+        setIsOpenModal(true);
+    };
+
     return (
-        <S.Item>
-            <S.Type>[팀 프로젝트]</S.Type>
-            <S.Title>보고서 관리 시스템</S.Title>
-            <S.Team>서브밋</S.Team>
+        <S.Item onClick={projectClickHandler} data-id={id}>
+            <S.Type>[{project_type}]</S.Type>
+            <S.Title>{title}</S.Title>
+            <S.Team>{team_name}</S.Team>
             <S.TagArea>
-                <S.Tag>보안</S.Tag>
-                <S.Tag>인공지능 / 빅데이터</S.Tag>
-                <S.Tag>임베디드</S.Tag>
-                <S.Tag>게임</S.Tag>
-                <S.Tag>웹</S.Tag>
-                <S.Tag>앱</S.Tag>
+                {fields.map((content, i) => {
+                    return(
+                        <S.Tag key={i}>
+                            {content}
+                        </S.Tag>
+                    );
+                })}
             </S.TagArea>
         </S.Item>
     )
