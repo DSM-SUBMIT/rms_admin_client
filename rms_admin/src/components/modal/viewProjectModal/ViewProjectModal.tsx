@@ -16,6 +16,15 @@ const ViewProjectModal : FC<Props> = props => {
         if (setIsOpenModal !== undefined) setIsOpenModal(false);
     };
 
+    const openUrl = (urlName : string) => { 
+        if (!urlName) {
+            alert("등록된 url이 없습니다 😅")
+        }
+        else if(urlName) {
+            window.open(urlName, '_blank')
+        }
+    }
+
     return (
         <>
             <S.Main onClick={closeBoxClickHandler}/>
@@ -35,15 +44,18 @@ const ViewProjectModal : FC<Props> = props => {
                 <S.Etc>
                     <span>기타</span>
                     <S.EtcButton>
-                        <button type="button" onClick={() => window.open(`${state.currentProjectGitUrl}`, '_blank')}>
+                        <button type="button" onClick={() => {
+                            openUrl(state.currentProjectGitUrl)}}>
                             <img src={git} alt="git"/>
                             <span>깃허브</span>
                         </button>
-                        <button type="button" onClick={() => window.open(`${state.currentProjectServiceUrl}`, '_blank')}>
+                        <button type="button" onClick={() => {
+                            openUrl(state.currentProjectServiceUrl)}}>
                             <img src={api} alt="api"/>
                             <span>api 명세</span>
                         </button>
-                        <button type="button" onClick={() => window.open(`${state.currentProjectDocsUrl}`, '_blank')}>
+                        <button type="button" onClick={() => {
+                            openUrl(state.currentProjectDocsUrl)}}>
                             <img src={fn} alt="function"/>
                             <span>기능 명세</span>
                         </button>
