@@ -64,3 +64,11 @@ export const MajorField = styled.span`
   border-radius: 15px;
   margin-right: 5px;
 `;
+
+export const EmptyPlan = styled.div`
+  width: 100%;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

@@ -79,3 +79,11 @@ export const PageNationButton = styled.li`
   font-size: 14px;
   cursor: pointer;
 `;
+
+export const EmptyReport = styled.div`
+  width: 100%;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
