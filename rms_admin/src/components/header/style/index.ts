@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from '../../../style';
 
 export const Header = styled.header`
   width: 100%;
@@ -17,6 +18,14 @@ export const Center = styled.div`
 
 export const Logo = styled.div`
   font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  a {
+    color: ${color.main};
+    :hover {
+      color: ${color.main};
+    }
+  }
 `;
 
 export const Nav = styled.nav`
@@ -27,7 +36,10 @@ export const Nav = styled.nav`
   span {
     font-size: 13px;
 
-    a:visited {
+    a:visited,
+    a:link,
+    a:active,
+    a:hover {
       color: black;
     }
   }
