@@ -27,9 +27,13 @@ const ViewPlanList: FC<Props> = props => {
         <S.PlanListWrapper>
           <S.TitleFont>승인 요청된 계획서</S.TitleFont>
           <S.PlanListContainer>
-            {projects.map((v: PlanType): any => {
-              return <Plan {...v} key={v.id} />;
-            })}
+            {projects.length === 0 ? (
+              <S.EmptyPlan>계획서가 존재하지 않습니다.</S.EmptyPlan>
+            ) : (
+              projects.map((v: PlanType): any => {
+                return <Plan {...v} key={v.id} />;
+              })
+            )}
           </S.PlanListContainer>
           <Pagination {...childProps} />
         </S.PlanListWrapper>

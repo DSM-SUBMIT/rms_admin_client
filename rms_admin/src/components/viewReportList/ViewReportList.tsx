@@ -29,9 +29,13 @@ const ViewReportList: FC<Props> = props => {
         <S.ReportListWrapper>
           <S.TitleFont>승인 요청된 보고서</S.TitleFont>
           <S.ReportListContainer>
-            {projects.map((v: ReportType, i: number) => {
-              return <Report {...v} key={v.id} />;
-            })}
+            {projects.length === 0 ? (
+              <S.EmptyReport>보고서가 존재하지 않습니다.</S.EmptyReport>
+            ) : (
+              projects.map((v: ReportType, i: number) => {
+                return <Report {...v} key={v.id} />;
+              })
+            )}
           </S.ReportListContainer>
           <Pagination {...childProps} />
         </S.ReportListWrapper>
