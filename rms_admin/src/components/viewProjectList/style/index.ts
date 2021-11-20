@@ -120,6 +120,8 @@ export const Tag = styled.div`
     font-size: 12px;
     color: ${color.main};
     padding: 2px 10px;
+    display: flex;
+    justify-content: center;
     border: 1px solid ${color.main};
     border-radius: 12px;
     & + & {
