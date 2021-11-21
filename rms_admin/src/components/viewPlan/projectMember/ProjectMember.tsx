@@ -1,12 +1,13 @@
 import React, { FC } from "react";
+import { MemberType } from "../../../models/dto/response/planResponse";
 import * as S from "../style";
 
-const ProjectMember: FC = () => {
+const ProjectMember: FC<MemberType> = (props) => {
   return (
     <>
       <S.ThisProjectMemberWrapper>
-        <S.ThisProjectMemberName>김지민</S.ThisProjectMemberName>
-        <S.ThisprojectMemberRole>프론트앤드, 비쥬얼</S.ThisprojectMemberRole>
+        <S.ThisProjectMemberName>{props.name}</S.ThisProjectMemberName>
+        <S.ThisprojectMemberRole>{props.role}</S.ThisprojectMemberRole>
       </S.ThisProjectMemberWrapper>
     </>
   );
