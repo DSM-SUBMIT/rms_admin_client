@@ -40,9 +40,26 @@ const ListItem: FC<Props> = props => {
         setIsOpenModal(true);
     };
 
+    const projectTypeHandler = (type : string) => {
+        switch(type) {
+            case "CLUB":
+                return "동아리 프로젝트";
+            case "TEAM":
+                return "팀 프로젝트";
+            case "PRO1":
+                return "프로젝트 실무1";
+            case "PRO2":
+                return "프로젝트 실무2";
+            case "SOFE":
+                return "소프트웨어 공학";
+            case "PERS":
+                return "개인 프로젝트";
+        }
+    }
+
     return (
         <S.Item onClick={projectClickHandler} data-id={id}>
-            <S.Type>[{is_individual ? '개인' : '팀'}프로젝트]</S.Type>
+            <S.Type>{projectTypeHandler(project_type)}</S.Type>
             <S.Title>{title}</S.Title>
             <S.Team>{team_name}</S.Team>
             <S.TagArea>
