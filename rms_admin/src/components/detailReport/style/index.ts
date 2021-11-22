@@ -87,6 +87,7 @@ export const SchoolName = styled.p`
 export const ReportContentBox = styled.div<{ isSecondPage?: boolean }>`
   width: 676px;
   padding: 10px;
+  word-break: break-all;
   ${({ isSecondPage }) => css`
     height: ${isSecondPage ? '959px' : '974px'};
     margin: ${isSecondPage ? '10px auto' : '77px auto'};

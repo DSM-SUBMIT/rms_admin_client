@@ -24,7 +24,7 @@ const WritedReport: FC<Props> = props => {
     <S.ReportPage>
       {subTitle}
       <S.ReportContentBox isSecondPage={isSecondPage}>
-      <MarkdownRender markdown={content} />
+        <MarkdownRender markdown={content} />
       </S.ReportContentBox>
     </S.ReportPage>
   );
