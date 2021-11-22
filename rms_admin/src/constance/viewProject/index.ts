@@ -24,6 +24,7 @@ export type FieldMapPropsType = {
 export type ProjectsType = {
     id: number;
     project_type: string;
+    is_individual: boolean;
     title: string;
     team_name: string;
     fields: Array<string>;
