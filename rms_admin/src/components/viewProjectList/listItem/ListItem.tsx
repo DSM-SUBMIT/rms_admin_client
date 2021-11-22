@@ -6,6 +6,7 @@ interface Props {
     id: number;
     project_type: string;
     title: string;
+    is_individual: boolean;
     team_name: string;
     fields: Array<string>;
     github_url: string;
@@ -18,6 +19,7 @@ const ListItem: FC<Props> = props => {
     const {
         id,
         title,
+        is_individual,
         project_type,
         team_name,
         fields,
@@ -40,7 +42,7 @@ const ListItem: FC<Props> = props => {
 
     return (
         <S.Item onClick={projectClickHandler} data-id={id}>
-            <S.Type>[{project_type}]</S.Type>
+            <S.Type>[{is_individual ? '개인' : '팀'}프로젝트]</S.Type>
             <S.Title>{title}</S.Title>
             <S.Team>{team_name}</S.Team>
             <S.TagArea>
